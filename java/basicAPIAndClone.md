@@ -125,23 +125,13 @@ public class HashMapClass{
     }
 }
 ~~~
-
 객체의 동등 비교를 위해서는 equals만 재정의하지 말고 hashCode도 재정의해서 논리적 동등 객체일 경우 동일한 해시코드가 리턴되도록해야한다. 
 
+# 객체 문자 정보(toString())
 
-
-<h2>객체 문자 정보(toString())</h2>
-
-​	기본적으로 "클래스명@16진수해시코드"로 구성된 문자열을 리턴한다.
+​기본적으로 "클래스명@16진수해시코드"로 구성된 문자열을 리턴한다.
 
 ~~~java
-public class MainClass{
-    public static void main(String[] args){
-        Object obj = new Object();
-        System.out.println(obj.toString());
-    }
-}
-
 public class SmartPhone{
     private String company;
     private String os;
@@ -168,23 +158,17 @@ public class SmartPhoneEx{
 
 
 
-<h2>객체 복제(clone)</h2>
-
+# 객체 복제(clone)
 1. 얕은 복제
 2. 깊은 복제
 
-<h4>얕은 복제(thin clone)</h4>
 
-​	단순히 필드값만 복사하는 것
+## 얕은 복제(thin clone)
 
-​	필드가 참조형일 경우, 객체 주소를 복사한다.
-
-​	복사되는 객체는 Cloneable 인터페이스를 구현 받아야한다.[명시적 표시]
-
-​	참조 객체를 복사한 경우, 한 쪽에서 변경시, 다른쪽도 변경됨 String예외
+실제 값을 복사하는 것
 
 ~~~java
-public class Member implements Cloneable{
+public class Member{
     private String id;
     private String name;
     private String password;
@@ -199,16 +183,6 @@ public class Member implements Cloneable{
         this.scores = scores;
     }
 
-    public Member getMember(){
-        Member cloned = null;
-        try{
-            cloned = (Member) clone();
-        }catch(CloneNotSupportedException e){
-            return null;
-        }
-        return cloned;
-    }
-
     @Override
     public String toString(){
         return "Member{"
@@ -221,31 +195,38 @@ public class Member implements Cloneable{
 
     }
 
-    public int[] getScores() {
-        return scores;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setAge(int age){
+        this.age = age;
     }
 }
 
 public class MainClass{
     public static void main(String[] args){
         Member member = new Member("1","홍길동","blue",30,new int[]{30,40,50});
-        Member clonedMember = member.getMember();
-        clonedMember.getScores()[0] = 100;
+        Member clonedMember = member;
         clonedMember.setName("김자바");
+        clonedMember.setAge(50);
 
+        if(clonedMember.equals(member)){
+            System.out.println("두 객체는 같은 주소를 가르킨다.");
+        }
+
+        //cloneMember만 변경했는데 같이 변경됨
         System.out.println(member);
         System.out.println(clonedMember);
     }
 }
 ~~~
 
-<h4>깊은 복제(deep clone)</h4>
+# 깊은 복제(deep clone)
 
-​	깊은 복제는 참조하고 있는 객체도 복제한다.
+메모리 주소값을 복사한다.
+
+​복사되는 객체는 Cloneable 인터페이스를 구현 받아야한다.
 
 ~~~java
 public class Member implements Cloneable{
@@ -263,12 +244,7 @@ public class Member implements Cloneable{
     
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        //얕은 복제
-        Member cloned = (Member) super.clone();
-        //깊은 복제
-        cloned.scores = Arrays.copyOf(this.scores,this.scores.length);
-        cloned.car = new Car(this.car.getModel());
-        return cloned;
+        return (Member) super.clone();
     }
     
     public Member getMember(){
@@ -289,11 +265,12 @@ public class Member implements Cloneable{
             +"}";
     }
     
-    public int[] getScores(){
-        return scores;
+    public void setAge(int age){
+        this.age = age;
     }
-    public Car getCar(){
-        return car;
+
+    public void setName(String name){
+        this.name = name;
     }
     
 }
@@ -317,9 +294,13 @@ public class MainClass{
     public static void main(String[] args){
         Member member = new Member("김자바",30,new int[]{30,50,100},new Car("그랜저"));
         Member clonedMember = member.getMember();
-       	clonedMember.getCar().setModel("소나타");
-        clonedMember.getScores()[0] = 100;
-        
+        clonedMember.setAge(50);
+        clonedMember.setName("홍길동");
+
+        if (member.equals(clonedMember)){
+            System.out.println("두 객체는 다른 주소를 가르킨다.");
+        }
+
         System.out.println(member);
         System.out.println(clonedMember);
     }
@@ -327,11 +308,74 @@ public class MainClass{
 
 ~~~
 
-<h3>객체 소멸자(finalize())[자바 11버전 사용X권장]</h3>
+# 복사 생성자, 복사 팩터리 (갚은 복사)
+```java
 
-​	자바는 참조하지 않는 메모리는 쓰레기 수집기가 자동적으로 소멸시킨다.
+public class CopyObject {
 
-​	소멸 시키기 전에 finalize() 메소드를 실행시킨다.
+    private String name;
+    private int age;
+
+    public CopyObject() {}
+
+
+    /* 복사 생성자 */
+    public CopyObject(CopyObject original) {
+        this.name = original.name;
+        this.age = original.age;
+    }
+
+
+    /* 복사 팩터리 */
+    public static CopyObject copy(CopyObject original) {
+        CopyObject copy = new CopyObject();
+        copy.name = original.name;
+        copy.age = original.age;
+        return copy;
+    }
+
+    public CopyObject(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+public Class Main{
+    public static void main(String[] args){
+        CopyObject original = new CopyObject("홍길동", 20);
+        CopyObject copyConstructor = new CopyObject(original);
+        CopyObject copyFactory = CopyObject.copy(original);
+
+        copyConstructor.setName("김자바");
+        copyFactory.setName("김개똥");
+
+        System.out.println(original.getName());
+        System.out.println(copyConstructor.getName());
+        System.out.println(copyFactory.getName());
+    }
+}
+```
+# 객체 소멸자(finalize())[자바 11버전 사용X권장]
+
+​자바는 참조하지 않는 메모리는 쓰레기 수집기가 자동적으로 소멸시킨다.
+
+​소멸 시키기 전에 finalize() 메소드를 실행시킨다.
 
 ~~~java
 public class Counter{
@@ -356,18 +400,15 @@ public class FinalizeClass{
             //쓰레기 수집기 실행 요청
             System.gc();
         }
-        
     }
 }
 ~~~
 
-<h2>Objects 클래스</h2>
+# Objects 클래스
+객체비교, 해시코드 생성, null여부 체크 등을 하는 정적메소드를 가지고 있다.
 
-​	java.util.Objects는 객체비교, 해시코드 생성, null여부 체크 등을 하는 정적메소드를 가지고 있다.
-
-<h4>객체비교(compare(T a, T b, Comparetor&lt;T&gt;c))</h4>
-
-​	두 객체를 비교해서 int값으로 리턴한다.
+## 객체비교(compare(T a, T b, Comparetor&lt;T&gt;c))
+두 객체를 비교해서 int값으로 리턴한다.
 
 ~~~java
 public class Student{
@@ -408,19 +449,24 @@ public class CompareClass{
 
 ~~~
 
-<h4>동등비교(Objects.equals() or Objects.deepEquals())</h4>
-
-​	두 객체를 동등비교한다.
+## 동등비교(Objects.equals() or Objects.deepEquals())
+두 객체를 동등비교한다.
 
 ~~~java
 public class ObjectsClass{
     public static void main(String[] args){
         Integer o1 = 1000;
         Integer o2 = 1000;
-        System.out.println(Objects.equals(o1,o2));	//true
+        //true
+        //값과 주소값 비교
+        System.out.println(o1.equals(o2));
+
+        //두 객체의 주소가 달라도 참조값은 같은지 비교
+        System.out.println(Objects.equals(o1,o2));	//true 
         System.out.println(Objects.equals(o1,null)); //false
         System.out.println(Objects.equals(null,o2)); //false
         System.out.println(Objects.equals(null,null)); //true
+        //두 객체의 주소는 달라도 값은 같은지 비교
         System.out.println(Objects.deepEquals(o1,o2)); //true
 		
         Integer[] arr1 = {1,2};
@@ -435,8 +481,7 @@ public class ObjectsClass{
 }
 ~~~
 
-<h3>해시코드 생성(hash(), hashCode())</h3>
-
+## 해시코드 생성(hash(), hashCode())
 ~~~java
 public class Student{
     private int sno;
@@ -461,8 +506,7 @@ public class HashCodeClass{
 }
 ~~~
 
-<h3>널 여부조사(isNull(), nonNull(), requireNonNull())</h3>
-
+## 널 여부조사(isNull(), nonNull(), requireNonNull())
 ~~~java
 public class NullClass{
     public static void main(String[] args){
@@ -491,8 +535,7 @@ public class NullClass{
 }
 ~~~
 
-<h3>객체 문자 정보(toString())</h3>
-
+## 객체 문자 정보(toString())
 ~~~java
 public class ToStringClass{
     public static void main(String[] args){
@@ -506,11 +549,10 @@ public class ToStringClass{
 }
 ~~~
 
-<h1>System 클래스</h1>
+# System 클래스
+System 클래스를 이용하면 운영체제의 일부 기능을 이용할 수 있다.
 
-​	System 클래스를 이용하면 운영체제의 일부 기능을 이용할 수 있다.
-
-<h3>프로그램 종료(exit())</h3>
+## 프로그램 종료(exit())
 
 ​	강제적으로 JVM을 종료시킬 때 사용한다.
 
@@ -542,13 +584,13 @@ public class ExitClass{
 }
 ~~~
 
-<h3>쓰레기 수집기 실행(gc())</h3>
+## 쓰레기 수집기 실행(gc())
 
-​	메모리는 JVM이 알아서 자동으로 관리한다.
+메모리는 JVM이 알아서 자동으로 관리한다.
 
-​	JVM은 메모리가 부족시, CPU 유휴시간을 이용해 쓰레기 수집가(Garbage Collector)를 실행시켜 사용하지 않는 객체를 자동으로 제거한다.
+​JVM은 메모리가 부족시, CPU 유휴시간을 이용해 쓰레기 수집가(Garbage Collector)를 실행시켜 사용하지 않는 객체를 자동으로 제거한다.
 
-​	System.gc() 메소드를 사용하면 쓰레기를 가능한 빨리 수집해달라고 요청한다.
+​System.gc() 메소드를 사용하면 쓰레기를 가능한 빨리 수집해달라고 요청한다.
 
 ~~~java
 public class Employee{
@@ -579,7 +621,7 @@ public class GcClass{
 }
 ~~~
 
-<h3>현재 시각 읽기(currentTimeMillis(), nanoTime())</h3>
+## 현재 시각 읽기(currentTimeMillis(), nanoTime())
 
 ~~~java
 public class SystemTimeClass{
@@ -598,9 +640,8 @@ public class SystemTimeClass{
 }
 ~~~
 
-<h3>현재 프로퍼티 읽기(getProperty())</h3>
-
-​	시스템의 속성값을 알 수 있다.
+## 현재 프로퍼티 읽기(getProperty())
+시스템의 속성값을 알 수 있다.
 
 ~~~java
 public class GetPropertyClass{
@@ -628,8 +669,7 @@ public class GetPropertyClass{
 }
 ~~~
 
-<h3>환경 변수 읽기(getenv())</h3>
-
+## 환경 변수 읽기(getenv())
 ~~~java
 public class SystemClass{
     public static void main(String[] args){
@@ -639,11 +679,11 @@ public class SystemClass{
 }
 ~~~
 
-<h1>Class 클래스</h1>
+# Class 클래스
 
-​	메타데이터 정보를 가지고 있다.
+​메타데이터 정보를 가지고 있다.
 
-​	메타데이터란 클래스의 이름, 생성자정보, 필드 정보, 메소드 정보이다.
+​메타데이터란 클래스의 이름, 생성자정보, 필드 정보, 메소드 정보이다.
 
 ~~~~java
 public class Car(){
@@ -673,11 +713,8 @@ public class ClassEx{
 }
 ~~~~
 
-<h2>리플렉션</h2>
-
-​	java.lang.reflect 패키지에 속해있다.
-
-​	필드 배열, 메소드 배열, 생성자 배열을 리턴한다.
+# 리플렉션
+​필드 배열, 메소드 배열, 생성자 배열을 리턴한다.
 
 ~~~java
 public class Car(){
@@ -730,13 +767,13 @@ public class RelectionClass{
 }
 ~~~
 
-<h3>동적 객체 생성(newInstance())</h3>
+# 동적 객체 생성(newInstance())
 
-​	new 연산자를 사용하지 않고 동적으로 객체를 생성할 수 있다.
+​new 연산자를 사용하지 않고 동적으로 객체를 생성할 수 있다.
 
-​	반드시 클래스에 기본 생성자가 존재해야 한다.
+​반드시 클래스에 기본 생성자가 존재해야 한다.
 
-​	자바 8버전만 사용하는 듯 [자바 11버전부턴 사용 비권장]
+​자바 8버전만 사용하는 듯 [자바 11버전부턴 사용 비권장]
 
 ~~~java
 public interface Action{
@@ -770,13 +807,12 @@ public class NewInstanceClass{
 }
 ~~~
 
-<h1>String 클래스</h1>
+# String 클래스
 
-​	문자열을 생성하는 방법과 추출, 비교, 찾기, 분리, 변환 등 처리한다.
+​문자열을 생성하는 방법과 추출, 비교, 찾기, 분리, 변환 등 처리한다.
 
-<h3>String 생성자</h3>
-
-​	파일의 내용을 읽거나, 네트워크를 통해 받은 데이터는 byte[]배열 이므로 이것을 문자열로 변환하기 위해 사용된다.
+## String 생성자
+파일의 내용을 읽거나, 네트워크를 통해 받은 데이터는 byte[]배열 이므로 이것을 문자열로 변환하기 위해 사용된다.
 
 ~~~java
 public class StringClass{
@@ -808,9 +844,9 @@ public class KeyboardToStringClass{
 }
 ~~~
 
-<h2>String 메소드</h2>
+## String 메소드
 
-<h4>문자 추출(charAt())</h4>
+### 문자 추출(charAt())
 
 ~~~java
 public class StringCharAtClass{
@@ -831,7 +867,7 @@ public class StringCharAtClass{
 } 
 ~~~
 
-<h4>문자열 비교(equals())</h4>
+### 문자열 비교(equals())
 
 ~~~java
 public class StringEqualsClass{
@@ -852,9 +888,8 @@ public class StringEqualsClass{
 }
 ~~~
 
-<h4>바이트 배열로 변환(getBytes())</h4>
-
-​	네트워크 문자열을 전송하거나 문자열을 암호화할 때 문자열을 바이트 배열로 변환한다.
+### 바이트 배열로 변환(getBytes())
+네트워크 문자열을 전송하거나 문자열을 암호화할 때 문자열을 바이트 배열로 변환한다.
 
 ~~~java
 public class StringGetBytesClass{
@@ -883,12 +918,10 @@ public class StringGetBytesClass{
 }
 ~~~
 
-<h4>문자열 찾기(indexOf())</h4>
+### 문자열 찾기(indexOf())
+문자열이 시작되는 인덱스를 리턴한다.
 
-​	문자열이 시작되는 인덱스를 리턴한다.
-
-​	문자열이 포함되어 있지 않다면 -1을 리턴함
-
+​문자열이 포함되어 있지 않다면 -1을 리턴함
 ~~~java
 public class StringIndexOfClass{
     public static void main(String[] args){
@@ -905,9 +938,8 @@ public class StringIndexOfClass{
 }
 ~~~
 
-<h4>문자열 길이(length())</h4>
-
-​	문자열의 길이를 리턴한다.
+### 문자열 길이(length())
+문자열의 길이를 리턴한다.
 
 ~~~java
 public class StringLengthClass{
@@ -922,8 +954,7 @@ public class StringLengthClass{
 }
 ~~~
 
-<h4>문자열 잘라내기(substring())</h4>
-
+### 문자열 잘라내기(substring())
 ~~~java
 public class StringSubstingClass{
     public static void main(String[] args){
@@ -938,8 +969,7 @@ public class StringSubstingClass{
 }
 ~~~
 
-<h4>알파벳 소·대문자 변경(toLowerCase(), toUpperCase())</h4>
-
+### 알파벳 소·대문자 변경(toLowerCase(), toUpperCase())
 ~~~java
 public class StringToLowerCaseUpperCaseClass{
     public static void main(String[] args){
@@ -957,8 +987,7 @@ public class StringToLowerCaseUpperCaseClass{
 }
 ~~~
 
-<h4>문자열 앞뒤 공백 잘라내기(trim())</h4>
-
+### 문자열 앞뒤 공백 잘라내기(trim())
 ~~~java
 public class TrimClass{
     public static void main(String[] args){
@@ -972,9 +1001,8 @@ public class TrimClass{
 }
 ~~~
 
-<h4>문자열 변환(valueOf())</h4>
-
-​	기본 타입을 문자열로 변환한다.
+### 문자열 변환(valueOf())
+기본 타입을 문자열로 변환한다.
 
 ~~~java
 public class ValueOfClass{
@@ -990,13 +1018,8 @@ public class ValueOfClass{
 }
 ~~~
 
-<h1>StringTokenizer 클래스</h1>
-
-​	문자열이 특정 구분자로 연결되어있을 경우, 구분자를 제거하고 문자열을 리턴한다.
-
-<h4>split() 메소드</h4>
-
-​	split() 매소드는 정규표현식을 구분자로 해서 문자열을 분리 후, 문자열 배열로 리턴한다.
+### split() 메소드
+split() 매소드는 정규표현식을 구분자로 해서 문자열을 분리 후, 문자열 배열로 리턴한다.
 
 ~~~java
 public class StringSplitClass{
@@ -1011,8 +1034,8 @@ public class StringSplitClass{
 }
 ~~~
 
-<h4>StringTokenizer 클래스</h4>
-
+# StringTokenizer 클래스
+문자열이 특정 구분자로 연결되어있을 경우, 구분자를 제거하고 문자열을 리턴한다.
 ~~~~java
 public class StringTokenizerClass{
     public static void main(String[] args){
@@ -1036,13 +1059,13 @@ public class StringTokenizerClass{
 }
 ~~~~
 
-<h4>StringBuffer, StringBuilder 클래스</h4>
+# StringBuffer, StringBuilder 클래스
 
-​	임시버퍼를 만들어 문자열을 추가, 수정, 삭제 작업을 할 수 있도록 도와준다.
+임시버퍼를 만들어 문자열을 추가, 수정, 삭제 작업을 할 수 있도록 도와준다.
 
-​	StringBuilder : 단일 스레드 환경에서만 사용하도록 설계되어있다.
+​StringBuilder : 단일 스레드 환경에서만 사용하도록 설계되어있다.
 
-​	StringBuffer : 멀티 스레드 환경에서 사용하도록 동기화가 적용되어있다.
+​StringBuffer : 멀티 스레드 환경에서 사용하도록 동기화가 적용되어있다.
 
 ~~~java
 public class StringBuilderClass{
@@ -1073,13 +1096,18 @@ public class StringBuilderClass{
 }
 ~~~
 
- <h1>정규 표현식과 Pattern 클래스</h1>
+ # 정규 표현식과 Pattern 클래스
 
-​	문자열 형식을 검증하는 것이다.
+문자열 형식을 검증하는 것이다.
 
-<h3>정규 표현식 작성 방법</h3>
-
-​	java.util.regex.Pattern 패키지에 포함되어있다.
+## 정규 표현식 작성 방법
+|기호|설명|예시|
+|-|-|-|
+|[]|한 개의 문자 검증|`[abc]` : a, b, c 중 한 개 문자<br>`[^abc]` : a, b, c를 제외한 한 개 문자<br>`[a-zA-Z]` : a~z, A~Z 중 한 개 문자|
+|\d|한개의 숫자||
+|-|-||
+|-|-||
+|-|-||
 
 <table>
     <tr>
