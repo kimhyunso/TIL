@@ -1,100 +1,44 @@
-<h1>자바 API 도큐먼트</h1>
+# 자바 API 도큐먼트
+API 라이브러리는 프로그램 개발에 자주 사용되는 클래스 및 인터페이스의 모음이다.
+http://docs.oracle.com/javase/8/docs/api/
 
-​	API 라이브러리는 프로그램 개발에 자주 사용되는 클래스 및 인터페이스의 모음이다.
 
-​	<a>
-​    http://docs.oracle.com/javase/8/docs/api/
-</a>
 
-<h3>java.lang과 java.util 패키지</h3>
+# java.lang과 java.util 패키지
 
-​	공통적으로 가장 많이 사용하는 패키지는 java.lang 패키지와 java.util, java.time 패키일 것이다.
+​공통적으로 가장 많이 사용하는 패키지는 java.lang 패키지와 java.util, java.time 패키지이다.
 
-<h4>java.lang</h4>
+# java.lang
+기본적인 클래스를 담고 있는 패키지이다.
 
-​	기본적인 클래스를 담고 있는 패키지이다.
+​java.lang 패키지에 있는 클래스와 인터페이스는 import 하지 않아도 사용할 수 있다.
 
-​	java.lang 패키지에 있는 클래스와 인터페이스는 import 하지 않아도 사용할 수 있다.
+|클래스|설명|
+|-|-|
+|`Object`|최상위 클래스|
+|`System`|표준 입출력 제어, 쓰레기 수집, 자바 가상머신 종료|
+|`Class`|클래스를 메모리로 로딩시 사용|
+|`String`|문자열 저장 클래스|
+|`StringBuffer, StringBuilder`|문자열 삽입, 삭제 등과 같은 연산을 하기 위해 사용|
+|`Math`|수학적 계산을 하기 위해 사용|
+|`Byte, Short, Character,Integer, Float, Double, Boolean, Long`|primitive 객체 클래스|
 
-<table>
-    <tr>
-        <th>클래스</th>
-        <th>용도</th>
-    </tr>
-    <tr>
-    	<td>Object</td>
-        <td>자바 클래스의 최상위 클래스</td>
-    </tr>
-    <tr>
-    	<td>System</td>
-        <td>표준입출력장치 제어 및 쓰레기 수집 및 자바 가상 머신 종료</td>
-    </tr>
-    <tr>
-    	<td>Class</td>
-        <td>클래스를 메모리로 로딩시, 사용</td>
-    </tr>
-    <tr>
-    	<td>String</td>
-        <td>문자열을 저장하고자 사용</td>
-    </tr>
-    <tr>
-    	<td>StringBuffer, StringBuilder</td>
-        <td>문자열을 삽입, 삭제 등과 같은 연산을 하기 위해 사용</td>
-    </tr>
-    <tr>
-    	<td>Math</td>
-        <td>수학적 계산을 사용하기 위해 사용</td>
-    </tr>
-    <tr>
-        <td>Byte, Short, Character,Integer, Float, Double, Boolean, Long</td>
-        <td>기본 타입의 데이터를 갖는 객체를 만들 때 사용</td>
-    </tr>
-</table>
+# java.util 패키지
+컬렉션 패키지들의 모음
 
-<h3>java.util 패키지</h3>
+|클래스|설명|
+|-|-|
+|`Arrays`|배열을 조작(비교, 복사, 정렬, 찾기) 할 때 사용|
+|`Calendar`|운영체제 날짜 및 시간을 업을 때 사용|
+|`Date`|날짜와 시간 정보를 저장하는 클래스|
+|`Objects`|객체 비교, 널(null) 여부 등을 조사할 때 사용|
+|`StringTokenizer`|특정 문자로 구분된 문자열을 구분할 때 사용|
+|`Random`|난수를 생성할 때 사용|
 
-​	java.util 패키지는 자바 프로그램 개발에 조미료 같은 역활을 하는 클래스를 담고 있다.
+# Object 클래스
+최상위 부모 클래스이다.
 
-​	컬렉션 패키지들이 대부분이다.
-
-<table>
-    <tr>
-        <th>클래스</th>
-        <th>용도</th>
-    </tr>
-    <tr>
-    	<td>Arrays</td>
-        <td>배열을 조작(비교, 복사, 정렬, 찾기)할 때 사용</td>
-    </tr>
-    <tr>
-    	<td>Calendar</td>
-        <td>운영체제 날짜 및 시간을 얻을 때 사용</td>
-    </tr>
-    <tr>
-    	<td>Date</td>
-        <td>날짜와 시간 정보를 저장하는 클래스</td>
-    </tr>
-    <tr>
-    	<td>Objects</td>
-        <td>객체 비교, 널(null) 여부등을 조사할 때 사용</td>
-    </tr>
-    <tr>
-    	<td>StringTokenizer</td>
-        <td>특정 문자로 구분된 문자열을 구분할 때 사용</td>
-    </tr>
-    <tr>
-    	<td>Random</td>
-        <td>난수를 생성할 때 사용</td>
-    </tr>
-</table>
-
-<h1>Object 클래스</h1>
-
-​	자바의 모든 클래스는 java.lang.Object의 자식이다.
-
-​	최상위 부모 클래스이다.
-
-<h3>객체 비교(equals())</h3>
+## 객체 비교(`equals()`)
 
 ~~~java
 public class Member{
@@ -136,13 +80,13 @@ public class MainClass{
 
 
 
-<h3>객체 해시코드(hashcode)</h3>
+# 객체 해시코드(hashcode)
 
-​	객체를 식별하는 하나의 정수값이다.
+​객체를 식별하는 하나의 정수값이다.
 
-​	객체의 메모리 번지를 이용하여 해시코드를 만들어 리턴한다.
+​객체의 메모리 번지를 이용하여 해시코드를 만들어 리턴한다.
 
-![hashcodeImage](/uploads/32ec421c0d25b5758897edbb98c2c01c/hashcodeImage.png)
+![hashcodeImage]([/uploads/32ec421c0d25b5758897edbb98c2c01c/hashcodeImage.png](https://github.com/kimhyunso/TIL/blob/master/java/images/hashcodeImage.png))
 
 ~~~java
 public class Key{

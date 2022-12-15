@@ -36,3 +36,6 @@ git 원격저장소와 연동방법, git 원격저장소에 업로드하는 방�
 
 # 13일차
 python 기초
+
+# 14일차
+python 자료구조 (list, dictionary, set)

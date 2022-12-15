@@ -8,9 +8,6 @@
 
 
 
-![interfaceImage](/uploads/cdc0d8201f09fb231509d06fc08dd3bc/interfaceImage.png)
-
-
 ~~~java
 public interface InterfaceName{
     //잘 안씀
