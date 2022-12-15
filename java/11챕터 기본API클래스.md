@@ -86,7 +86,7 @@ public class MainClass{
 
 ​객체의 메모리 번지를 이용하여 해시코드를 만들어 리턴한다.
 
-![hashcodeImage]([/uploads/32ec421c0d25b5758897edbb98c2c01c/hashcodeImage.png](https://github.com/kimhyunso/TIL/blob/master/java/images/hashcodeImage.png))
+![hashcodeImage](https://github.com/kimhyunso/TIL/blob/master/java/images/hashcodeImage.png)
 
 ~~~java
 public class Key{
