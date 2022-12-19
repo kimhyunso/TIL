@@ -1,16 +1,15 @@
-<h1>제네릭</h1>
+# 제네릭
+제네릭 사용이유 : 잘못된 타입이 될 수 있는 문제를 컴파일과정에서 제거가 가능하다.
 
-​	제네릭 사용이유 : 잘못된 타입이 될 수 있는 문제를 컴파일과정에서 제거가 가능하다.
+장점
+   
+   1. 컴파일 시 강한 타입 체크를 할 수 있다.
+   2. 타입 변환(casting)을 제거한다.
 
-<dl>
-    <dt>장점</dt>
-    <dd>컴파일 시 강한 타입 체크를 할 수 있다.</dd>
-    <dd>타입 변환(casting)을 제거한다.</dd>
-</dl>
 
-<h2>제네릭 타입(class &lt;T&gt;, interface &lt;T&gt;)</h2>
+# 제네릭 타입(class &lt;T&gt;, interface &lt;T&gt;)
 
-​	제네릭 타입을 사용하지 않으면 타입캐스팅이 계속 일어나 프로그램 효율이 좋지 않다.
+제네릭 타입을 사용하지 않으면 타입캐스팅이 계속 일어나 프로그램 효율이 좋지 않다.
 
 ~~~java
 public class Box{
@@ -64,9 +63,8 @@ public class MainClass{
 }
 ~~~
 
-<h2>멀티 타입 파리미터(class&lt;K, V, ...&gt;, interface&lt;K, V, ...&gt;)</h2>
-
-​	자바 7버전 이후 부터 다이아몬드 연산자를 간단하게 작성이 가능하다.
+# 멀티 타입 파리미터(class&lt;K, V, ...&gt;, interface&lt;K, V, ...&gt;)
+자바 7버전 이후 부터 다이아몬드 연산자를 간단하게 작성이 가능하다.
 
 ~~~java
 public class Car{}
@@ -107,7 +105,7 @@ public class MainCalss{
 }
 ~~~
 
-<h2>제네릭 메소드(&lt;T, R&gt; R method(&lt;T t&gt;))</h2>
+# 제네릭 메소드(&lt;T, R&gt; R method(&lt;T t&gt;))
 
 ~~~java
 public class Box<T>{
@@ -137,7 +135,7 @@ public class MainClass{
 }
 ~~~
 
-<h4>제네릭 비교</h4>
+# 제네릭 비교
 
 ~~~java
 public class Pair<K, V>{
@@ -180,10 +178,8 @@ public class CompareMethodEx {
 }
 ~~~
 
-<h3>제한된 타입 파라미터(&lt;T extends 최상위타입&gt;)</h3>
-
- 타입 파라미터를 제한할 필요가 있다.
-
+# 제한된 타입 파라미터(&lt;T extends 최상위타입&gt;)
+타입 파라미터를 제한할 필요가 있다.
 ~~~java
 public class Util{
     public static <T extends Number> int compare(T t1, T t2){
@@ -203,31 +199,17 @@ public class MainClass{
 }
 ~~~
 
-<h3>와일드카드 타입(&lt;?&gt;, &lt;? extends ...&gt;, &lt;? super ...&gt;)</h3>
+# 와일드카드 타입(&lt;?&gt;, &lt;? extends ...&gt;, &lt;? super ...&gt;)
+​?를 일반적으로 와일드카드라고 부른다.
+- 제네릭타입&lt;?&gt; (제한없음)
+  
+    모든 클래스나 인터페이스 타입이 올 수 있다.
+- 제네릭타입&lt;? extends 상위타입&gt; (상위클래스 제한)
+  
+    상위 타입이나 하위 타입만 올 수 있다.
+- 제네릭타입&lt;? super 하위타입&gt; (하위클래스 제한)
 
-​	?를 일반적으로 와일드카드라고 부른다.
-
-<ul>
-    <li>
-        <dl>
-            <dt>제네릭타입&lt;?&gt; (제한없음)</dt>
-            <dd>모든 클래스나 인터페이스 타입이 올 수 있다.</dd>
-        </dl>
-    </li>
-    <li>
-        <dl>
-            <dt>제네릭타입&lt;? extends 상위타입&gt; (상위클래스 제한)</dt>
-            <dd>상위 타입이나 하위 타입만 올 수 있다.</dd>
-        </dl>
-    </li>
-    <li>
-        <dl>
-            <dt>제네릭타입&lt;? super 하위타입&gt; (하위클래스 제한)</dt>
-            <dd>하위 타입이나 상위 타입이 올 수 있다.</dd>
-        </dl>
-    </li>
-</ul>
-
+    하위 타입이나 상위 타입이 올 수 있다.
 ~~~java
 public class Person{
     private String name;
