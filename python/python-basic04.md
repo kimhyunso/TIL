@@ -3,6 +3,8 @@
 - 재사용성
 - 유지보수
 
+## 함수도 객체이다(주소값을 가르킨다)
+
 ```python
 def cube(x):
     return x ** 3
@@ -43,7 +45,7 @@ greeting()
 greeting('짱구')
 
 """
-# Error
+# Error 
 def greeting(name='짱구', age):
     return print(f'{name}의 나이는 {age}입니다.')
 """
@@ -51,7 +53,13 @@ def greeting(name='짱구', age):
 def greeting(name, age, addr, phone):
     return print(f'나의 이름은 {name}이고, 나이는 {age}입니다. 현재 사는 곳은 {addr}이며, 핸드폰 번호는 {phone}입니다.')
 
-greeting(name='짱구', age=5, '떡잎마을', '010-0000-0000')
+"""
+    # Error
+    greeting(addr='떡잎마을',phone='010-1234-1324', '짱구', 20)
+    매개변수가 자리를 차지하면 다른 매개변수가 어디에 매핑되어야할지 모름 그렇기에
+    매개변수를 아래와 같이 사용할 경우, 할당하는 매개변수를 뒤에 써준다.
+"""
+greeting('짱구', 5, addr='떡잎마을', phone='010-0000-0000')
 ```
 
 

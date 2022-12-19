@@ -6,7 +6,7 @@
 4. 문자열(string) : immutable (불변)
 
 # 리스트 (List)
-대괄호 [], list() 사용
+대괄호 [], `list()` 사용
 ```python
 # result [], []
 empty_List = []
@@ -29,7 +29,7 @@ numbers = [
 print(locations)
 ```
 
-## 추가 (append)
+## 추가 (`append()`)
 ```python
 # result ['강남', '서초', '송파', '광진', '마포', '부산']
 locations = ['강남', '서초', '송파', '광진', '마포']
@@ -66,7 +66,7 @@ print(list_data)
 # tuple_data[1] = 100
 ```
 
-# range()
+# `range()`
 `range(n), range(n, m), range(n, m, sep)`
 ```python
 import random
@@ -88,7 +88,7 @@ print(numbers)
 print([0] * 6)
 ```
 
-## sort()
+## `sort()`
 ```python
 import random
 chois = 6

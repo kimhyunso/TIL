@@ -87,19 +87,19 @@ print(x, y)
 
 ## 변수의 갯수 오류
 ```python
-# bad ValueError
+# Error 변수의 값이 더 적음
 x, y, z = 1, 2
 print(x, y, z)
 
-# bad ValueError
+# Error 변수의 값이 더 많음
 x, y = 1, 2, 3
 print(x, y)
 
-# good 1, 2, 3
+# result 1, 2, 3
 x, y, z = 1, 2, 3
 print(x, y, z)
 
-#good 1, 2
+# result 1, 2
 x, y = 1, 2
 print(x, y)
 ```
@@ -497,7 +497,7 @@ print(10 in range(10))
 ```
 
 # Identity
-파이썬에서 -5 부터 256 까지의 id(메모리주소값)는 동일합니다.
+파이썬에서 -5 부터 256 까지의 id(메모리주소값)는 동일하다.
 
 ```python
 # result  1272353194352,  1272353194352 (같음)
@@ -525,6 +525,13 @@ print(id(str1), id(str2))
 # result p, o, o, thon, thon
 book_name = 'python'
 print(s[0], s[4], s[-2], s[2:], s[2:6])
+
+# result my name is kim
+names = 'my name is kim'
+print(namse[0:])
+
+# result name is
+print(names[3:10])
 ```
 
 # 기초 형변환
