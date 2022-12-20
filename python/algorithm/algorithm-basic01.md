@@ -192,6 +192,9 @@ numbers = [26, 39, 51, 53, 57, 79, 85]
 demis = [2, 3, 5, 7]
 result = 0
 
+numbers = [14009]
+# 빅오 표기법
+# 최악의 경우 n 만큼 실행하게 됨 => O(n) 즉, 최악의 경우 : 14009번 만큼 실행함
 for number in numbers:
     for demi in demis:
         if number % demi == 0:
@@ -205,6 +208,9 @@ for number in numbers:
 # 강사님 답안
 numbers = [26, 39, 51, 53, 57, 79, 85]
 
+numbers = [14009]
+
+# n ** 0.5 => √n (루트 n)  : 비교하는 경우의 수가 줄어듬
 for n in numbers:
     # n ** 0.5 => (n^2)
     for x in range(2, int(n ** 0.5)):

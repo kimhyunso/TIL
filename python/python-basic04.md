@@ -61,5 +61,3 @@ def greeting(name, age, addr, phone):
 """
 greeting('짱구', 5, addr='떡잎마을', phone='010-0000-0000')
 ```
-
-
