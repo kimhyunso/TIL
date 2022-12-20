@@ -42,3 +42,9 @@ python 자료구조 (list, dictionary, set)
 
 # 15일차
 python 기초 응용문제 풀이
+
+# 16일차
+함수에 대해서
+
+# 17일차
+함수 

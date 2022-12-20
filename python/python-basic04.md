@@ -60,4 +60,25 @@ def greeting(name, age, addr, phone):
     매개변수를 아래와 같이 사용할 경우, 할당하는 매개변수를 뒤에 써준다.
 """
 greeting('짱구', 5, addr='떡잎마을', phone='010-0000-0000')
+
+# 내장함수
+def my_max(x, y):
+    return max(x, y)
+# result 100
+my_max(100, 10)
+
+def my_sum(x, y):
+    return sum(x, y)
+# result 30
+my_sum(10, 20)
+# 함수도 값이다 => 변수에 할당 가능하다
+def func1(x):
+    return x ** 2
+f = func1
+# result 9
+f(3)
+
+# result 4
+f = func1(2)
 ```
+
