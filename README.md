@@ -44,7 +44,7 @@ python 자료구조 (list, dictionary, set)
 python 기초 응용문제 풀이
 
 # 16일차
-함수에 대해서
+함수에 대해서 + 응용문제 풀이
 
 # 17일차
-함수 
+call by values와 call by reference에 대해 + 응용 문제 풀이
