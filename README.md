@@ -1,3 +1,7 @@
+# **이중 `for`문을 이용해 문제를 풀지말자**
+
+# **반복적인 내용이면 한번만 쓰면 된다**
+
 # 1일차
 Cloud 인프라 및 네트워크의 개념
 
@@ -47,4 +51,7 @@ python 기초 응용문제 풀이
 함수에 대해서 + 응용문제 풀이
 
 # 17일차
-call by values와 call by reference에 대해 + 응용 문제 풀이
+call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응용 문제 풀이
+
+# 18일차
+자료구조에 대해서
