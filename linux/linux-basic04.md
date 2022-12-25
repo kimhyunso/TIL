@@ -1,5 +1,4 @@
-<h2>systemctl</h2>
-
+# systemctl
 systemctl -a : 모든 프로세스의 상태를 보여줌
 
 systemctl status [유닛명] : 해당 프로세스의 상태 및 로그를 보여줌
@@ -14,19 +13,19 @@ systemctl enable [유닛명] : 활성화
 
 systemctl disable [유닛명] : 비활성화
 
-<h3>runlevel</h3>
+# runlevel
 
 런레벨 확인가능
 
-<h3>who -r</h3>
+# who -r
 
 런레벨 확인가능
 
-<h3>init</h3>
+# init
 
 init [런레벨]
 
-<h2>데몬 프로세스</h2>
+# 데몬 프로세스
 
 1. 독자형
 
@@ -42,13 +41,13 @@ init [런레벨]
 
 커널프로세스의 단군할아버지
 
-<h1>파일 아카이브와 압축</h1>
+# 파일 아카이브와 압축
 
 파일 아카이브 : 여러 파일을 묶는 것
 
 압축 : 파일 용량을 줄이는 것
 
-<h3>tar : 파일을 묶는 것</h3>
+## tar : 파일을 묶는 것
 
 마그네틱테이프 같은 이동식 저장장치에 보관하기 위해 사용하는 명령
 
@@ -58,14 +57,13 @@ tar tvf [확인할 압축파일] : 파일안의 내용확인
 
 tar xvf [풀 압축파일]
 
-<h3>아카이브 + 압축</h3>
+## 아카이브 + 압축
 
 tar czvf [파일명] [압축할 파일명] : [파일명].tar.gz = gzip
 
 tar cjvf [파일명] [압축할 파일명] : [파일명].tar.bz2 = bzip2
 
-<h3>압축</h3>
-
+## 압축
 1. gzip, gunzip
 
    gzip [파일명] : tar 파일을 gzip파일로 압축해줌
@@ -86,7 +84,7 @@ tar cjvf [파일명] [압축할 파일명] : [파일명].tar.bz2 = bzip2
 
    unzip : 압축해제
 
-<h1>계정</h1>
+# 계정
 
 1. /etc/passwd [주그룹 정보]
 
@@ -134,7 +132,7 @@ tar cjvf [파일명] [압축할 파일명] : [파일명].tar.bz2 = bzip2
 
    (주그룹[UID] - 보조그룹[GID])
 
-<h3>change -l root</h3>
+## change -l root
 
 1. 계정 만들기
 
@@ -168,37 +166,36 @@ tar cjvf [파일명] [압축할 파일명] : [파일명].tar.bz2 = bzip2
 
    groupdel : 그룹 삭제
 
-<h2>chage</h2>
+# chage
 
 계정의 설정값 변경 가능
 
-<b>chage -l [계정명]</b>
+**chage -l [계정명]**
 
 EUID : 실제 사용되고 있는 권한 ex) passwd[비밀번호 변경]
 
-<h3>who</h3>
+## who
 
-<h3>w</h3>
+## w
 
-<h3>last</h3>
-
+## last
 최근 접속기록확인
 
-<h3>who am i</h3>
+## who am i
 
 UID 기준
 
-<h3>id</h3>
+## id
 
 UID 기준
 
 who, w, last, who am i, id : 사용자 로그인 정보 확인하기
 
-<h2>sudo</h2>
+## sudo
 
 root 권한으로 명령어를 1번 실행할 수 있다.
 
-<b>su - : 계정전환</b>
+**su - : 계정전환**
 
 그룹 wheel : sudo를 가능하게 함
 
@@ -206,13 +203,13 @@ root 권한으로 명령어를 1번 실행할 수 있다.
 
 [계정명]           ALL=(ALL)          [NOPASSWD : ALL | ALL]
 
-<h3>passwd</h3>
+## passwd
 
 passwd -l [사용자계정] : 계정을 잠금
 
 passwd -u [사용자계정] : 계정을 잠금
 
-<h2>chown</h2>
+## chown
 
 소유자를 변경하는 명령어
 
@@ -222,7 +219,7 @@ chown -R [소유자명] [그룹명] [파일명] : 하위디렉토리 소유자, 
 
 var/www/html : 웹페이지 저장소
 
-<h2>XPRESS ENGINE</h2>
+# XPRESS ENGINE
 
 LINUX
 
@@ -234,8 +231,7 @@ PHP
 
 AMP로 웹사이트 구축
 
-<h3>방화벽열기</h3>
-
+## 방화벽열기
 firewall-cmd --permanent --add-service=http
 
 firewall-cmd --permanent --add-service=80
