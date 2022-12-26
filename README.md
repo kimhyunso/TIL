@@ -60,4 +60,6 @@ call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응
 객체지향 프로그래밍에 대해
 
 # 20일차
-2인 프로젝트
+2인 프로젝트 pair project
+
+# 21일차
