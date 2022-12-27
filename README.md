@@ -64,3 +64,6 @@ call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응
 
 # 21일차
 알고리즘 문제풀이
+
+# 22일차
+2차원 배열 문제풀이
