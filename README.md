@@ -69,4 +69,7 @@ call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응
 2차원 배열 문제풀이
 
 # 23일차
-알고리즘 문제 풀이
+자료구조(ADT) 및 DFS, BFS의 개념
+
+# 24일차
+알고리즘 문제풀이
