@@ -1,12 +1,9 @@
-<h1>컬렉션 프레임워크</h1>
+# 컬렉션 프레임워크
+자료구조를 바탕으로 만들어진 객체들을 효율적으로 추가, 삭제, 검색할 수 있도록 만들어 놓은 것이다.
 
-​	자료구조를 바탕으로 만들어진 객체들을 효율적으로 추가, 삭제, 검색할 수 있도록 만들어 놓은 것이다.
+​java.util 패키지에 컬렉션 관련 인터페이스와 클래스들이 포함되어 있다.
 
-​	java.util 패키지에 컬렉션 관련 인터페이스와 클래스들이 포함되어 있다.
-
-![collectionInterfaceImage](/uploads/0e77092354584dee5cb61c46df2d19a2/collectionInterfaceImage.png)
-
-​	List와 Set은 객체를 추가, 삭제, 검색하는 방법에 많은 공통점이 있기 때문에 이 인터페이스들의 공통된 메소드들만 모아 Collection 인터페이스로 정의해 두었다.
+List와 Set은 객체를 추가, 삭제, 검색하는 방법에 많은 공통점이 있기 때문에 이 인터페이스들의 공통된 메소드들만 모아 Collection 인터페이스로 정의해 두었다.
 
 <table>
     <tr>
@@ -32,11 +29,10 @@
     </tr>
 </table>
 
-<h2>List 컬렉션</h2>
+# List 컬렉션
+객체를 인덱스로 관리한다.
 
-​	객체를 인덱스로 관리한다.
-
-​	인덱스로 검색, 삭제할 수 있는 기능을 제공한다.
+​인덱스로 검색, 삭제할 수 있는 기능을 제공한다.
 
 ~~~java
 List<String> list;
@@ -50,11 +46,10 @@ list.remove(0);
 list.remove("신용권");
 ~~~
 
-<h4>ArrayList</h4>
+## ArrayList
+​List 인터페이스의 구현 클래스로 배열과 비슷하지만 객체를 추가하면, 저장 용량(capacity)가 자동으로 늘어났다가, 객체를 삭제하면 자동으로 줄어든다.
 
-​	List 인터페이스의 구현 클래스로 배열과 비슷하지만 객체를 추가하면, 저장 용량(capacity)가 자동으로 늘어났다가, 객체를 삭제하면 자동으로 줄어든다.
-
-​	빈번한 객체 삭제와 삽입이 일어나는 곳에서는 사용하는 것이 바람직하지 않다.
+​빈번한 객체 삭제와 삽입이 일어나는 곳에서는 사용하는 것이 바람직하지 않다.
 
 ~~~java
 List<String> list = new ArrayList<String>();
@@ -105,13 +100,12 @@ public class ArraysAsListClass{
 }
 ~~~
 
-<h4>Vector</h4>
+## Vector
+Vector는 ArrayList와 동일한 내부 구조를 가지고 있다.
 
-​	Vector는 ArrayList와 동일한 내부 구조를 가지고 있다.
+​ArrayList와 다른 점은 Vector는 동기화(Synchronized) 메소드로 구성되어있다는 것이다.
 
-​	ArrayList와 다른 점은 Vector는 동기화(Synchronized) 메소드로 구성되어있다는 것이다.
-
-​	ArrayList보다 멀티 스레드 환경에서 스레드가 안전(Thread Safe)하게 실행된다.
+​ArrayList보다 멀티 스레드 환경에서 스레드가 안전(Thread Safe)하게 실행된다.
 
 ~~~java
 public class Board{
@@ -140,34 +134,17 @@ public class VectorClass{
 }
 ~~~
 
-<h4>LinkedList</h4>
+## LinkedList
+인접 참조를 링크해서 체인처럼 관리한다.
 
-​	인접 참조를 링크해서 체인처럼 관리한다.
+​특정 인덱스의 객체를 제거하면 앞뒤 링크만 변경된다.
 
-​	특정 인덱스의 객체를 제거하면 앞뒤 링크만 변경된다.
+​중간에 추가 및 삭제할 경우 ArrayList보다 빠르다.
 
-​	중간에 추가 및 삭제할 경우 ArrayList보다 빠르다.
-
-<table>
-    <tr>
-        <th>구분</th>
-        <th>순차적으로 추가/삭제</th>
-        <th>중간에 추가/삭제</th>
-        <th>검색</th>
-    </tr>
-    <tr>
-    	<td>ArrayList</td>
-        <td>빠르다</td>
-        <td>느리다</td>
-        <td>빠르다</td>
-    </tr>
-    <tr>
-    	<td>LinkedList</td>
-        <td>느리다</td>
-        <td>빠르다</td>
-        <td>느리다</td>
-    </tr>
-</table>
+|구분|순차적으로 추가/삭제|중간에 추가/삭제|검색|
+|-|-|-|-|
+|ArrayList|빠르다|느리다|빠르다|
+|LinkedList|느리다|빠르다|느리다|
 
 ~~~java
 //ArrayList와 LinkedList의 속도 차이
@@ -195,13 +172,12 @@ public class ArrayListCompareLinkedList{
 }
 ~~~
 
-<h2>Set 컬렉션</h2>
+# Set 컬렉션
+List는 저장 순서를 유지하지만, Set은 저장 순서가 유지 되지 않는다.
 
-​	List는 저장 순서를 유지하지만, Set은 저장 순서가 유지 되지 않는다.
+​객체를 중복해서 저장할 수 없고, 하나의 null만 저장이 가능하다.
 
-​	객체를 중복해서 저장할 수 없고, 하나의 null만 저장이 가능하다.
-
-​	Set컬렉션은 인덱스로 객체를 검색해서 가져오는 메소드가 없기때문에, 반복자(Iterator)를 제공한다.
+​Set컬렉션은 인덱스로 객체를 검색해서 가져오는 메소드가 없기때문에, 반복자(Iterator)를 제공한다.
 
 ~~~java
 Set<String> set;
@@ -227,8 +203,7 @@ while(iterator.hasNext()){
 }
 ~~~
 
-<h4>HashSet</h4>
-
+## HashSet
 ~~~java
 public class HashSetClass{
     public static void main(String[] args){
@@ -290,11 +265,10 @@ public class ObjectHashSetClass{
 }
 ~~~
 
-<h2>Map 컬렉션</h2>
+# Map 컬렉션
+​키(key)와 값(value)로 구성된 객체를 저장하는 구조이다.
 
-​	키(key)와 값(value)로 구성된 객체를 저장하는 구조이다.
-
-​	키는 중복 될 수 없지만 값은 중복 될 수 있다. 동일한 키로 값을 저장할 경우 Overrap(덮어쓰기)된다.
+​키는 중복 될 수 없지만 값은 중복 될 수 있다. 동일한 키로 값을 저장할 경우 Overrap(덮어쓰기)된다.
 
 ~~~java
 Map<String, Integer> map;
@@ -319,9 +293,8 @@ while(entryIterator.hasNext()){
 }
 ~~~
 
-<h4>HashMap</h4>
-
-​	HashMap의 키로 사용할 객체는 hashCode()와 equals()메소드를 재정의해서 동등 객체가 될 조건을 정해야한다.
+## HashMap
+HashMap의 키로 사용할 객체는 hashCode()와 equals()메소드를 재정의해서 동등 객체가 될 조건을 정해야한다.
 
 ~~~java
 public class HashMapClass{
@@ -407,14 +380,12 @@ public class ObjectHashMapClass{
     }
 }
 ~~~
+## Hashtable
+HashMap과 동일한 구조를 가지고 있다.
 
-<h4>Hashtable</h4>
+​HashMap과 마찬가지로 hashCode()와 equals()를 재정의해야 한다.
 
-​	HashMap과 동일한 구조를 가지고 있다.
-
-​	HashMap과 마찬가지로 hashCode()와 equals()를 재정의해야 한다.
-
-​	HashMap과 차이점은 Hashtable이 동기화(Synchronized) 메소드로 구성되어있다는 것이다.
+​HashMap과 차이점은 Hashtable이 동기화(Synchronized) 메소드로 구성되어있다는 것이다.
 
 ~~~java
 public class HashtableClass{
@@ -449,13 +420,12 @@ public class HashtableClass{
 }
 ~~~
 
-<h4>Properties</h4>
+## Properties
+properties Hashtable의 특징을 그대로 가지고 있다.
 
-​	properties Hashtable의 특징을 그대로 가지고 있다.
+​키와 값을 String 타입으로 제한한다.
 
-​	키와 값을 String 타입으로 제한한다.
-
-​	주로 애플리케이션 정보나, 데이터베이스 연결 정보 등이 저장된 .properties 파일을 읽을 때 사용된다.
+​주로 애플리케이션 정보나, 데이터베이스 연결 정보 등이 저장된 .properties 파일을 읽을 때 사용된다.
 
 ~~~properties
 driver=oracle.jdbc.OracleDriver
@@ -486,22 +456,18 @@ public class PropertiesClass{
 }
 ~~~
 
-<h1>검색 기능을 강화시킨 컬렉션</h1>
+# 검색 기능을 강화시킨 컬렉션
 
-​	계층적인 구조(Tree 구조)를 가지면서 객체를 저장시킨다.
+​계층적인 구조(Tree 구조)를 가지면서 객체를 저장시킨다.
 
-<h2>이진 트리 구조</h2>
+## 이진 트리 구조
 
-​	6을 기준으로 왼쪽은 작은 값, 오른쪽은 큰 값이 들어간다.
+​6(기준값)을 기준으로 왼쪽은 작은 값, 오른쪽은 큰 값이 들어간다.
 
-![binarytreeImage](/uploads/152f056f0466c3b9e372196f1b39828e/binarytreeImage.png)
+## TreeSet
+TreeSet에 객체를 저장하면 자동으로 정렬된다.
 
-<h4>TreeSet</h4>
-
-​	TreeSet에 객체를 저장하면 자동으로 정렬된다.
-
-​	부모값과 비교하여 낮은 것은 왼쪽 자식 노드, 높은 것은 오른쪽 자식 노드에 저장한다.
-
+​부모값과 비교하여 낮은 것은 왼쪽 자식 노드, 높은 것은 오른쪽 자식 노드에 저장한다.
 ~~~java
 public class TreeSetClass{
     public static void main(String[] args){
@@ -541,8 +507,7 @@ public class TreeSetClass{
 }
 ~~~
 
-<h5>TreeSet 정렬</h5>
-
+## TreeSet 정렬
 ~~~java
 public class TreeSetClass{
     public static void main(String[] args){
@@ -567,7 +532,7 @@ public class TreeSetClass{
 }
 ~~~
 
-<h5>TreeSet 단어 검색</h5>
+## TreeSet 단어 검색
 
 ~~~java
 public class TreeSetClass{
@@ -590,13 +555,12 @@ public class TreeSetClass{
 }
 ~~~
 
-<h4>TreeMap</h4>
+# TreeMap
+키와 값이 저장된 Map.Entry를 저장한다.
 
-​	키와 값이 저장된 Map.Entry를 저장한다.
+​TreeMap에 객체를 저장하면 자동으로 정렬한다.
 
-​	TreeMap에 객체를 저장하면 자동으로 정렬한다.
-
-​	부모 키 값과 비교하여, 키 값이 낮은 것은 왼쪽 자식노드, 키 값이 높은 것은 오른쪽 자식노드에 저장한다.
+​부모 키 값과 비교하여, 키 값이 낮은 것은 왼쪽 자식노드, 키 값이 높은 것은 오른쪽 자식노드에 저장한다.
 
 ~~~java
 public class TreeMapClass{
@@ -639,7 +603,7 @@ public class TreeMapClass{
 }
 ~~~
 
-<h5>TreeMap 정렬</h5>
+## TreeMap 정렬
 
 ~~~java
 public class TreeMapClass{
@@ -665,7 +629,7 @@ public class TreeMapClass{
 }
 ~~~
 
-<h5>TreeMap 단어 검색</h5>
+## TreeMap 단어 검색
 
 ~~~java
 public class TreeMapClass{
@@ -688,9 +652,8 @@ public class TreeMapClass{
 }
 ~~~
 
-<h3>Comparable과 Comparator</h3>
-
-​	숫자 일 경우, 값으로 정렬하고, 문자열일 경우, 유니코드로 정렬한다.
+# Comparable과 Comparator
+숫자 일 경우, 값으로 정렬하고, 문자열일 경우, 유니코드로 정렬한다.
 
 ~~~java
 public class Person implements Comparable<Person>{
@@ -762,14 +725,11 @@ public class ComparatorClass{
 }
 ~~~
 
-<h1>LIFO와 FIFO 컬렉션</h1>
+# LIFO와 FIFO 컬렉션
+1. ​LIFO(Last Input First Output) : 스택
+​2. FIFO(First Input First Output) : 큐
 
-​	LIFO(Last Input First Output) : 스택
-
-​	FIFO(First Input First Output) : 큐
-
-<h3>Stack</h3>
-
+## Stack
 ~~~java
 public class Coin{
     private int value;
@@ -795,9 +755,8 @@ public class StackClass{
 }
 ~~~
 
-<h3>Queue</h3>
-
-​	Queue 인터페이스를 구현한 대표적 클래스는 LinkedList이다.
+## Queue
+Queue 인터페이스를 구현한 대표적 클래스는 LinkedList이다.
 
 ~~~java
 public class Message{
@@ -836,26 +795,22 @@ public class QueueClass{
 }
 ~~~
 
-<h1>동기화된 컬렉션</h1>
+# 동기화된 컬렉션
+HashMap, ArrayList, HashSet를 멀티 스레드에서 사용시, 동기화시키기위한 목적이다.
 
-​	HashMap, ArrayList, HashSet를 멀티 스레드에서 사용시, 동기화시키기위한 목적이다.
-
-​	Collections.synchronized...() 메소드를 사용한다.
-
+​Collections.synchronized...() 메소드를 사용한다.
 ~~~java
 List<T> list = Collections.synchronizedList(new ArrayList<T>());
 Set<T> set = Collections.synchronizedList(new HashSet<T>()));
 Map<K,V> map = Collections.synchronizedList(new HashMap<K,V>()));
 ~~~
 
-<h1>병렬 처리를 위한 컬렉션</h1>
+# 병렬 처리를 위한 컬렉션
+하나의 스레드가 요소를 처리할 때 전체 잠금이 발생하여 다른 스레드는 대기 상태가 된다.
 
-​	하나의 스레드가 요소를 처리할 때 전체 잠금이 발생하여 다른 스레드는 대기 상태가 된다.
+​전체적으로 처리 속도가 늦어진다.
 
-​	전체적으로 처리 속도가 늦어진다.
-
-​	java.util.concurrent 패키지에 포함되어있다.
-
+​java.util.concurrent 패키지에 포함되어있다.
 ~~~java
 Map<K,V> map = new ConcurrentHashMap<K,V>();
 Queue<E> queue = new ConcurrentLinkedQueue<E>();

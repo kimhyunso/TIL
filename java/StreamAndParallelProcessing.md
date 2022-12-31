@@ -1,11 +1,8 @@
-<h1>스트림</h1>
+# 스트림
+람다식으로 처리할 수 있도록 해주는 반복자(`Iterator`)이다.
 
-​	람다식으로 처리할 수 있도록 해주는 반복자이다.
-
-<h3>반복자 스트림</h3>
-
-​	컬렉션요소를 순차적으로 처리하기 위해 Iterator대신 사용한다.
-
+## 반복자 스트림
+컬렉션요소를 순차적으로 처리하기 위해 `Iterator`대신 사용한다.
 ~~~java
 public class StreamClass{
     public static void main(String[] args){
@@ -23,12 +20,10 @@ public class StreamClass{
 }
 ~~~
 
-<h3>스트림의 특징</h3>
+# 스트림의 특징
+병렬 처리가 쉽다는 것이다.
 
-​	병렬 처리가 쉽다는 것이다.
-
-<h5>람다식으로 요소 처리 코드를 제공한다.</h5>
-
+## 람다식으로 요소 처리 코드를 제공한다.
 ~~~java
 public class Student{
     private String name;
@@ -56,18 +51,16 @@ public class LambdaExpressClass{
 }
 ~~~
 
-<h5>내부 반복자를 사용하므로 병렬 처리가 쉽다.</h5>
-
-​	외부반복자 :  개발자가 코드로 직접 컬렉션 요소를 반복해서 가져오는 코드를 말한다.
-
-​	내부반복자 :  컬렉션 내부에서 요소들을 반복시키고, 개발자는 요소당 처리해야 할 코드만 제공하는 코드패턴이다.
-
-<dl>
-    <dt>순차처리</dt>
-    <dd>하나의 스레드가 요소들을 순차적으로 읽어 합을 구한다.</dd>
-    <dt>병렬처리</dt>
-    <dd>여러 개의 스레드가 요소들을 부분적으로 합하고, 이 부분합을 최종 결합해서 전체 합을 생성한다.	</dd>
-</dl>
+# 내부 반복자를 사용하므로 병렬 처리가 쉽다.
+1. 외부반복자 :  개발자가 코드로 직접 컬렉션 요소를 반복해서 가져오는 코드를 말한다.
+2. 내부반복자 :  컬렉션 내부에서 요소들을 반복시키고, 개발자는 요소당 처리해야 할 코드만 제공하는 코드패턴이다.
+> 순차처리
+> 
+> 하나의 스레드가 요소들을 순차적으로 읽어 합을 구한다.
+> 
+> 병렬 처리
+>
+> 여러 개의 스레드가 요소들을 부분적으로 합하고, 이 부분합을 최종 결합해서 전체 합을 생성한다.
 
 ~~~java
 public class ParallelClass{
@@ -91,11 +84,9 @@ public class ParallelClass{
 }
 ~~~
 
-<h5>스트림은 중간 처리와 최종 처리를 할 수 있다.</h5>
-
-​	중간 처리에는 매핑, 필터링, 정렬을 수행한다.
-
-​	최종 처리에는 반복, 카운팅, 평균, 총합 등의 집계 처리를 수행한다.
+# 스트림은 중간 처리와 최종 처리를 할 수 있다.
+1. 중간 처리에는 매핑, 필터링, 정렬을 수행한다.
+2. 최종 처리에는 반복, 카운팅, 평균, 총합 등의 집계 처리를 수행한다.
 
 ~~~java
 public class Student{
@@ -124,12 +115,9 @@ public class MapAndReduceClass{
 }
 ~~~
 
-<h1>스트림의 종류</h1>
+# 스트림의 종류
 
-![streamkindImage](/uploads/8bd21547d2cde5819a03b795ef3d26c2/streamkindImage.png)
-
-<h3>컬렉션으로부터 스트림 얻기</h3>
-
+## 컬렉션으로부터 스트림 얻기
 ~~~java
 public class Student{
     private String name;
@@ -154,7 +142,7 @@ public class FromCollectionClass{
 }
 ~~~
 
-<h3>배열로부터 스트림 얻기</h3>
+## 배열로부터 스트림 얻기
 
 ~~~java
 public class FromArrayClass{
@@ -171,7 +159,7 @@ public class FromArrayClass{
 }
 ~~~
 
-<h3>숫자 범위로부터 스트림 얻기</h3>
+## 숫자 범위로부터 스트림 얻기
 
 ~~~java
 public class FromIntRangeClass{
@@ -185,7 +173,7 @@ public class FromIntRangeClass{
 }
 ~~~
 
-<h3>파일로부터 스트림 얻기</h3>
+## 파일로부터 스트림 얻기
 
 ~~~java
 public class FromFileContentClass{
@@ -206,7 +194,7 @@ public class FromFileContentClass{
 }
 ~~~
 
-<h3>디렉토리로부터 스트림 얻기</h3>
+## 디렉토리로부터 스트림 얻기
 
 ~~~java
 public class FromDirectoryClass{
@@ -218,15 +206,13 @@ public class FromDirectoryClass{
 }
 ~~~
 
-<h1>스트림 파이프라인</h1>
+# 스트림 파이프라인
+대량의 데이터를 가공해서 축소하는 것을 리덕션이라고 한다.
 
-​	대량의 데이터를 가공해서 축소하는 것을 리덕션이라고 한다.
+​데이터의 합계, 카운팅, 최대값, 최소값 등이 대표적인 리덕션의 결과물이다.
 
-​	데이터의 합계, 카운팅, 최대값, 최소값 등이 대표적인 리덕션의 결과물이다.
-
-<h3>중간 처리와 최종처리</h3>
-
-​	최종처리가 시작되기 전까지 중간처리는 지연된다.
+# 중간 처리와 최종처리
+최종처리가 시작되기 전까지 중간처리는 지연된다.
 
 ~~~java
 public class Member{
@@ -264,11 +250,10 @@ public class StreamPipelineClass{
 }
 ~~~
 
-<h2>중간 처리 메소드와 최종 처리 메소드</h2>
+# 중간 처리 메소드와 최종 처리 메소드
 
-<h3>필터링(distinct(), filter())</h3>
-
-​	중간 처리 기능으로 요소를 걸러내는 역활을 한다.
+## 필터링(distinct(), filter())
+중간 처리 기능으로 요소를 걸러내는 역활을 한다.
 
 <table>
     <tr>
@@ -322,11 +307,10 @@ public class FilteringClass{
 }
 ~~~
 
-<h3>매핑(flatMapXXX(), mapXXX(), asXXXStream(), boxed())</h3>
+# 매핑(flatMapXXX(), mapXXX(), asXXXStream(), boxed())
+매핑은 중간 처리 기능으로 스트림의 요소를 다른 요소로 대체해는 작업을 한다.
 
-​	매핑은 중간 처리 기능으로 스트림의 요소를 다른 요소로 대체해는 작업을 한다.
-
-<h5>flatMapXXX() 메소드</h5>
+## flatMapXXX() 메소드
 
 ~~~java
 public class FlatMapClass{
@@ -351,8 +335,7 @@ public class FlatMapClass{
 }
 ~~~
 
-<h5>mapXXX() 메소드</h5>
-
+## mapXXX() 메소드
 ~~~java
 public class Student{
     private String name;
@@ -378,8 +361,7 @@ public class MapClass{
 }
 ~~~
 
-<h5>asDoubleStream(), asLongStream(), boxed() 메소드</h5>
-
+## asDoubleStream(), asLongStream(), boxed() 메소드
 ~~~java
 public class AsDoubleStreamAndBoxedClass{
     public static void main(String[] args){
@@ -398,10 +380,8 @@ public class AsDoubleStreamAndBoxedClass{
 }
 ~~~
 
-<h3>정렬(sorted())</h3>
-
-​	정렬은 중간 처리 기능이며, 스트림의 요소를 정렬하는 역활을 한다.
-
+# 정렬(sorted())
+정렬은 중간 처리 기능이며, 스트림의 요소를 정렬하는 역활을 한다.
 ~~~java
 public class Student implements Comparable<Student>{
     private String name;
@@ -443,11 +423,10 @@ public class SortedClass{
 }
 ~~~
 
-<h3>루핑(peek(), forEach())</h3>
+# 루핑(peek(), forEach())
+루핑은 요소 전체를 반복하는 것을 말한다.
 
-​	루핑은 요소 전체를 반복하는 것을 말한다.
-
-​	peek()와 forEach()기능은 동일하나, peek()는 중간처리 기능, forEach()는 최종처리 기능이다.
+peek()와 forEach()기능은 동일하나, peek()는 중간처리 기능, forEach()는 최종처리 기능이다.
 
 ~~~java
 public class PeekAndForEachClass{
@@ -471,29 +450,16 @@ public class PeekAndForEachClass{
 }
 ~~~
 
-<h2>최종 처리 기능 메소드</h2>
+# 최종 처리 기능 메소드
+## 매칭(allMatch(), anyMatch(), noneMatch())
+​최종 처리 기능 메소드이다.
 
-<h3>매칭(allMatch(), anyMatch(), noneMatch())</h3>
-
-​	최종 처리 기능 메소드이다.
-
-​	요소들이 특정 조건에 만족하는 지를 검사할 수 있다.
-
-<table>
-    <tr>
-    	<td>allMatch()</td>
-        <td>모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.</td>
-    </tr>
-    <tr>
-    	<td>anyMatch()</td>
-        <td>최소한 한개의 요소가 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.</td>
-    </tr>
-    <tr>
-        <td>noneMatch()</td>
-        <td>모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하지 않는지 조사한다.</td>
-    </tr>
-</table>
-
+요소들이 특정 조건에 만족하는 지를 검사할 수 있다.
+|메소드|설명|
+|-|-|
+|`allMatch()`|모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.|
+|`anyMatch()`|최소한 한개의 요소가 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.|
+|`noneMatch()`|모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하지 않는지 조사한다.|
 ~~~java
 public class StreamMatchClass{
     public static void main(String[] args){
@@ -514,47 +480,17 @@ public class StreamMatchClass{
 }
 ~~~
 
-<h3>기본 집계(sum(), count(), average(), max(), min())</h3>
+# 기본 집계(sum(), count(), average(), max(), min())
+최종 처리 기능 메소드이다.
 
-​	최종 처리 기능 메소드이다.
-
-<table>
-    <tr>
-    	<th>리턴 타입</th>
-        <th>메소드(매개 변수)</th>
-        <th>설명</th>
-    </tr>
-    <tr>
-    	<td>long</td>
-        <td>count()</td>
-        <td>요소 개수</td>
-    </tr>
-    <tr>
-        <td>OptionalXXX</td>
-        <td>findFirst()</td>
-        <td>첫 번째 요소</td>
-    </tr>
-    <tr>
-    	<td>Optional&lt;T&gt;<br>OptionalXXX</td>
-        <td>max(Comparator&lt;T&gt;)<br>max()</td>
-        <td>최대 요소</td>
-    </tr>
-    <tr>
-    	<td>Optional&lt;T&gt;<br>OptionalXXX</td>
-        <td>min(Comparator&lt;T&gt;)<br>min()</td>
-        <td>최소 요소</td>
-    </tr>
-    <tr>
-    	<td>OptionalDouble</td>
-        <td>average()</td>
-        <td>요소 평균</td>
-    </tr>
-    <tr>
-    	<td>int, long, double</td>
-    	<td>sum()</td>
-        <td>요소 총합</td>
-    </tr>
-</table>
+|리턴타입|메소드(매개 변수)|설명|
+|-|-|-|
+|`long`|`count()`|요소 개수 리턴|
+|`OptionalXXX`|`findFirst()`|첫 번째 요소 리턴|
+|`Optional<T>`<br>`OptionalXXX`|`max(Comparator<T>)`<br>`max()`|최대 요소 리턴|
+|`Optional<T>`<br>`OptionalXXX`|`min(Comparator<T>)`<br>`min()`|최소 요소 리턴|
+|`OptionalDouble`|`average()`|요소 평균 리턴|
+|`int, long, double`|`sum()`|요소 총합|
 
 ~~~java
 public class AggregateClass{
@@ -598,9 +534,8 @@ public class AggregateClass{
 }
 ~~~
 
-<h2>Optional 클래스</h2>
-
-​	Optional 클래스는 집계 값을 저장할 뿐 아니라, 집계 값이 없을 경우 디폴드 값을 설정 할 수 있다. 또한 집계 값을 처리하는 Consumer도 등록할 수 있다.
+# Optional 클래스
+​Optional 클래스는 집계 값을 저장할 뿐 아니라, 집계 값이 없을 경우 디폴드 값을 설정 할 수 있다. 또한 집계 값을 처리하는 Consumer도 등록할 수 있다.
 
 <table>
     <tr>

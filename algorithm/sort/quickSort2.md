@@ -1,4 +1,5 @@
-# quickSort
+# quickSort O(NlogN)
+보통은 재귀함수를 사용한다.
 1. pivot 값을 정한다.
 2. pivot 값을 기준으로 왼쪽과 오른쪽을 나눈다.
 3. 왼쪽의 경우

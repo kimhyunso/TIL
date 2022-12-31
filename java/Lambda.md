@@ -11,8 +11,7 @@ Runnable runnable = new Runnable(){
 Runnable runnable = ()->{};
 ~~~
 
-<h2>람다식 기본 문법</h2>
-
+# 람다식 기본 문법
 ~~~java
 (타입 매개변수, ...) -> {실행문, ...}
 //매개 변수가 하나일 경우()괄호 생략 가능
@@ -23,23 +22,19 @@ a -> System.out.println(a);
 (x, y) -> x+y;
 ~~~
 
-<h2>타겟 타입과 함수적 인터페이스</h2>
+# 타겟 타입과 함수적 인터페이스
 
-​	람다식은 인터페이스 변수에 대입된다.
+​람다식은 인터페이스 변수에 대입된다.
 
-​	람다식은 인터페이스의 익명 구현 객체를 생성한다는 뜻이다.
+​람다식은 인터페이스의 익명 구현 객체를 생성한다는 뜻이다.
 
-​	람다식이 대입될 인터페이스를 람다식의 타겟 타입(target type)이라고 한다.
+​람다식이 대입될 인터페이스를 람다식의 타겟 타입(target type)이라고 한다.
+> 인터페이스 변수 = 람다식;
 
-~~~java
-인터페이스 변수 = 람다식;
-~~~
+# 함수적 인터페이스(@FuntionalInterface)
+​두 개이상의 메소드가 정의되어 있는 타겟 타입은 람다식으로 구현이 불가능하다.
 
-<h2>함수적 인터페이스(@FuntionalInterface)</h2>
-
-​	두 개이상의 메소드가 정의되어 있는 타겟 타입은 람다식으로 구현이 불가능하다.
-
-​	추상 메소드가 두 개 이상 정의되지 않도록 @FuntionalInterface 어노테이션을 붙인다.
+​추상 메소드가 두 개 이상 정의되지 않도록 @FuntionalInterface 어노테이션을 붙인다.
 
 ~~~java
 @FunctionalInterface
@@ -49,8 +44,7 @@ public interface MyFunctionalInterface{
 }
 ~~~
 
-<h3>매개 변수와 리턴값이 없는 람다식</h3>
-
+## 매개 변수와 리턴값이 없는 람다식
 ~~~java
 @FunctionalInterface
 public interface MyInterface{
@@ -74,8 +68,7 @@ public class MainClass{
 }
 ~~~
 
-<h3>매개 변수가 있는 람다식</h3>
-
+## 매개 변수가 있는 람다식
 ~~~java
 @FunctionalInterface
 public interface MyInterface{
@@ -99,8 +92,7 @@ public class MainClass{
 }
 ~~~
 
-<h3>리턴값이 있는 람다식</h3>
-
+## 리턴값이 있는 람다식
 ~~~java
 @FunctionalInterface
 public interface MyInterface{
@@ -131,15 +123,13 @@ public class MainClass{
 }
 ~~~
 
-<h1>클래스 멤버와 로컬 변수 사용</h1>
+# 클래스 멤버와 로컬 변수 사용
+​람다식의 실행 블록에서는 클래스의 멤버(필드와 메소드) 및 로컬 변수를 사용할 수 있다.
 
-​	람다식의 실행 블록에서는 클래스의 멤버(필드와 메소드) 및 로컬 변수를 사용할 수 있다.
+​멤버는 제약사항이 없지만, 로컬 변수는 제약 사항이 따른다.
 
-​	멤버는 제약사항이 없지만, 로컬 변수는 제약 사항이 따른다.
-
-<h3>클래스의 멤버 사용</h3>
-
-​	this 키워드 사용시, 람다식을 실행한 객체의 참조이다.
+## 클래스의 멤버 사용
+this 키워드 사용시, 람다식을 실행한 객체의 참조이다.
 
 ~~~java
 @FunctionalInterface
@@ -172,9 +162,8 @@ public class MainClass{
 }
 ~~~
 
-<h3>로컬 변수 사용</h3>
-
-​	매개 변수값은 final이여야 한다.
+## 로컬 변수 사용
+​매개 변수값은 final이여야 한다.
 
 ~~~java
 @FunctionalInterface
@@ -201,53 +190,18 @@ public class MainClass{
 }
 ~~~
 
-<h2>표준 API의 함수적 인터페이스</h2>
+# 표준 API의 함수적 인터페이스
+​표준 API에서 한 개의 추상메소드를 가진 인터페이스는 람다식으로 구현가능하다.
 
-​	표준 API에서 한 개의 추상메소드를 가진 인터페이스는 람다식으로 구현가능하다.
+빈번하게 사용되는 함수적 인터페이스는 java.util.function 표준 API 패키지로 제공한다.
 
-​	빈번하게 사용되는 함수적 인터페이스는 java.util.function 표준 API 패키지로 제공한다.
-
-<table>
-    <tr>
-    	<th>종류</th>
-        <th>추상 메소드 특징</th>
-        <th></th>
-    </tr>
-    <tr>
-    	<td>Consumer</td>
-        <td>매개값은 있고, 리턴값은 없음</td>
-        <td>매개값 → Consumer</td>
-    </tr>
-    <tr>
-    	<td>Supplier</td>
-        <td>매개값은 없고, 리턴값은 있음</td>
-        <td>Supplier → 리턴값</td>
-    </tr>
-    <tr>
-    	<td>Function</td>
-        <td>
-            매개값도 있고, 리턴값도 있음<br>
-        	주로 매개값을 리턴값으로 매핑(타입 변환)
-        </td>
-        <td>매개값 → Function → 리턴값</td>
-    </tr>
-    <tr>
-    	<td>Operator</td>
-        <td>
-        	매개값도 있고, 리턴값도 있음<br>
-            주로 매개값을 연산하고 결과를 리턴
-        </td>
-        <td>매개값 → Operator → 리턴값</td>
-    </tr>
-    <tr>
-    	<td>Predicate</td>
-        <td>
-        	매개값은 있고, 리턴 타입은 boolean<br>
-            매개값을 조사해서 true/false를 리턴
-        </td>
-        <td>매개값 → Predicate → boolean</td>
-    </tr>
-</table>
+|종류|추상 메소드 특징|설명|
+|-|-|-|
+|`Consumer`|매개값은 있고, 리턴값은 없음|매개값 → Consumer|
+|`Supplier`|매개값은 없고, 리턴값은 있음|Supplier → 리턴값|
+|`Function`| 매개값도 있고, 리턴값도 있음<br>주로 매개값을 리턴값으로 매핑(타입 변환)|매개값 → Function → 리턴값|
+|`Operator`|매개값도 있고, 리턴값도 있음<br>주로 매개값을 연산하고 결과를 리턴|매개값 → Operator → 리턴값|
+|`Predicate`|매개값은 있고, 리턴 타입은 boolean<br>매개값을 조사해서 true/false를 리턴|매개값 → Predicate → boolean|
 
 ~~~java
 public class RunnableClass{
@@ -269,7 +223,7 @@ public class RunnableClass{
 }
 ~~~
 
-<h3>Consumer 함수적 인터페이스</h3>
+# Consumer 함수적 인터페이스
 
 ~~~java
 //한개의 객체를 매개변수로 받아 소비
@@ -300,7 +254,7 @@ public class ConsumerClass{
 }
 ~~~
 
-<h3>Supplier 함수적 인터페이스</h3>
+# Supplier 함수적 인터페이스
 
 ~~~java
 Supplier<String> supplier = () -> { return "문자열";};
@@ -320,7 +274,7 @@ public class SupplierClass{
 }
 ~~~
 
-<h3>Function 함수적 인터페이스</h3>
+# Function 함수적 인터페이스
 
 ~~~java
 Function<Student, String> function = t -> {return t.getName();};
@@ -373,7 +327,7 @@ public class MainClass{
 }
 ~~~
 
-<h3>Operator 함수적 인터페이스</h3>
+# Operator 함수적 인터페이스
 
 ~~~java
 IntBinaryOperator operator = (a,b) -> { return int값;};
@@ -406,7 +360,7 @@ public class OperatorEx {
 }
 ~~~
 
-<h3>Predicate 함수적 인터페이스</h3>
+# Predicate 함수적 인터페이스
 
 ~~~java
 Predicate<Student> predicate = t -> {return t.getGender().equals("남자");};
@@ -458,7 +412,7 @@ public class MainClass{
 }
 ~~~
 
-<h1>andThen()과 compose() 디폴트 메소드</h1>
+# andThen()과 compose() 디폴트 메소드
 
 ~~~java
 인터페이스 AB = 인터페이스A.andThen(인터페이스B);
@@ -541,8 +495,7 @@ public class MainClass{
     </tr>
 </table>
 
-<h3>Consumer의 순차적 연결</h3>
-
+# Consumer의 순차적 연결
 ~~~java
 public class Member{
     private String name;
@@ -568,7 +521,7 @@ public class ConsumerAndThenClass{
 }
 ~~~
 
-<h3>Function의 순차적 연결</h3>
+# Function의 순차적 연결
 
 ~~~java
 public class Address{
@@ -619,11 +572,10 @@ public class FunctionAndthenComposeClass{
 }
 ~~~
 
-<h3>and(), or(), negate() 디폴트 메소드와 isEqual() 정적 메소드</h3>
+# and(), or(), negate() 디폴트 메소드와 isEqual() 정적 메소드
+Predicate 함수적 인터페이스는 and(), or(), negate, isEqual()를 사용할 수 있다.
 
-​	Predicate 함수적 인터페이스는 and(), or(), negate, isEqual()를 사용할 수 있다.
-
-​	and() &&, or() ||, negate() !과 대응된다고 할 수 있다.
+​and() &&, or() ||, negate() !과 대응된다고 할 수 있다.
 
 ~~~java
 public class PredicateAndOrNegateClass{
@@ -671,7 +623,7 @@ public class PredicateAndOrNegateClass{
  }
  ~~~
 
-<h3>minBy(), maxBy() 정적 메소드</h3>
+# minBy(), maxBy() 정적 메소드
 
 ~~~java
 public class Fruit{
@@ -701,9 +653,8 @@ public class OperationMinByMaxByClass{
 }
 ~~~
 
-<h3>메소드 참조</h3>
-
-​	메소드를 참조해서 매개 변수의 정보 및 리턴 타입을 알아내어 람다식에 불필요한 매개변수를 제거하는 것이 목적이다.
+# 메소드 참조
+메소드를 참조해서 매개 변수의 정보 및 리턴 타입을 알아내어 람다식에 불필요한 매개변수를 제거하는 것이 목적이다.
 
 ~~~java
 (left, right) -> Math.max(left, right);
@@ -713,8 +664,7 @@ Math::max;
 IntBinaryOperator operator = Math::max;
 ~~~
 
-<h4>정적 메소드와 인스턴스 메소드 참조</h4>
-
+# 정적 메소드와 인스턴스 메소드 참조
 ~~~java
 public class Calculator{
     public static int staticMethod(int x, int y){
@@ -744,8 +694,7 @@ public class MethodReferenceClass{
 }
 ~~~
 
-<h4>매개 변수의 메소드 참조</h4>
-
+# 매개 변수의 메소드 참조
 ~~~java
 public class ArgumentMethodReferenceMethodClass{
     public static void main(String[] args){
@@ -765,8 +714,7 @@ public class ArgumentMethodReferenceMethodClass{
 }
 ~~~
 
-<h4>생성자 참조</h4>
-
+# 생성자 참조
 ~~~java
 public class Member{
     private String name;
