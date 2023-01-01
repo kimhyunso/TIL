@@ -1,60 +1,39 @@
-<h1>IO 패키지 소개</h1>
+# 입력 스트림과 출력 스트림
+프로그램이 데이터를 입력 받을 때는 입력 스트림, 데이터를 보낼 때는 출력 스트림이라고 불른다.
 
-<h2>입력 스트림과 출력 스트림</h2>
+​스트림의 특성이 단방향이므로, 하나의 스트림으로 입출력 모두를 할 수는 없다.
 
-​	프로그램이 데이터를 입력 받을 때는 입력 스트림, 데이터를 보낼 때는 출력 스트림이라고 불른다.
+​java.io 패키지에서 제공한다.
 
-​	스트림의 특성이 단방향이므로, 하나의 스트림으로 입출력 모두를 할 수는 없다.
+1. 바이트(byte) 기반 스트림
+   * 그림, 멀티미디어, 문자 등 모든 종류의 데이터를 받고 보낼 수 있다. 
+2. 문자 기반 스트림
+   * 문자만 받고 보낼 수 있도록 특화되어 있다.
 
-​	java.io 패키지에서 제공한다.
+|추상 클래스|설명|
+|-|-|
+|`InputStream`|바이트 기반 입력 스트림의 최상위 클래스이다.|
+|`OutputStream`|바이트 기반 출력 스트림의 최상위 클래스이다.|
+|`Reader`|문자 기반 입력 스트림의 최상위 클래스이다.|
+|`Writer`|문자 기반 출력 스트림의 최상위 클래스이다.|
 
-<dl>
-    <dt>바이트(byte) 기반 스트림</dt>
-    <dd>그림, 멀티미디어, 문자 등 모든 종류의 데이터를 받고 보낼 수 있다.</dd>
-    <dt>문자 기반 스트림</dt>
-    <dd>문자만 받고 보낼 수 있도록 특화되어 있다.</dd>
-</dl>
+# InputStream
+`FileInputStream`, `BufferedInputStream`, `DataInputStream` 클래스는 모두 `InputStream`을 상속받았다.
 
-<table>
-    <tr>
-        <td>InputStream(추상 클래스)</td>
-    	<td>바이트 기반 입력 스트림의 최상위 클래스이다.</td>
-    </tr>
-    <tr>
-        <td>OutputStream(추상 클래스)</td>
-        <td>바이트 기반 출력 스트림의 최상위 클래스이다.</td>
-    </tr>
-    <tr>
-    	<td>Reader(추상 클래스)</td>
-        <td>문자 기반 입력 스트림의 최상위 클래스이다.</td>
-    </tr>
-    <tr>
-    	<td>Writer(추상 클래스)</td>
-        <td>문자 기반 출력 스트림의 최상위 클래스이다.</td>
-    </tr>
-</table>
+## read() 메소드
+`read()` : 입력 스트림으로부터 1바이트르 읽고, 4바이트 int타입으로 리턴한다.
 
-<h3>InputStream</h3>
-
-​	FileInputStream, BufferedInputStream, DataInputStream 클래스는 모두 InputStream을 상속받았다.
-
-<h4>read() 메소드</h4>
-
-​	read()메소드는 입력 스트림으로부터 1바이트르 읽고, 4바이트 int타입으로 리턴한다.
-
-​	더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 -1을 리턴한다.
-
+​더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 -1을 리턴한다.
 ~~~java
 InputStream is = new FileInputStream("C:/test.jpg");
 int readByte;
 while((readByte = is.read()) != -1 ){}
 ~~~
 
-<h4>read(byte[] b) 메소드</h4>
+## read(byte[] b) 메소드
+매개값으로 받은 byte 배열 길이 만큼 바이트를 읽고 배열에 저장한다.
 
-​	매개값으로 받은 byte 배열 길이 만큼 바이트를 읽고 배열에 저장한다.
-
-​	더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 -1을 리턴한다.
+​더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 -1을 리턴한다.
 
 ~~~java
 InputStream is = new FileInputStream("C:/test.jpg");
@@ -63,9 +42,8 @@ byte[] readBytes = new byte[100];
 while((readByteNo = is.read(readBytes)) != -1){}
 ~~~
 
-<h4>read(byte[] b, int off, int len) 메소드</h4>
-
-​	입력 스트림으로 부터 len개부터 off값 만큼 배열에 저장한다.
+## read(byte[] b, int off, int len) 메소드
+입력 스트림으로 부터 len개부터 off값 만큼 배열에 저장한다.
 
 ~~~java
 InputStream is = new FileInputStream("C:/test.jpg");
@@ -74,23 +52,19 @@ byte[] readBytes = new byte[100];
 while((readByteNo = is.read(readBytes,0,100)) != -1){}
 ~~~
 
-<h4>close() 메소드</h4>
-
-​	입력 스트림의 자원을 풀어주는 역활을 한다.
+## close() 메소드
+입력 스트림의 자원을 풀어주는 역활을 한다.
 
 ~~~java
 InputStream is = new FileInputStream("C:/test.jpg");
 is.close();
 ~~~
 
-<h3>OutputStream</h3>
+# OutputStream
+`FileOutputStream`, `PrintStream`, `BufferedOutputStream`, `DataOutputStream` 클래스 모두 `OutputStream`을 상속받았다.
 
-​	FileOutputStream, PrintStream, BufferedOutputStream, DataOutputStream 클래스 모두 OutputStream을 상속받았다.
-
-<h4>write(int b) 메소드</h4>
-
-​	int(4바이트) 중 끝에 1바이트만 출력 스트림으로 보낸다.
-
+## write(int b) 메소드
+int(4바이트) 중 끝에 1바이트만 출력 스트림으로 보낸다.
 ~~~java
 OutputStream os = new FileOutputStream("C:/test.txt");
 byte[] data = "ABC".getBytes();
@@ -98,33 +72,28 @@ for(int i=0; i<data.length; i++)
     os.write(data[i]); //"A", "B", "C"를 하나씩 출력
 ~~~
 
-<h4>write(byte[] b) 메소드</h4>
-
-​	매개값으로 주어진 바이트 배열의 모든 바이트를 출력 스트림으로 보낸다.
-
+## write(byte[] b) 메소드
+매개값으로 주어진 바이트 배열의 모든 바이트를 출력 스트림으로 보낸다.
 ~~~java
 OutputStream os = new FileOutputStream("C:/test.txt");
 byte[] data = "ABC".getBytes();
 os.write(data); //"ABC" 모두 출력
 ~~~
 
-<h4>write(byte[] b, int off, int len)</h4>
-
-​	off부터 len개의 바이트만 출력 스트림으로 보낸다.
-
+## write(byte[] b, int off, int len)
+off부터 len개의 바이트만 출력 스트림으로 보낸다.
 ~~~java
 OuptStream os = new FileOutputStream("C:/test.txt");
 byte[] data = "ABC".getBytes();
 os.write("data",1,2); //"BC"만 출력
 ~~~
 
-<h4>flush()와 close() 메소드</h4>
+## flush()와 close() 메소드
+출력 스트림 내부에는 작은 버퍼가 존재하여, 데이터가 출력되기 전 버퍼에 쌓여있다가 순서대로 출력된다.
 
-​	출력 스트림 내부에는 작은 버퍼가 존재하여, 데이터가 출력되기 전 버퍼에 쌓여있다가 순서대로 출력된다.
+​`flush()` : 버퍼에 잔류해있는 데이터를 모두 출력시키고, 버퍼를 비우는 역활을 한다.
 
-​	flush() 메소드는 버퍼에 잔류해있는 데이터를 모두 출력시키고, 버퍼를 비우는 역활을 한다.
-
-​	close() 메소드는 출력스트림의 자원을 풀어주는 역활을 한다.
+​`close()` : 출력스트림의 자원을 풀어주는 역활을 한다.
 
 ~~~java
 OutputStream os = new FileOutputStream("C:/test.txt");
@@ -134,13 +103,11 @@ os.flush();
 os.close();
 ~~~
 
-<h3>Reader</h3>
+# Reader
+`FileReader`, `BufferedReader`, `InputStreamReader` 클래스는 모두 `Reader` 클래스를 상속받았다.
 
-​	FileReader, BufferedReader, InputStreamReader 클래스는 모두 Reader 클래스를 상속받았다.
-
-<h4>read() 메소드</h4>
-
-​	입력 스트림으로부터 한 개의 문자(2바이트)를 읽고 int(4바이트) 타입으로 리턴한다.
+## read() 메소드
+입력 스트림으로부터 한 개의 문자(2바이트)를 읽고 int(4바이트) 타입으로 리턴한다.
 
 ~~~java
 Reader reader = new FileReader("C:/test.txt");
@@ -150,9 +117,8 @@ while((readData = reader.read()) != -1){
 }
 ~~~
 
-<h4>read(char[] cbuf) 메소드</h4>
-
-​	매개값으로 주어진 문자 배열의 길이만큼 문자를 읽고 배열에 저장한다.
+## read(char[] cbuf) 메소드
+매개값으로 주어진 문자 배열의 길이만큼 문자를 읽고 배열에 저장한다.
 
 ~~~java
 Reader reader = new FileReader("C:/test.txt");
@@ -161,9 +127,8 @@ char[] cbuf = new char[2];
 while((readCharNo = reader.read(cbuf)) != -1){}
 ~~~
 
-<h4>read(char[] cbuf, int off, int len) 메소드</h4>
-
-​	입력스트림으로 부터 len개 부터 off개까지 저장한다.
+## read(char[] cbuf, int off, int len) 메소드
+​입력스트림으로 부터 len개 부터 off개까지 저장한다.
 
 ~~~java
 Reader reader = new FileReader("C:/test.txt");
@@ -172,22 +137,19 @@ char[] cbuf = new char[100];
 while((readCharNo = reader.read(cbuf)) != -1){}
 ~~~
 
-<h4>close() 메소드</h4>
-
-​	Reader의 자원을 풀어주는 역활을 한다.
+## close() 메소드
+Reader의 자원을 풀어주는 역활을 한다.
 
 ~~~java
 Reader reader = new FileReader("C:/test.txt");
 reader.close;
 ~~~
 
-<h3>Writer</h3>
+# Writer
+`FileWriter`, `BufferedWriter`, `PrintWriter`, `OutputStreamWriter` 클래스들 모두 `Writer` 클래스를 상속받았다.
 
-​	FileWriter, BufferedWriter, PrintWriter, OutputStreamWriter 클래스들 모두 Writer 클래스를 상속받았다.
-
-<h4>write(int c) 메소드</h4>
-
-​	주어진 매개변수 int(4바이트) 안에서 끝에 있는 2바이트(한 개의 문자)만 출력 스트림으로 보낸다.
+## write(int c) 메소드
+주어진 매개변수 int(4바이트) 안에서 끝에 있는 2바이트(한 개의 문자)만 출력 스트림으로 보낸다.
 
 ~~~java
 Writer writer = new FileWriter("C:/test.txt");
@@ -196,9 +158,8 @@ for(int i=0; i<data.length; i++)
     writer.write(data[i]);	//"홍", "길", "동"을 하나씩 출력
 ~~~
 
-<h4>write(char[] cbuf) 메소드</h4>
-
-​	매개값으로 주어진 char[] 배열의 모든 문자를 출력 스트림으로 보낸다.
+## write(char[] cbuf) 메소드
+매개값으로 주어진 char[] 배열의 모든 문자를 출력 스트림으로 보낸다.
 
 ~~~java
 Writer writer = new FileWriter("C:/test.txt");
@@ -206,23 +167,22 @@ char[] data = "홍길동".toCharArray();
 writer.write(data);	//"홍길동" 모두 출력
 ~~~
 
-<h4>write(char[] c, int off, int len) 메소드</h4>
-
-​	len부터 off까지 문자를 출력 스트림으로 보낸다.
-
+## write(char[] c, int off, int len) 메소드
+len부터 off까지 문자를 출력 스트림으로 보낸다.
 ~~~java
 Writer writer = new FileWriter("C:/test.txt");
 char[] data = "홍길동".toCharArray();
 writer.write(data,1,2);	//"길동"만 출력
 ~~~
 
-<h4>write(String str)와 write(String str, int off, int len) 메소드</h4>
+## write(String str)와 write(String str, int off, int len) 메소드
+`write(String str)` : 문자열 전체를 출력스트림으로 보낸다 
 
-​	write(String str) 메소드는 문자열 전체를 출력스트림으로 보내고, write(String str, int off, int len) 메소드는 off부터 len까지의 문자만을 보낸다.
+`write(String str, int off, int len)` : off부터 len까지의 문자만을 보낸다.
 
-​	문자 출력 스트림의 내부에는 작은 버퍼가 존재하여, 데이터가 출력되기 전 버퍼에 쌓여있다가 순서대로 출력된다. 그렇기 때문에 flush() 메소드를 사용하여 모든 문자가 출력되게 해야한다.
+​문자 출력 스트림의 내부에는 작은 버퍼가 존재하여, 데이터가 출력되기 전 버퍼에 쌓여있다가 순서대로 출력된다. 그렇기 때문에 `flush()` 메소드를 사용하여 모든 문자가 출력되게 해야한다.
 
-​	close() 메소드는 Writer의 자원을 풀어주는 역활을 한다.
+​`close()` 메소드는 `Writer`의 자원을 풀어주는 역활을 한다.
 
 ~~~java
 Writer writer = new FileWriter("C:/test.txt");
@@ -232,18 +192,15 @@ writer.flush();
 writer.close();
 ~~~
 
-<h1>콘솔 입출력</h1>
+# 콘솔 입출력
+1. ​입력 스트림 : System.in
+2. 출력 스트림 : System.out
+3. 에러 스트림 : System.err
 
-​	입력 스트림 : System.in
+# System.in 필드
+InputStream의 `read()` 메소드는 1바이트만 읽기 때문에 한글과 같이 2바이트를 필요로하는 경우는 `read()` 메소드로 읽을 수 없다. 
 
-​	출력 스트림 : System.out
-
-​	에러 스트림 : System.err
-
-<h4>System.in 필드</h4>
-
-​	InputStream의 read() 메소드는 1바이트만 읽기 때문에 한글과 같이 2바이트를 필요로하는 경우는 read() 메소드로 읽을 수 없다. 한글을 읽을 경우는 read(byte[] b)메소드를 사용하거나, read(btye[] b, int off, int len) 메소드를 사용해야 한다.
-
+한글을 읽을 경우는 `read(byte[] b)`메소드를 사용하거나, `read(btye[] b, int off, int len)` 메소드를 사용해야 한다.
 ~~~java
 public class SystemInClass {
     public static void main(String[] args) throws IOException {
@@ -296,9 +253,8 @@ public class SystemInKoreanEx {
 }
 ~~~
 
-<h4>System.out 필드</h4>
-
-​	콘솔에 출력하기 위해 사용된다.
+# System.out 필드
+콘솔에 출력하기 위해 사용된다.
 
 ~~~java
 public class SystemOutEx {
@@ -322,8 +278,7 @@ public class SystemOutEx {
 }
 ~~~
 
-<h3>Console 클래스</h3>
-
+# Console 클래스
 ~~~java
 public class ConsoleEx {
     public static void main(String[] args) {
@@ -343,9 +298,8 @@ public class ConsoleEx {
 }
 ~~~
 
-<h3>Scanner 클래스</h3>
-
-​	java.util 패키지의 Scanner 클래스를 이용하면, 콘솔의 기본타입의 값을 읽을 수 있다.
+# Scanner 클래스
+java.util 패키지의 Scanner 클래스를 이용하면, 콘솔의 기본타입의 값을 읽을 수 있다.
 
 ~~~java
 public class ScannerEx {

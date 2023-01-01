@@ -537,31 +537,14 @@ public class AggregateClass{
 # Optional 클래스
 ​Optional 클래스는 집계 값을 저장할 뿐 아니라, 집계 값이 없을 경우 디폴드 값을 설정 할 수 있다. 또한 집계 값을 처리하는 Consumer도 등록할 수 있다.
 
-<table>
-    <tr>
-        <th>리턴 타입</th>
-        <th>메소드(매개 변수)</th>
-        <th>설명</th>
-    </tr>
-    <tr>
-    	<td>boolean</td>
-        <td>isPresent()</td>
-        <td>값이 저장되어 있는지 여부</td>
-    </tr>
-    <tr>
-    	<td>T<br>double<br>int<br>long</td>
-        <td>orElse(&lt;T&gt;)<br>orElse(double)<br>orElse(int)<br>orElse(long)</td>
-        <td>값이 저장되어 있지 않을 경우 디폴트 값 지정</td>
-    </tr>
-    <tr>
-    	<td>void</td>
-        <td>
-            ifPresent(Consumer)<br>ifPresent(DoubleConsumer)<br>
-            ifPresent(IntConsumer)<br>ifPresent(LongConsumer)
-        </td>
-        <td>값이 저장되어 있을 경우 Consumer에서 처리</td>
-    </tr>
-</table>
+
+
+|리턴타입|메소드(매개 변수)|설명|
+|-|-|-|
+|`boolean`|`isPresent()`|값이 저장되어 있는지 여부 확인|
+|`T`<br>`double`<br>`int`<br>`long`|`orElse(<T>)`<br>`orElse(double)`<br>`orElse(int)`<br>`orElse(long)`|값이 저장되어 있지 않을 경우 디폴트 값 지정|
+|`void`|`isPresent(Consumer)`<br>`ifPresent(DoubleConsumer)`<br>`ifPresent(IntConsumer)`<br>`ifPresent(LongConsumer)`|값이 저장되어 있을 경우 Consumer에서 처리|
+
 
 ~~~java
 public class OptionalClass{
@@ -600,9 +583,8 @@ public class OptionalClass{
 }
 ~~~
 
-<h3>커스텀 집계(reduce())</h3>
-
-​	프로그램화해서 다양한 집계 결과물을 만들 수 있도록 reduce() 메소드도 제공한다.
+# 커스텀 집계(reduce())
+프로그램화해서 다양한 집계 결과물을 만들 수 있도록 reduce() 메소드도 제공한다.
 
 ~~~java
 public class Student{
@@ -644,12 +626,10 @@ public class ReduceClass{
 }
 ~~~
 
-<h2>수집(collect())</h2>
+# 수집(collect())
+필요한 요소만 컬렉션으로 담을 수 있고, 요소들을 그룹핑한 후 집계(리덕션)을 할 수 있다.
 
-​	필요한 요소만 컬렉션으로 담을 수 있고, 요소들을 그룹핑한 후 집계(리덕션)을 할 수 있다.
-
-<h3>필터링한 요소 수집</h3>
-
+## 필터링한 요소 수집
 ~~~java
 public class Student{
     public enum Gender{MALE,FEMALE}
@@ -687,8 +667,7 @@ public class ToCollectionClass{
 }
 ~~~
 
-<h3>사용자 정의 컨테이너에 수집하기</h3>
-
+## 사용자 정의 컨테이너에 수집하기
 ~~~java
 public class Student{
     public enum Gender{MALE,FEMALE}
@@ -745,13 +724,12 @@ public class MainClass{
 }
 ~~~
 
-<h3>요소를 그룹핑 하기</h3>
+## 요소를 그룹핑 하기
+요소를 그룹핑하여 Map 컬렉션의 형태로 반환한다.
 
-​	요소를 그룹핑하여 Map 컬렉션의 형태로 반환한다.
+​Collectors.groupingBy() 또는 Collectors.groupingByConcurrent() 를 사용한다.
 
-​	Collectors.groupingBy() 또는 Collectors.groupingByConcurrent() 를 사용한다.
-
-​	Collectors.groupingByConcurrent()는 스레드 안전을 보장한다.
+​Collectors.groupingByConcurrent()는 스레드 안전을 보장한다.
 
 ~~~java
 public class Student{
@@ -811,9 +789,8 @@ public class GroupingByClass{
 }
 ~~~
 
-<h3>그룹핑 후 매핑 및 집계</h3>
-
-​	Collectors.groupBy() 메소드는 그룹핑 후, 매핑이나 리덕션이가능하다.
+## 그룹핑 후 매핑 및 집계
+Collectors.groupBy() 메소드는 그룹핑 후, 매핑이나 리덕션이가능하다.
 
 ~~~java
 public class GroupByAndReductionClass{
@@ -849,35 +826,31 @@ public class GroupByAndReductionClass{
 }
 ~~~
 
-<h1>병렬 처리</h1>
+# 병렬 처리
+멀티 코어 환경에서 하나의 작업을 분할하여 병렬적으로 처리하기 것이다.
 
-​	멀티 코어 환경에서 하나의 작업을 분할하여 병렬적으로 처리하기 것이다.
+## 동시성(Concurrency)과 병렬성(Parallelism)
+> 동시성
+>
+> 멀티 작업을 위해 멀티 스레드로 번갈아가며 작업하는 것
+>
+> 병렬성
+>
+> 멀티 작업을 위해 멀티 코어를 이용하여 동시에 실행하는 것
 
-<h2>동시성(Concurrency)과 병렬성(Parallelism)</h2>
 
-<dl>
-    <dt>동시성</dt>
-    <dd>멀티 작업을 위해 멀티 스레드로 번갈아가며 작업하는 것</dd>
-    <dt>병렬성</dt>
-    <dd>멀티 작업을 위해 멀티 코어를 이용하여 동시에 실행하는 것</dd>
-</dl>
+# 데이터 병렬성
+코어 만큼 데이터를 쪼개어 병렬처리를 하여 작업을 빨리 끝내는 것이다.
 
-<h3>데이터 병렬성</h3>
+# 작업 병렬성
+서로 다른 작업을 병렬 처리하는 것이다. 대표적인 예로 웹 서버가 있다.
 
-​	코어 만큼 데이터를 쪼개어 병렬처리를 하여 작업을 빨리 끝내는 것이다.
+# 포크조인(ForkJoin) 프레임 워크
+병렬 스트림은 병렬 처리를 하기 위해 포크조인 프레임워크를 사용한다.
 
-<h3>작업 병렬성</h3>
+​포크 조인 프레임워크는 Divide And Conquer의 알고리즘과 비슷하다.
 
-​	서로 다른 작업을 병렬 처리하는 것이다. 대표적인 예로 웹 서버가 있다.
-
-<h2>포크조인(ForkJoin) 프레임 워크</h2>
-
-​	병렬 스트림은 병렬 처리를 하기 위해 포크조인 프레임워크를 사용한다.
-
-​	포크 조인 프레임워크는 Divide And Conquer의 알고리즘과 비슷하다.
-
-<h3>병렬 스트림 생성</h3>
-
+## 병렬 스트림 생성
 ~~~java
 public class Student{
     public enum Gender{MALE,FEMALE}
@@ -931,19 +904,14 @@ public class PelleilStreamClass{
 }
 ~~~
 
-<h2>병렬 처리 성능</h2>
-
-​	병렬처리 스트림은 3가지 요인을 잘 살펴봐야한다.
-
-<dl>
-    <dt><b>1. 요소의 수와 요소당 처리 시간</b></dt>
-    <dd>컬렉션 요소 수가 적고, 요소당 처리 시간이 짧으면 순차처리가 더 빠를 수 있다.</dd>
-    <dt><b>2. 스트림 소스의 종류</b></dt>
-    <dd>ArrayList, 배열은 병렬 처리 시간이 절약된다. 반면 HashSet, TreeSet, LinkedList는 병렬 처리 시간이 느리다.</dd>
-    <dt><b>3. 코어(Core)의 수</b></dt>
-    <dd>싱글 코어 일 경우 순차 처리가 빠르다. 코어 수가 많을 수록 병렬 작업 처리 속도는 빨라진다.</dd>
-</dl>
-
+# 병렬 처리 성능
+병렬처리 스트림은 3가지 요인을 잘 살펴봐야한다.
+1. 요소의 수와 요소당 처리 시간
+   * 컬렉션 요소 수가 적고, 요소당 처리 시간이 짧으면 순차처리가 더 빠를 수 있다.
+2. 스트림 소스의 종류
+   * ArrayList, 배열은 병렬 처리 시간이 절약된다. 반면 HashSet, TreeSet, LinkedList는 병렬 처리 시간이 느리다.
+3. 코어(Core)의 수
+   * 싱글 코어 일 경우 순차 처리가 빠르다. 코어 수가 많을 수록 병렬 작업 처리 속도는 빨라진다.
 ~~~java
 public class SequenceAndParallel{
      public static void work(int value){
