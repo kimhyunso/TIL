@@ -17,6 +17,7 @@ ehthumbs_vista.db
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+.idea/
 
 # Windows Installer files
 *.bfg-report
@@ -30,7 +31,6 @@ $RECYCLE.BIN/
 *.pub
 *.txt
 *.pdf
-
 
 
 
