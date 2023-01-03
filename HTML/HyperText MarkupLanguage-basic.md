@@ -20,7 +20,47 @@ opening tag + closing tag
 
 # attribute
 속성값 할당 가능
-## global attribute
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+<body>
+    <!-- attribute -->
+    <a href="https:google.com" target="_blank">구글 바로가기</a>
+</body>
+</html>
+```
+
+# global attribute
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+<body>
+    <!-- global attribute -->
+    <div>
+        <label for="my-name">이름 : </label>
+        <input type="text" id="my-name">
+    </div>
+
+    <div>
+        <label for="my-email">이메일 : </label>
+        <input type="email" id="my-eamil">
+    </div>
+</body>
+</html>
+```
 
 # 시맨틱 웹
 태그를 좀 더 직관적으로 의미있는 것으로 기술하자
@@ -36,7 +76,7 @@ opening tag + closing tag
 # Emmet
 
 # 웹 접근성
-
+웹을 접근하지 못하는 사람들을 위해서 좀 더 신경써서 쉽게 접근 할 수 있도록 만들어야 한다.
 
 # block과 inline
 `block` : 다음 요소(element)가 다음줄로 내려감

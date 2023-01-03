@@ -14,7 +14,5 @@ print(not x)
 # xor, 비트연산자
 ```python
 x, y = int(input())
-
-
 ```
 
