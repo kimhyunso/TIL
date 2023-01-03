@@ -168,6 +168,86 @@ HTML 요소를 선택해 변경함
 </html>
 ```
 
+# padding, margin, border
+
+```HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        padding:25px;
+        border: 25px solid red;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  </body>
+</html>
+```
+
+# box-sizing
+박스의 margin, padding, width 를 합한 값이 width 값이다
+
+```HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        /* 600 + 50*4 + 10 = 810px */
+      .content-box {
+        width: 600px;
+        border: 10px solid;
+        padding: 50px;
+        margin: 50px;
+        background-color: red;
+      }
+      /* 총합 : 600px */
+      .border-box {
+        box-sizing: border-box;
+        width: 600px;
+        border: 10px solid;
+        padding: 50px;
+        margin: 50px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="content-box">content-box</div>
+  <div class="border-box">border-box</div>
+</body>
+</html>
+```
+
+# display
+1. inline
+> 가로 화면이 끝날때까지 이어진다.
+2. block
+> 다음 줄로 넘어간다.
+
+# flex
+Main Axis(주축) : 가로
+Cross Axis(교차 축) : 세로
+
+## 주축을 움직임
+`justify-content`
+## 교차 축을 움직음
+`align-items`
+## 방향을 바꿈 주축, 교차축을 바꿈
+`flex-direction : column` - 주축을 교차 축과 변경
+
+`flex-direction : row` - 주축이 가로
+
+`flex-direction : row-reverse` - 주축을 왼쪽에서 오른쪽으로 변경
+
+`flex-direction : colum-reverse` - 주축과 교차 축을 변경하고 주축을 밑에서 위로 바꿈
+
+
+
+
 
 
 
