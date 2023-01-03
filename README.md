@@ -79,3 +79,6 @@ call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응
 
 # 26일차
 웹의 기초 및 html
+
+# 27일차
+css 기초 및 bootstrap
