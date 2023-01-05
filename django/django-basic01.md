@@ -1,3 +1,8 @@
+`django-admin startproject <mysite>`
+
+`python mange.py startapp <appname>`
+
+
 # MTV 패턴
 mvc 패턴과 동일
 
