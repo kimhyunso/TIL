@@ -82,3 +82,13 @@ call by values와 call by reference에 대해 + shallow copy 와 deep copy + 응
 
 # 27일차
 css 기초 및 bootstrap
+
+# 28일차
+django를 이용한 prject만들기
+
+# 29일차
+urls와 templates 구조, 웹 보안
+
+# 30일차
+django DB CRUD에 대해서
+
