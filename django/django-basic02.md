@@ -1,6 +1,7 @@
 # app_name
 django가 보는 templates가 공통되기 때문에 templates에 같은 html이 있다면 먼저 인식된 app의 HTML이 실행되는 것을 방지하기 위해 사용한다.
 
+태그명
 ```python
 from django.urls import path
 from . import views

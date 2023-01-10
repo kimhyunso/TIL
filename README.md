@@ -92,3 +92,8 @@ urls와 templates 구조, 웹 보안
 # 30일차
 django DB CRUD에 대해서
 
+# 31일차
+CRUD 웹페이지 만들기
+
+# 32일차
+CRUD 웹페이지 복습

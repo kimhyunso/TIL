@@ -1,7 +1,10 @@
+
+# 프로젝트 만들기
 `django-admin startproject <mysite>`
 
-`python mange.py startapp <appname>`
 
+# 프로젝트 앱 만들기
+`python mange.py startapp <appname>`
 
 # MTV 패턴
 mvc 패턴과 동일
