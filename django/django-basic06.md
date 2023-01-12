@@ -1,9 +1,12 @@
-# `require_safe`
+# `@require_safe`
 
-# `require_http_methods`
+# `@require_http_methods`
 
-# `get_object_or_404`
+# `@get_object_or_404`
 
 # http 요청
-get, post, put, delete
+1. GET
+2. POST
+3. PUT
+4. DELETE
 

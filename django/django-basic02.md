@@ -45,29 +45,32 @@ urlpatterns = [
 ```
 
 # HTML Form 데이터 받아오기
+1. request.POST
+2. request.GET
+
+## get방식
+DB에 변경사항이 없을 경우의 요청 (R)
+```python
+def get_html(request):
+    context = {
+        'data' : data,
+    }
+    return render(request, 'index.html', context)
+```
 
 ## post방식 : csrf_token
-복제 방지 token
+1. DB에 변경사항이 있을 경우 (C, U, D)
+2. 복제 방지 token사용해야함
+```html
+<form action="url" method="post">
+    {% csrf_token %}
+</form>
+```
+
 ```python
 def user_output(request):
     context = {
         'username' : request.POST['username'],
-        'password' : request.POST['password'],
     }
-    return render(request, 'data/user_output.html', context)
-```
-
-```HTML
-{% include 'base.html' %}
-{% block content %}
-<h1>User Input</h1>
-{% comment %} post => csrf_token 필수 {% endcomment %}
-<form action="{% url 'data:user_output' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <input type="submit">
-</form>
-
-{% endblock content %}
+    return redirect('url')
 ```
