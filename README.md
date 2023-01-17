@@ -110,3 +110,5 @@ django DB CRUD에 대해서
 # 2023-01-16
 many-to-many DB에 대해서
 
+# 2023-01-17
+many-to-many 게시판 좋아요
