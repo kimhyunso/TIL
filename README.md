@@ -112,3 +112,6 @@ many-to-many DB에 대해서
 
 # 2023-01-17
 many-to-many 게시판 좋아요
+
+# 2023-01-18
+ORM managements에 대해, css, html 분산시키는 방법
