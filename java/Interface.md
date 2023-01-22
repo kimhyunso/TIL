@@ -5,9 +5,6 @@
 ​컴파일시, .class로 나타난다.
 
 ​인터페이스를 구현받은 객체들은 대체가 가능한 부품들이다.
-
-
-
 ~~~java
 public interface InterfaceName{
     //잘 안씀

@@ -380,6 +380,8 @@ poetry.toml
 *.txt
 *.wpd
 *.wps
+*.pdf
+*.jar
 
 ### Windows ###
 # Windows thumbnail cache files
