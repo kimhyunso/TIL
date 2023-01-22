@@ -42,14 +42,14 @@ add와 commit 동시에 진행함
 ## git log --oneline
 최근 기록의 일정 로그 보기
 ## git log --oneline --graph
-최근 기록의 일정 로그를 도표처럼 보여주기
+최근 기록의 일정 로그를 그래픽으로 보여주기
 
 # ctrl + R
 전에 썻던 명령어 search
 
 # .bash_profile
 ## 별명설정
-alias gl='git log'
+alias gl='git log --oneline --graph'
 alias jn='jupyter notebook'
 
 # 브랜치 (Branch)
@@ -65,7 +65,7 @@ alias jn='jupyter notebook'
 # HEAD
 어디 브랜치에서 일을 할 것인가
 
-`$ git switch -c <브랜치명>`
+
 # Merge
 `$ git merge <브랜치명>`
 1. FF (Fast-Forward) (commit : 새로운 commit 안함)
@@ -80,8 +80,6 @@ alias jn='jupyter notebook'
 ## Conflict (충돌)
 두 개의 브런치가 완성된 시점에서 두 개의 브런치를 병합하는 경우
 > 서로 같은 파일을 수정하고 있을 경우
-1. 
-
 
 ## master => 정상동작 SW [배포되는 branch]
 
