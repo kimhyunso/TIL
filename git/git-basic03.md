@@ -25,8 +25,8 @@ staged에 올라간 상태
 커밋으로 저장소에 기록
 > `Commit` => Unmodified 이동
 
-# `git status`
-파일의 상태확인
+# 파일의 상태확인
+`$ git status`
 
 # git add <파일명 or 폴더명>
 Tracked됨
@@ -37,12 +37,13 @@ Tracked됨
 # git commit -a -m ""
 add와 commit 동시에 진행함
 
-# git log
-로그 보기
-## git log --oneline
-최근 기록의 일정 로그 보기
-## git log --oneline --graph
-최근 기록의 일정 로그를 그래픽으로 보여주기
+# 로그보기
+`$ git log`
+## 최근 기록의 일정 로그 보기
+`$ git log --oneline`
+## 최근 기록의 일정 로그를 그래픽으로 보여주기
+`$ git log --oneline --graph`
+
 
 # ctrl + R
 전에 썻던 명령어 search
