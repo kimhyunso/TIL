@@ -26,28 +26,23 @@
 
    논리적으로 격리된 구역을 분리된 서버처럼 만드는 가상화기법
 
-<h3>장점</h3>
-
+## 장점
 1. 게스트 운영체제 불필요
 2. 이식성
 3. 상호운용성
 
-<h3>주요기능</h3>
-
+## 주요기능
 1. 이미지 생성 및 관리
 2. 이미지 공유
 3. 컨테이너 동작
 
-<h3>OverlayFS</h3>
-
+## OverlayFS
 cow 방식
 
-<h1>docker 명령어</h1>
-
+# docker 명령어
 1. docker search [검색할 이미지명]
 
    찾은 이미지 Repository 보여줌
-
 2. docker pull [이미지명]
 
    이미지 다운로드
@@ -120,14 +115,13 @@ cow 방식
 
 15. dockerfile
 
-<h1>컨테이너 네트워크</h1>
-
+# 컨테이너 네트워크
 도커 오브젝트 : 네트워크 + 볼륨 + 컨테이너 + 이미지
 
 1. bridge
 2. host
 3. null
 
-docker network create
+`docker network create`
 
 --subnet 192.168.0.0/24 --gateway 192.168.0.254 [네트워크이름]

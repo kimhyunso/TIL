@@ -112,7 +112,6 @@ docker volume prune
 
 docker run --name [컨테이너 이름] -rm [이미지이름]
 
-
 IaaS : OS
 
 PaaS : OS + 플랫폼
