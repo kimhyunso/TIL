@@ -1,11 +1,11 @@
 # 데이터 분석 수행
-Select Collect(자료수집) => preprocessing(전처리) => transform(변환) => model(모델) => Evaluation(평가)
+Select(자료수집) => preprocessing(전처리) => transform(변환) => model(모델) => Evaluation(평가)
 
 1. [Data Engineer(데이터 엔지니어)] :: 1TB = 10GB * 10대 (하둡분산병렬처리)
 2. [Data Architecture(데이터 아키텍처)] => DAsP, DAP
-* Select Collect(자료수집) => preprocessing(전처리)
+* Select(자료수집) => preprocessing(전처리)
 3. [SQL (Stuctured Query Language) - 데이터 호출] => sqld, sqlp
-* Select Collect(자료수집) => preprocessing(전처리) 사이
+* Select(자료수집) => preprocessing(전처리) 사이
 4. [데이터 분석가 ] -> ADsP, 빅데이터 분석기사, ADP
 * transform(변환) => model(모델) => Evaluation(평가)
 
@@ -85,7 +85,6 @@ array_float = np.zeros((2, 4), dtpye='float64')
 print(array_int)
 print(array_float)
 ```
-
 
 # ones
 1로 채워진 행렬 생성
