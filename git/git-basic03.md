@@ -13,6 +13,7 @@ staged에 올리기 전 상태
 # Tracked
 staged에 올라간 상태
 
+
 관리대상 (A)
 
 # Unmodified
