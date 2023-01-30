@@ -156,8 +156,9 @@ titan_df['Fam_no'] = titan_df.SibSp + titan_df.Parch + 1
 titan_df['Age_by_100'] = titan_df.Age * 100
 print(titan_df)
 # 열 삭제
-# 1. 원본에서 컬럼을 지우는 방법
+# 1. 원본에서 컬럼을 지우는 방법 (inplace=True)
 titan_df.drop('Age_10', axis=1, inplace=True)
 # 2 원본은 그대로 컬럼을 지우는 방법
 titan_df = titan_df.drop(['Age_0', 'Age_by_100'], axis=1)
 ```
+
