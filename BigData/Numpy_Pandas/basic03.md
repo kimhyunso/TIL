@@ -12,12 +12,7 @@ import pandas as pd
 datase = {
     ''
 }
-
-
-pd.
-
-
-
-
-
 ```
+
+# `lambda`
+익명 함수
