@@ -26,6 +26,7 @@ Controller : 데이터와 뷰를 이어주는 매개체
 > 
 > 'DIRS' : BASE_DIR/'폴더명'
 
+
 # template tag
 `{% block %}` `{% endblock %}`
 
