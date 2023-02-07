@@ -83,7 +83,24 @@ N	8	12	16 3행
 0열 1열 2열 3열
 '''
 print(f'DataFrame : {df}')
+
+
+# 행에서 가열의 데이터가 1인 데이터만 'N'으로 변경한다. 나머지는 원래의 값을 갖는다. 
+df['가'] = df.apply(lambda x :'N' if x.가 == 1 else x.가, axis=1)
+
+'''
+# result, type : series
+가	나	다	라
+N	5	9	13 0행
+2	6	10	14 1행
+3	7	11	15 2행
+4	8	12	16 3행
+0열 1열 2열 3열
+'''
+print(f'DataFrame : {df}')
 ```
+
+
 
 
 
