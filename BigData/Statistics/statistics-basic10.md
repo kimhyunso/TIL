@@ -8,7 +8,7 @@
 선정독등비
 
 # 독립변수
-X
+X == 설명변수
 
 # 종속변수
 Y (label == 레이블)
@@ -22,10 +22,10 @@ Y (label == 레이블)
 # SSR Some of Squares Regression
 (Yi햇 - Yi바)
 
-# SSE Some of Squares Error
+# SSE Some of Squares Error == RSS (Residuals Sum of Squares)
 (Yi - Yi햇)
 
-SST = SSR + SSE
+- SST = SSR + SSE
 
 # R^2
 단순선형 O
