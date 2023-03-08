@@ -13,7 +13,6 @@ empty_List = []
 create_List = list()
 print(empty_List, create_List)
 
-
 # result ['강남', '서초', '송파', '광진', '마포']
 locations = ['강남', '서초', '송파', '광진', '마포']
 # locations = ['강남' '서초', '송파', '광진', '마포'] : 실행됨, 주의! 
@@ -67,6 +66,9 @@ print(list_data)
 ```
 
 # `range()`
+
+n ~ m-1, sep을 증가시킨다.
+
 `range(n), range(n, m), range(n, m, sep)`
 ```python
 import random
@@ -106,7 +108,6 @@ locations = ['강남', '서초', '송파', '광진', '마포']
 print(locations[1:3])
 
 numbers = list(range(0, 31, 3))
-
 
 # list[x:y:z] => x~y-1, step z
 # result 1 3 5 7 9
