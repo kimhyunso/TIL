@@ -207,3 +207,11 @@ matplotlib로 시각화
 
 # 2023-03-09
 팀 프로젝트 발표
+
+# 2023-03-10
+카테고리분류(Classification), 의미있는 숫자끼리의 분류(LinearRegression) 차이점
+
+# 2023-03-13
+Classifcation 혼동행렬, LinearRegression CostFunction, 평가지표 (MSE[MeanSquredError]), 경사하강법
+
+
