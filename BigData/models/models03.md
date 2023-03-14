@@ -1,4 +1,4 @@
-# Classification
+# 분류모델
 # Logistic Regression
 
 ## Threshold : 한계점
@@ -36,29 +36,47 @@ C : Hyper-parameter 작게 주면 무시함
 
 크사이 : 분류된 데이터의 오류 거리
 
-# 선형적으로 분리되지 않는 경우
-선형분리불가능문제 (Linearly Unseparable)
 
-고차원 공간으로 변환시킴
-# Kernel Function
-Hyper-parameter
-1. 다항커널
-2. 가우시안
+# Linearly Unseparable(선형 분리 불가능)
+데이터가 분리가 선형적으로 분리가 불가능할 경우
 
+# Kernel Support Vector Machines(커널 서포트 벡터 머신)
+2차원 -> Hyper-Parameter(함수)를 통해 3차원 공간으로 이동시킴
+
+## Kernel Function (Hyper-Parameter)
+1. 다항함수
+2. 가우시안 함수
 
 # 딥러닝
 1. LinearCombination
-
 ## 근간
 Layer = Learnable Kernel
-
 ## 특성교차 (Feature Crosses)
 
+# SVM
+C값, gamma값이 커질 수록 오버피팅
+
+# 가우시안 함수
+RBF (Radial Basis Function) 방사기저함수
+
+### snake_case
+### camelCase
+### PascalCase
+### kebab-case
+
+# NuMericalValue
+## Feature Scale 적용
+train_X 데이터만 사용
+
+# 카테고리Value
+## One-Hot Encoding
+## Label Encoding
 
 
+# Hyper-parameter Optimization == HPO 최적 해를 찾아주는 모델
+1. Grid-Search
+2. Randomized-Search
+3. Bayesian-Search
 
-
-
-
-
-
+# 분류모델
+# K-Nearset Neighbor Algorithm
