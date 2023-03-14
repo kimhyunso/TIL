@@ -50,9 +50,6 @@ MSE' = 0(미분방정식)을 통해 구할 수 있음
 
 x데이터가 양성(Positive)일 확률
 
-
-
-
 ## Logistic Regression
 두 가지의 경우가 나온다.
 1. y값
@@ -66,6 +63,7 @@ Hyper-parameter default : 0.5
 ![img](../Img/LogisticRegression.png)
 > 1 / 1 : 상수 + e(자연상수)
 
+# 평가지표
 ## CrossEntropy
 에러율이 낮을 수록 분류를 더 잘한 것이다.
 
@@ -102,6 +100,8 @@ TP + FN / TP = 30 + 5 / 30
 ### Precision(정밀도)
 TP + FP / TP
 
+## F1-Score
+Recall + Precision 조화
 
 
 
