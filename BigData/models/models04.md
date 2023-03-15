@@ -19,3 +19,6 @@
 ## variable importances
 column들의 중요도
 
+# 비지도 학습
+## cluster
+1. K-mean
