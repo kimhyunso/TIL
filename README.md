@@ -214,4 +214,8 @@ matplotlib로 시각화
 # 2023-03-13
 Classifcation 혼동행렬, LinearRegression CostFunction, 평가지표 (MSE[MeanSquredError]), 경사하강법
 
+# 2023-03-14
+SVM, Soft_MarginSVM, KernelFunction
 
+# 2023-03-15
+의사결정나무(Decision Tree), RandomForest, 앙상블(ensemble)
