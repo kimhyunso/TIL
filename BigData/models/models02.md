@@ -51,6 +51,8 @@ MSE' = 0(미분방정식)을 통해 구할 수 있음
 x데이터가 양성(Positive)일 확률
 
 ## Logistic Regression
+2진분류 모델
+
 두 가지의 경우가 나온다.
 1. y값
 2. 카테고리 값 ex) 0 or 1
