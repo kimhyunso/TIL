@@ -30,7 +30,9 @@ Margin을 최대화하는 결정 경계(면)을 찾는 기법
 1. Max = 2 / ||w||(놈)
 2. MIN = Max의 역수
 
-![img](../Img/SVMmargin.png)
+
+$$ arg min_w, \xi, b\{\frac{1}{2}||w||^2 + C\sum_{i=1}^{n}\xi_i\} $$
+
 
 C : Hyper-parameter 작게 주면 무시함
 

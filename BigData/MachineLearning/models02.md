@@ -1,6 +1,7 @@
 # Regression Cost Function
 
-![img](../Img/GradientDescent.png)
+$$ J(\theta) = \frac{1}{2} \sum_{i=1}^{m} (h\theta(x^{(i)}) - y^{(i)})^2 $$
+
 
 1. MSE (Mean Squred Error) Function
 평균제곱오차
@@ -38,7 +39,8 @@ Global Minimum : 전역 최소값
 Hyper Parameter (초매개변수)
 
 ## Loss Surface
-θ_0
+$$\theta_0$$
+
 ## Optimaization 최적화
 MSE' = 0(미분방정식)을 통해 구할 수 있음
 ## Local Mimima 국소최소값 :: 주의
@@ -62,7 +64,8 @@ Hyper-parameter default : 0.5
 - 0.5미만의 값으로 설정 시, 모델이 느슨해짐
 
 ## Sigmoid Function
-![img](../Img/LogisticRegression.png)
+$$ y = \frac{1}{1+e^{ax+b}}$$
+
 > 1 / 1 : 상수 + e(자연상수)
 
 # 평가지표
