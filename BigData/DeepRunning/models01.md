@@ -2,7 +2,9 @@
 > 입력층 - 히든층 - 출력층
 >
 > 행렬곱 연산을 통해 결과값을 내놓는다. 결과값을 $g(x)$함수를 통해 찾아낸다.
+
 $$ x_1 \theta_1 + x_2\theta_2 + x_3\theta_3 + \theta_0 = \sum_{i}\theta_ix_i $$
+
 - $x_n$ : 행
 - $\theta_n$ : 다음 노드로 뻗어나가는 가지(가중치)
 - $g(x)$ : Activation Functionss = Hyper parameter
