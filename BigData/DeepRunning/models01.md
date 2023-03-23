@@ -10,6 +10,7 @@ $$ x_1 \theta_1 + x_2\theta_2 + x_3\theta_3 + \theta_0 = \sum_{i}\theta_ix_i $$
 # Activation Functions = Hyper parameter
 > 비선형 함수
 $$ g(\sum_{i}\theta_ix_i) $$
+
 1. Sigmoid
 2. tanh(Hyperbolic Tangent)
 3. ReLU
