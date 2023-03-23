@@ -234,3 +234,6 @@ SVM, Soft_MarginSVM, KernelFunction
 
 # 2023-03-22
 인공신경망 (ANN) 퍼셉트론의 기초
+
+# 2023-03-23
+GradientDescent 최적의 해 찾기(L1, L2), BatchNormalization
