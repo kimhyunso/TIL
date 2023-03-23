@@ -24,7 +24,8 @@ $$ g(z) = max(0, z) $$
 
 ## Leaky ReLU
 $\alpha$ : Hyper-parameter
-$$ g(z) = max(\alpha z, z) $$
+
+$$g(z) = max(\alpha z, z)$$
 
 
 ## 카테고리 분류 (Classfication)
