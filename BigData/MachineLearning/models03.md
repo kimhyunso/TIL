@@ -31,7 +31,7 @@ Margin을 최대화하는 결정 경계(면)을 찾는 기법
 2. MIN = Max의 역수
 
 
-$$ arg min_w, \xi, b\{\frac{1}{2}||w||^2 + C\sum_{i=1}^{n}\xi_i\} $$
+$$ arg min_w, \xi, b\{\frac{1}{2}\left\lvert\left\lvert w\right\lvert\right\lvert^2 + C\sum_{i=1}^{n}\xi_i\} $$
 
 
 C : Hyper-parameter 작게 주면 무시함
