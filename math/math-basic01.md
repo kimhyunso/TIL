@@ -23,4 +23,4 @@ $$ 3 \times 5 \times 7 의 인수 : 3, 5, 7, 15, 21, 35, 105 $$
 
 $$ 12의 인수분해 : 1 \times 12, 2 \times 6, 3 \times 4, 2 \times 2 \times 3 $$
 
-$$ 12 소인수분해 : 1 \times 12, 2 \times 6, 3 \times 4 중 하나를 선택하여 솟수가 될 때까지 쪼개기 => 3 \times 4 => 3 \times 2^2 $$
+$$ 12 소인수분해 : 1 \times 12, 2 \times 6, 3 \times 4 중 하나를 선택하여 솟수가 될 때까지 쪼개기 \therefore 3 \times 4 \therefore 3 \times 2^2 $$
