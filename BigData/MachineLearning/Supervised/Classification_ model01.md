@@ -1,11 +1,6 @@
 # ClassiFication : 분류
 1. 로지스틱회귀 (Logistic Regression) : 이진분류
 2. 서포트벡터머신 (Support Vector Machine : SVM)
-3. 랜덤포레스트 (Random Forest)
-4. 의사결정나무 (Decision Tree)
-5. Gradient Boosting Tree (GBT)
-6. SGD Classifier
-7. AdaBoost
 
 내가 예측하고자 하는 Y값이 카테고리처럼 분류할 수 있는 경우 숫자 자체에 의미가 없는 경우 : 이진분류 0, 1, 2 등...
 
