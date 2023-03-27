@@ -29,13 +29,13 @@ Sample => Explore => Modify => Model => Assess (반복)
 
 # 통계학의 자료
 1. 명목척도
-- 단순한 구분기호
+   - 단순한 구분기호
 2. 서열척도
-- 순서
+   - 순서
 3. 등간척도
-- 순서 사이의 간격
+   - 순서 사이의 간격
 4. 비율척도
-- 비율
+   - 비율
 
 * 절대영점
 
@@ -43,21 +43,20 @@ Sample => Explore => Modify => Model => Assess (반복)
 1. 산술평균
 2. 중앙값
 3. 최빈값
-
-1. 산술평균
+## 산술평균
 a, b, c
 
-(a+b+c) / 3
- 
-2. 기하평균
-abc^1/3
+$$ (a+b+c) / 3 $$
 
-sqrt(a*b)
+## 기하평균
+$abc^\frac{1}{3}$
 
-3. 조하평균
+$$ \sqrt{a \times b} $$
+
+1. 조하평균
 분류분석 => F1_score
 
-* F1_score = 2*A*B / (A+B)
+* F1_score = $2 \times A \times B / (A+B)$
 
 1. Data Work Flow
 데이터 수집 => 데이터 전처리 => 모델링 - 규칙을 찾는다. => 과정평가/결과해석/시각화
