@@ -237,3 +237,9 @@ SVM, Soft_MarginSVM, KernelFunction
 
 # 2023-03-23
 GradientDescent 최적의 해 찾기(L1, L2), BatchNormalization
+
+# 2023-03-24
+epoch, batch/ Tensorflow v2를 사용하여 인공신경망 구성
+
+# 2023-03-27
+복습

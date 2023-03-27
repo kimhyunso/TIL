@@ -90,13 +90,9 @@ $$(3,2) \overrightarrow{x:+3} (6, 2), \overrightarrow{y:+2}(6, 4)$$
 
 # 일대일함수
 정의역이 서로 다른 공역에서 화살을 쏘지 않는 것
-> 1 -> 2
-> 
-> 3 -> 4
-> 
-> 5 -> 6
-> 
-> -----7
+
+$$ \begin{pmatrix}1\\2\\3\end{pmatrix} \begin{pmatrix}2\\4\\6\end{pmatrix} $$
+
 # 일대일대응함수
 1. 일대일 함수이면서
 2. 정의역과 공역이 서로 같은 것
