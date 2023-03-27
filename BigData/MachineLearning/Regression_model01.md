@@ -16,11 +16,18 @@ $$ h(x) = \theta_0x + \theta_1  $$
 
 - y = Numerical Value
 - x값이 증가함에 따라 3차원 - 4차원 무한히 확장가능
-## 표준화
+## 피처스케일링(표준화, 정규화)
 - StandardScaler
 - MinmaxScaler
+## 표준화 (Standardization)
 ### StandardScaler
 - 평균이 0이고 분산이 1인 정규 분포로 만드는 것
+
+$$ (x_i-(x의 최솟값)) / (x의 최댓값 - x의 최솟값) = (x_i-min(x))/(max(x)-min(x)) $$
+
+## 정규화 (Normalization)
+### MinmaxScaler
+- 모든 값을 0~1 사이의 값으로 바꾸는 것이다. 음수도 예외 없이 다 바꾼다.
 
 $$ (x_i - (x의 평균)) / (x의 표준편차) = (x_i-\mu) / \sigma $$
 
@@ -52,30 +59,19 @@ $$ R^2 = \frac{\sum{(예측값-타겟평균값)^2}}{\sum{(관측값-타켓평균
 $$ R^2 = 1 - \frac{\sum{오차^2}}{\sum{편차^2}}$$
 
 
-# ClassiFication : 분류
-내가 예측하고자 하는 Y값이 카테고리처럼 분류할 수 있는 경우 숫자 자체에 의미가 없는 경우 : 이진분류 0, 1, 2 등...
+## Gradient Descent(경사하강법)
+x = θ  y = MSE값을 미분을 하여 접선의 기울기를 구하여 최적화된 MSE값을 도출하는 알고리즘
 
-y = Class
+1. y = θ_1x + θ_0 : 원인 ex) 2x + 3 (θ1의 값은 랜덤)
+2. 모델 모양 위치
+3. 결과 = MSE
 
-x1, x2 데이터가 x, y그래프로 표현됨
+2번을 없앤다면 원인이 결과를 낳는다.
 
-x = Feature, Attribute, Column, Demension
+## Leaning Rate = α = 보폭
+Hyper Parameter (초매개변수)
 
-x만 = Feature
-
-x and y = Attribute, Column, Demension
- 
-# Generation
-Captity 극대화 -> Overfittig -> Generation 증가
-
-# K-fold
-K : 자신이 몇 번 학습을 시킬 것인지
-
-80% : train_data
-
-20% : test_data
-
-# Stratified(층화)
-80%의 train_data 안에서 다시 train_data, validation_data, test_data로 나누어 반복 학습한다.
-
-# Accuracy
+## Optimaization 최적화
+MSE' = 0(미분방정식)을 통해 구할 수 있음
+## Local Mimima 국소최소값 :: 주의
+**경사하강법 도중 미세한 경사들이 MSE의 적절한 값으로 대체될 수 있음**

@@ -1,50 +1,38 @@
-# Regression Cost Function
+# ClassiFication : 분류
+1. 로지스틱회귀 (Logistic Regression) : 이진분류
+2. 서포트벡터머신 (Support Vector Machine : SVM)
+3. 랜덤포레스트 (Random Forest)
+4. 의사결정나무 (Decision Tree)
+5. Gradient Boosting Tree (GBT)
+6. SGD Classifier
+7. AdaBoost
 
-$$ J(\theta) = \frac{1}{2} \sum_{i=1}^{m} (h\theta(x^{(i)}) - y^{(i)})^2 $$
+내가 예측하고자 하는 Y값이 카테고리처럼 분류할 수 있는 경우 숫자 자체에 의미가 없는 경우 : 이진분류 0, 1, 2 등...
 
+y = Class
 
-1. MSE (Mean Squred Error) Function
-평균제곱오차
+x1, x2 데이터가 x, y그래프로 표현됨
 
-2. MAE (Mean Absolute Error) Function
-평균절대값오차
+x = Feature, Attribute, Column, Demension
 
-3. MAPE (Mean Absolute Percentage Error) Function
-평균절대값퍼센트오차
+x만 = Feature
 
-4. RMSE (Root Mean Squred Error) Function
-평균제곱에 루트 씌운 오차
+x and y = Attribute, Column, Demension
+ 
+# Generation
+Captity 극대화 -> Overfittig -> Generation 증가
 
-> CostFunction < 목적함수
+# K-fold
+K : 자신이 몇 번 학습을 시킬 것인지
 
-- a = (weight)가중치
-- b = (bias)편향치
-- y = θ
-- y = ax + b
+80% : train_data
 
-## Gradient Descent(경사하강법)
-x = θ  y = MSE값을 미분을 하여 접선의 기울기를 구하여 최적화된 MSE값을 도출하는 알고리즘
+20% : test_data
 
-1. y = θ_1x + θ_0 : 원인 ex) 2x + 3 (θ1의 값은 랜덤)
-2. 모델 모양 위치
-3. 결과 = MSE
+# Stratified(층화)
+80%의 train_data 안에서 다시 train_data, validation_data, test_data로 나누어 반복 학습한다.
 
-2번을 없앤다면 원인이 결과를 낳는다.
-
-
-## MSE의 최적화된 위치
-Global Minimum : 전역 최소값
-
-## Leaning Rate = α = 보폭
-Hyper Parameter (초매개변수)
-
-## Loss Surface
-$$\theta_0$$
-
-## Optimaization 최적화
-MSE' = 0(미분방정식)을 통해 구할 수 있음
-## Local Mimima 국소최소값 :: 주의
-**경사하강법 도중 미세한 경사들이 MSE의 적절한 값으로 대체될 수 있음**
+# Accuracy
 
 
 # ClassiFication
