@@ -1,20 +1,41 @@
-# 분류 모델
-1. Regression
-2. Classification
-
-h(x) = Θ_0x + Θ_1
-
-# Regression
-내가 예측하고자 하는 Y값이 수치에 의미가 있는 경우 = 덧셈, 뺄셈, 곱셈가능
-
-y = Numerical Value
-
-x값이 증가함에 따라 3차원 - 4차원 무한히 확장가능
-
-- Overfitting(과적합)
+# Overfitting(과적합)
 많은 데이터를 학습한 결과 데이터를 외워버려 새로운 데이터에 대한 학습이 떨어지는 경우
 
-# ClassiFication
+# Regression : 회귀
+내가 예측하고자 하는 Y값이 수치에 의미가 있는 경우 = 덧셈, 뺄셈, 곱셈가능
+
+다른 독립변수 $\theta_0\dots\theta_n$가 연속형
+
+$$ y = ax + y  $$
+
+$$ h(x) = \theta_0x + \theta_1  $$
+
+- y = Numerical Value
+- x값이 증가함에 따라 3차원 - 4차원 무한히 확장가능
+## 전처리
+- StandardScaler
+- MinmaxScaler
+
+## 평가지표
+- MSE (Mean Squared Error) : 평균제곱오차
+- MAE (Mean Absolute Error) : 평균절대값오차
+- MAPE (Mean Absolute Percentage Error) : 평균절대값퍼센트오차
+- RMSE (Root Mean Squared Error) : 평균제곱에 루트 씌운 오차
+- R2 (R Squared Score) 결정계수
+
+## MSE
+$$ MSE = \frac{1}{n} \sum_{i=1}^{n} (\hat{Y}_i-Y_i)^2 $$
+## MAE
+$$ MAE = \frac{1}{n} \sum_{i=1}^{n} \left\lvert\hat{Y}_i-Y_i\right\rvert $$
+## MAPE
+$$ MAPE = \frac{100}{n} \sum_{t=1}^n \left\lvert\frac{A_t-F_t}{A_t}\right\rvert$$
+## RMSE
+$$ RMSE = \sqrt{MSE} $$
+## R2
+
+
+
+# ClassiFication : 분류
 내가 예측하고자 하는 Y값이 카테고리처럼 분류할 수 있는 경우 숫자 자체에 의미가 없는 경우 : 이진분류 0, 1, 2 등...
 
 y = Class
