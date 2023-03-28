@@ -45,7 +45,7 @@ $$ \frac{TP}{TP+FP} $$
 |스팸메일아님|True Positive(30)|False Positive(15)|
 |스팸메일임|False Negative(5)|True Negative(50)|
 
-- $\frac{TP}{TP + FP} = \frac{30}{30 + 15}$
+$$\frac{TP}{TP + FP} = \frac{30}{30 + 15}$$
 
 ## Recall(재현율)
 $$ \frac{TP}{TP+FN} $$
@@ -58,7 +58,7 @@ $$ \frac{TP}{TP+FN} $$
 |암안걸림|True Positive(30)|False Positive(15)|
 |암걸림|False Negative(5)|True Negative(50)|
 
-- $\frac{TP}{TP + FN} = \frac{30}{30 + 5}$
+$$\frac{TP}{TP + FN} = \frac{30}{30 + 5}$$
 
 ## F1-Score
 Recall + Precision 조화
@@ -94,11 +94,13 @@ Sigmoid 함수를 이용하면 한계점을 정해줘야함
 - 낮을 수록 느슨해짐
 
 
-## SVM (Support Vector Machine)
+# SVM (Support Vector Machine)
 Margin을 최대화하는 결정 경계(면)을 찾는 기법
 
 C값, gamma값이 커질 수록 오버피팅
 
+## Linearly Unseparable(선형 분리 불가능)
+데이터가 분리가 선형적으로 분리가 불가능할 경우
 
 # Soft Margin SVM
 ## 목적함수
@@ -115,8 +117,6 @@ C : Hyper-parameter 작게 주면 무시함
 
 크사이 : 분류된 데이터의 오류 거리
 
-## Linearly Unseparable(선형 분리 불가능)
-데이터가 분리가 선형적으로 분리가 불가능할 경우
 
 ## Kernel Support Vector Machines(커널 서포트 벡터 머신)
 2차원 -> Hyper-Parameter(함수)를 통해 3차원 공간으로 이동시킴
