@@ -1,6 +1,3 @@
-# Generation
-Captity 극대화 -> Overfittig -> Generation 증가
-
 # ClassiFication : 분류
 1. 로지스틱회귀 (Logistic Regression) : 이진분류
 2. 서포트벡터머신 (Support Vector Machine : SVM)
@@ -79,7 +76,7 @@ ROC Curve 밑의 면적을 기준으로 좋은지 나쁜지를 판단함
 ## Sigmoid Function
 > 1 / 1 : 상수 + e(자연상수)
 
-$$ y = \frac{1}{1+e^{ax+b}}$$
+$$ y = \frac{1}{1+e^{ax+b}} $$
 
 ## Cutoff
 Hyper-parameter default : 0.5
@@ -128,16 +125,13 @@ C : Hyper-parameter 작게 주면 무시함
 ## 가우시안 함수
 RBF (Radial Basis Function) 방사기저함수
 
-
-# K-Nearset Neighbor Algorithm
-
-
+# K-Nearset Neighbor Algorithm (KNN)
+비슷한 특성을 가진 데이터는 비슷한 범주에 속하는 경향이 있다는 가정하에 사용함
 
 # Hyper-parameter Optimization == HPO 최적 해를 찾아주는 모델
 1. Grid-Search
 2. Randomized-Search
 3. Bayesian-Search
-
 
 # K-fold
 K : 자신이 몇 번 학습을 시킬 것인지
