@@ -1,21 +1,143 @@
+# Generation
+Captity 극대화 -> Overfittig -> Generation 증가
+
 # ClassiFication : 분류
 1. 로지스틱회귀 (Logistic Regression) : 이진분류
 2. 서포트벡터머신 (Support Vector Machine : SVM)
 
+> y = Class
+> 
+> x = Feature, Attribute, Column, Demension : x만 = Feature
+>
+> x and y = Attribute, Column, Demension
+
 내가 예측하고자 하는 Y값이 카테고리처럼 분류할 수 있는 경우 숫자 자체에 의미가 없는 경우 : 이진분류 0, 1, 2 등...
 
-y = Class
+# 데이터전처리
+## Label Encoding
+{토끼, 사자, 고양이, 강아지} => {0, 1, 2, 3}
 
-x1, x2 데이터가 x, y그래프로 표현됨
+## One-hot Encoding
+{토끼, 사자, 고양이, 강아지} => {0001, 0010, 0100, 1000}
 
-x = Feature, Attribute, Column, Demension
+# 평가지표
+## CrossEntropy
+에러율이 낮을 수록 분류를 더 잘한 것이다.
+### Entropy
+불확실성의 척도로 정보이론에서의 엔트로피는 불확실성을 나타내며 엔트로피가 높다는 것은 정보가 많고 확률링 낮다는 것을 의미한다.
 
-x만 = Feature
+$$ H(x) = -\sum_{i=1}^np(x)logp(x_i) $$
 
-x and y = Attribute, Column, Demension
- 
-# Generation
-Captity 극대화 -> Overfittig -> Generation 증가
+## 혼동행렬 (Confusion Matrix)
+|Confusion Matrix|Positive|Negative|
+|-|-|-|
+|Positive|True Positive|False Positive|
+|Negative|True Negative|False Negative|
+
+## Precision(정밀도)
+$$ \frac{TP}{TP+FP} $$
+
+> 판단지표 : 스팸메일이 아닌데도 불구하고 스팸메일로 분류한 경우 위험 = Precision(정밀도)
+
+스팸메일을 분류한다면,
+|Confusion Matrix|스팸메일아님|스팸메일임|
+|-|-|-|
+|스팸메일아님|True Positive(30)|False Positive(15)|
+|스팸메일임|False Negative(5)|True Negative(50)|
+
+- $\frac{TP}{TP + FP} = \frac{30}{30 + 15}$
+
+## Recall(재현율)
+$$ \frac{TP}{TP+FN} $$
+
+> 판단지표 : 암에 걸림에도 불구하고 안 걸렸다고 분류한 경우 위험 = Recall(재현율) 사용해아함
+
+암환자 100명의 데이터를 예측했다면,
+|Confusion Matrix|암안걸림|암걸림|
+|-|-|-|
+|암안걸림|True Positive(30)|False Positive(15)|
+|암걸림|False Negative(5)|True Negative(50)|
+
+- $\frac{TP}{TP + FN} = \frac{30}{30 + 5}$
+
+## F1-Score
+Recall + Precision 조화
+
+## Accuracy
+전체 샘플 개수 중 얼마나 알고리즘이 맞는지
+$$Accuracy = \frac{올바르게 예측한 샘플 개수}{전체 샘플 개수} = \frac{TP + TN}{TP+TN+FP+FN}$$
+
+## ROC Curve (Receiver Operating Characteristic Curve)
+직각일 때 성능이 좋다고 판단함
+
+## AUROC (Area Under the ROC Curve)
+ROC Curve 밑의 면적을 기준으로 좋은지 나쁜지를 판단함
+
+
+## Logistic Regression
+2진분류 모델 : 2가지의 분류를 예측함
+## Sigmoid Function
+> 1 / 1 : 상수 + e(자연상수)
+
+$$ y = \frac{1}{1+e^{ax+b}}$$
+
+## Cutoff
+Hyper-parameter default : 0.5
+- 0.5초과의 값으로 설정 시, 모델이 엄격해짐
+- 0.5미만의 값으로 설정 시, 모델이 느슨해짐
+
+## Threshold : 임계값 = Hyper-parameter
+> default : 0.5
+
+Sigmoid 함수를 이용하면 한계점을 정해줘야함
+- 높을 수록 엄격해짐
+- 낮을 수록 느슨해짐
+
+
+## SVM (Support Vector Machine)
+Margin을 최대화하는 결정 경계(면)을 찾는 기법
+
+C값, gamma값이 커질 수록 오버피팅
+
+
+# Soft Margin SVM
+## 목적함수
+1. MIN
+2. MAX
+
+## Margin
+1. Max = 2 / ||w||(놈)
+2. MIN = Max의 역수
+
+$$ arg min_w, \xi, b\{\frac{1}{2}\left\lvert\left\lvert w\right\rvert\right\rvert^2 + C\sum_{i=1}^{n}\xi_i\} $$
+
+C : Hyper-parameter 작게 주면 무시함
+
+크사이 : 분류된 데이터의 오류 거리
+
+## Linearly Unseparable(선형 분리 불가능)
+데이터가 분리가 선형적으로 분리가 불가능할 경우
+
+## Kernel Support Vector Machines(커널 서포트 벡터 머신)
+2차원 -> Hyper-Parameter(함수)를 통해 3차원 공간으로 이동시킴
+
+## Kernel Function (Hyper-Parameter)
+1. 다항함수
+2. 가우시안 함수
+
+## 가우시안 함수
+RBF (Radial Basis Function) 방사기저함수
+
+
+# K-Nearset Neighbor Algorithm
+
+
+
+# Hyper-parameter Optimization == HPO 최적 해를 찾아주는 모델
+1. Grid-Search
+2. Randomized-Search
+3. Bayesian-Search
+
 
 # K-fold
 K : 자신이 몇 번 학습을 시킬 것인지
@@ -27,69 +149,8 @@ K : 자신이 몇 번 학습을 시킬 것인지
 # Stratified(층화)
 80%의 train_data 안에서 다시 train_data, validation_data, test_data로 나누어 반복 학습한다.
 
-# Accuracy
 
 
-# ClassiFication
-1. Logistic Regression (로지스틱 회귀)
-
-x데이터가 양성(Positive)일 확률
-
-## Logistic Regression
-2진분류 모델
-
-두 가지의 경우가 나온다.
-1. y값
-2. 카테고리 값 ex) 0 or 1
-## Cutoff
-Hyper-parameter default : 0.5
-- 0.5초과의 값으로 설정 시, 모델이 엄격해짐
-- 0.5미만의 값으로 설정 시, 모델이 느슨해짐
-
-## Sigmoid Function
-$$ y = \frac{1}{1+e^{ax+b}}$$
-
-> 1 / 1 : 상수 + e(자연상수)
-
-# 평가지표
-## CrossEntropy
-에러율이 낮을 수록 분류를 더 잘한 것이다.
-
-## Logits
-
-# Confusion Matrix (혼동행렬)
-classification모델 후 평가지표
-
-|Confusion Matrix|Positive|Negative|
-|-|-|-|
-|Positive|True Positive|False Positive|
-|Negative|True Negative|False Negative|
-
-## 예시
-암환자 100명의 데이터를 예측했다면,
-|Confusion Matrix|암안걸림|암걸림|
-|-|-|-|
-|암안걸림|True Positive(30)|False Positive(15)|
-|암걸림|False Negative(5)|True Negative(50)|
-
-판단지표 : 암에 걸림에도 불구하고 안 걸렸다고 분류한 경우 위험 = Recall(재현율) 사용해아함
-
-### Recall(재현율)
-TP + FN / TP = 30 + 5 / 30
-
-스팸메일을 분류한다면,
-|Confusion Matrix|스팸메일아님|스팸메일임|
-|-|-|-|
-|스팸메일아님|True Positive(30)|False Positive(15)|
-|스팸메일임|False Negative(5)|True Negative(50)|
-
-판단지표 : 스팸메일이 아닌데도 불구하고 스팸메일로 분류한 경우 위험 = Precision(정밀도)
-
-### Precision(정밀도)
-TP + FP / TP
-
-## F1-Score
-Recall + Precision 조화
 
 
 
