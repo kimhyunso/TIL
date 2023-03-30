@@ -1,5 +1,3 @@
-
-
 ## Leaning Rate = α = 보폭
 Hyper Parameter (초매개변수)
 
