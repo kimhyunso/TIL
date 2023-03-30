@@ -1,4 +1,5 @@
 # K-means : 군집분류
+
 > cluster : 군집된 데이터
 
 X_data만 학습시킴
