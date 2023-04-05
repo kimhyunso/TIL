@@ -71,10 +71,13 @@ $$Accuracy = \frac{올바르게 예측한 샘플 개수}{전체 샘플 개수} =
 ROC Curve 밑의 면적을 기준으로 좋은지 나쁜지를 판단함
 
 
-## Logistic Regression
-2진분류 모델 : 2가지의 분류를 예측함
-## Sigmoid Function
-> 1 / 1 : 상수 + e(자연상수)
+# Logistic Regression (로지스틱 회귀)
+이진분류 모델 : 2가지의 분류를 예측함
+
+# Sigmoid Function (시그모이드 함수)
+- 이진분류 모델의 비선형 함수
+
+> 이진 클래스를 Sigmoid 함수를 통하여 0 또는 1로 예측하는 함수
 
 $$ y = \frac{1}{1+e^{ax+b}} $$
 
@@ -89,6 +92,13 @@ Hyper-parameter default : 0.5
 Sigmoid 함수를 이용하면 한계점을 정해줘야함
 - 높을 수록 엄격해짐
 - 낮을 수록 느슨해짐
+
+# Softmax function (소프트맥스 함수)
+- 다중분류 모델의 비선형 함수
+
+> 다중 클래스를 Softmax함수를 통해 확률값으로 변환하여, 가장 높은 확률값을 가진 것으로 예측하는 함수
+
+$$ y = \frac{e^{xi}}{\sum_{k=1}^{k}e^{xk}} (k는 클래스 개수) $$
 
 
 # SVM (Support Vector Machine)

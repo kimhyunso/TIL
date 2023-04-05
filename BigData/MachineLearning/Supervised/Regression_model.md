@@ -2,6 +2,12 @@
 많은 데이터를 학습한 결과 데이터를 외워버려 새로운 데이터에 대한 학습이 떨어지는 경우
 
 # Regression : 회귀
+> 단순 선형회귀(Simple Linear Regression) : 피처의 종류가 한개
+>
+> 다중 선형회귀(Multiple Linear Regression) : 피처의 종류가 여러개
+>
+> 다항 선형회귀(Polynomial Regression) : 피처의 차수를 높인 모델
+
 1. 선형회귀 (LinearRegression)
 2. 라쏘 회귀 (Lasso regression)
 3. 다항 회귀 (Polynomial regression)
@@ -23,13 +29,13 @@ $$ h(x) = \theta_0x + \theta_1  $$
 ### StandardScaler
 - 평균이 0이고 분산이 1인 정규 분포로 만드는 것
 
-$$ (x_i-(x의 최솟값)) / (x의 최댓값 - x의 최솟값) = (x_i-min(x))/(max(x)-min(x)) $$
+$$ (x_i-(x의 최솟값)) \div (x의 최댓값 - x의 최솟값) = (x_i-min(x)) \div (max(x)-min(x)) $$
 
 ## 정규화 (Normalization)
 ### MinmaxScaler
 - 모든 값을 0~1 사이의 값으로 바꾸는 것이다. 음수도 예외 없이 다 바꾼다.
 
-$$ (x_i - (x의 평균)) / (x의 표준편차) = (x_i-\mu) / \sigma $$
+$$ (x_i - (x의 평균)) \div (x의 표준편차) = (x_i-\mu) \div \sigma $$
 
 ## 평가지표
 - MSE (Mean Squared Error) : 평균제곱오차
@@ -58,20 +64,14 @@ $$ R^2 = \frac{\sum{(예측값-타겟평균값)^2}}{\sum{(관측값-타켓평균
 
 $$ R^2 = 1 - \frac{\sum{오차^2}}{\sum{편차^2}}$$
 
+# Gradient Descent(경사하강법)
+손실 함수에 대한 미분값이 0이 되는 방향으로 결정시키는 것
 
-## Gradient Descent(경사하강법)
-x = θ  y = MSE값을 미분을 하여 접선의 기울기를 구하여 최적화된 MSE값을 도출하는 알고리즘
-
-1. y = θ_1x + θ_0 : 원인 ex) 2x + 3 (θ1의 값은 랜덤)
+1. y = $θ_1x + θ_0$ : 원인 ex) $2x + 3 (θ_1의 값은 랜덤)$
 2. 모델 모양 위치
 3. 결과 = MSE
-
+ 
 2번을 없앤다면 원인이 결과를 낳는다.
 
-## Leaning Rate = α = 보폭
+## Leaning Rate = α = 보폭 = epoch(에폭)
 Hyper Parameter (초매개변수)
-
-## Optimaization 최적화
-MSE' = 0(미분방정식)을 통해 구할 수 있음
-## Local Mimima 국소최소값 :: 주의
-**경사하강법 도중 미세한 경사들이 MSE의 적절한 값으로 대체될 수 있음**
