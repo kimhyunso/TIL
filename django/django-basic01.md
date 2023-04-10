@@ -1,4 +1,3 @@
-
 # 프로젝트 만들기
 `django-admin startproject <mysite>`
 
