@@ -9,7 +9,6 @@ WINDOWS -> WSL
 ## git remote add [branch name] [url]
 원격 branch랑 연결시키는 작업
 
-
 ## git push [branch name] [branch]
 원격 branch에 push하는 작업
 
@@ -31,3 +30,9 @@ git remote set-url --add --push origin [원격repository]
 
 java -jar bfg-*.jar --strip-blobs-bigger-than 100M .git
 
+
+# github.io
+Static Web
+
+# git commit --amend
+가장 최근 commit, commit 메시지를 수정한다.
