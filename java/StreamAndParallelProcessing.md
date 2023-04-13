@@ -460,6 +460,7 @@ public class PeekAndForEachClass{
 |`allMatch()`|모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.|
 |`anyMatch()`|최소한 한개의 요소가 매개값으로 주어진 Predicate의 조건을 만족하는지 조사한다.|
 |`noneMatch()`|모든 요소들이 매개값으로 주어진 Predicate의 조건을 만족하지 않는지 조사한다.|
+
 ~~~java
 public class StreamMatchClass{
     public static void main(String[] args){
