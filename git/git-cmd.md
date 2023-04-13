@@ -15,6 +15,9 @@
 |`$ git branch -c <브랜치명>`|git 브랜치 생성 후 HEAD 변경|
 |`$ git merge <브랜치명>`|현재 브랜치와 다른 브랜치 병합|
 |`$ git remote rename <리모트저장소명> <브랜치명>`|리모트저장소 브랜치명 변경|
+|`$ git reset [--soft, --hard] HEAD^`|최근 커밋한 내용 되돌리기|
+|`$ git revert <되돌리고싶은커밋이름>`|이전 (log기준) commit으로 되돌리기|
+
 
 
 
