@@ -273,3 +273,7 @@ CNN
 
 # 2023-04-10
 장고 - views, urls, forms, models 등등...
+
+
+# 2023-04-11
+장고 & models (opencv, LinearRegression...)

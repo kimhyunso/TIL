@@ -553,12 +553,9 @@ public class ToStringClass{
 System 클래스를 이용하면 운영체제의 일부 기능을 이용할 수 있다.
 
 ## 프로그램 종료(exit())
-
-​	강제적으로 JVM을 종료시킬 때 사용한다.
-
-​	정상 종료 : 0
-
-​	비정상 종료 : 0 이외의 값
+- 강제적으로 JVM을 종료시킬 때 사용한다.
+- 정상 종료 : 0
+- 비정상 종료 : 0 이외의 값
 
 ~~~java
 public class ExitClass{
@@ -1103,76 +1100,19 @@ public class StringBuilderClass{
 ## 정규 표현식 작성 방법
 |기호|설명|예시|
 |-|-|-|
-|[]|한 개의 문자 검증|`[abc]` : a, b, c 중 한 개 문자<br>`[^abc]` : a, b, c를 제외한 한 개 문자<br>`[a-zA-Z]` : a~z, A~Z 중 한 개 문자|
-|\d|한개의 숫자||
-|-|-||
-|-|-||
-|-|-||
+|`[]`|한 개의 문자 검증|`[abc]` : a, b, c 중 한 개 문자<br>`[^abc]` : a, b, c를 제외한 한 개 문자<br>`[a-zA-Z]` : a~z, A~Z 중 한 개 문자|
+|`\d`|한개의 숫자||
+|`\s`|공백||
+|`\w`|한 개의 알파벳 또는 한 개의 숫자, `[a-zA-Z_0-9]`와 동일||
+|`?`|없음 또는 한 개||
+|`+`|한 개 이상||
+|`{n}`|정확히 n개||
+|`{n,}`|최소한 n개||
+|`{n, m}`|n개 부터 m개까지||
+|`()`|그룹핑||
 
-<table>
-    <tr>
-    	<td>기호</td>
-    	<td colspan="3">설명</td>
-    </tr>
-    <tr>
-    	<td rowspan="3">[]</td>
-        <td rowspan="3">한 개의 문자</td>
-        <td>[abc]</td>
-        <td>a,b,c 중 하나의 문자</td>
-    </tr>
-    <tr>
-    	<td>[^abc]</td>
-        <td>a,b,c 이외의 하나의 문자</td>
-    </tr>
-    <tr>
-    	<td>[a-zA-Z]</td>
-        <td>a~z, A~Z 중 하나의 문자</td>
-    </tr>
-    <tr>
-    	<td>\d</td>
-        <td colspan="3">한개의 숫자,[0-9]와 동일</td>
-    </tr>
-    <tr>
-    	<td>\s</td>
-        <td colspan="3">공백</td>
-    </tr>
-    <tr>
-    	<td>\w</td>
-        <td colspan="3">한 개의 알파벳 또는 한 개의 숫자, [a-zA-Z_0-9]와 동일</td>
-    </tr>
-    <tr>
-    	<td>?</td>
-        <td colspan="3">없음 또는 한 개</td>
-    </tr>
-    <tr>
-    	<td>*</td>
-        <td colspan="3">없음 또는 한 개 이상</td>
-    </tr>
-    <tr>
-    	<td>+</td>
-        <td colspan="3">한 개 이상</td>
-    </tr>
-    <tr>
-    	<td>{n}</td>
-        <td colspan="3">정확히 n개</td>
-    </tr>
-    <tr>
-        <td>{n,}</td>
-        <td colspan="3">최소한 n개</td>
-    </tr>
-    <tr>
-    	<td>{n, m}</td>
-        <td colspan="3">n개에서부터 m개까지</td>
-    </tr>
-    <tr>
-    	<td>()</td>
-        <td colspan="3">그룹핑</td>
-    </tr>
-</table>
-
-<h3>Pattern 클래스</h3>
-
-​	Pattern.matches("정규식", "검증할 문자열");
+## Pattern 클래스
+Pattern.matches("정규식", "검증할 문자열");
 
 ~~~java
 public class PatternClass{
@@ -1196,13 +1136,12 @@ public class PatternClass{
 }
 ~~~
 
-<h1>Arrays 클래스</h1>
+# Arrays 클래스
+Arrays 클래스는 배열 조작기능을 가지고 있다.
 
-​	Arrays 클래스는 배열 조작기능을 가지고 있다.
+배열 조작 = 배열의 복사, 항목 정렬, 항목 검색과 같은 기능
 
-​	배열 조작 = 배열의 복사, 항목 정렬, 항목 검색과 같은 기능
-
-<h3>배열 복사</h3>
+## 배열 복사
 
 ~~~java
 public class ArrayCopyClass{
@@ -1229,7 +1168,7 @@ public class ArrayCopyClass{
 }
 ~~~
 
-<h3>배열 항목 비교</h3>
+## 배열 항목 비교
 
 ~~~java
 public class EqualsClass{
@@ -1258,21 +1197,18 @@ public class EqualsClass{
 }
 ~~~
 
-<h3>배열 항목 정렬</h3>
+## 배열 항목 정렬
+사용자 정의 클래스일 경우, `Comparable<T>` 인터페이스를 구현받아야 한다.
 
-​	사용자 정의 클래스일 경우, Comparable<T> 인터페이스를 구현받아야 한다.
-
-<dl>
-    <dt>compareTo() 메소드 리턴값</dt>
-    <dt>1. 오름차순일 경우</dt>
-    <dd>자신이 매개값보다 낮은 경우 양수</dd>
-    <dd>자신이 매개값이랑 같은 경우 0</dd>
-    <dd>자신이 매개값보다 높은 경우 음수</dd>
-    <dt>2. 내림차순일 경우</dt>
-    <dd>자신이 매개값보다 낮은 경우 음수</dd>
-    <dd>자신이 매개값이랑 같은 경우 0</dd>
-    <dd>자신이 매개값보다 높은 경우 양수</dd>
-</dl>
+- compareTo() 메소드 리턴값
+1. 오름차순일 경우
+   1. 자신이 매개값보다 낮은 경우 양수
+   2. 자신이 매개값이랑 같은 경우 0
+   3. 자신이 매개값보다 높은 경우 음수
+2. 내림차순일 경우
+   1. 자신이 매개값보다 낮은 경우 음수
+   2. 자신이 매개값이랑 같은 경우 0
+   3. 자신이 매개값보다 높은 경우 양수
 
 ~~~java
 public class Member implements Comparable<Member>{
@@ -1316,11 +1252,10 @@ public class SortClass{
 }
 ~~~
 
-<h3>배열 항목 검색</h3>
+## 배열 항목 검색
+배열에서 특정 값이 위치한 인덱스를 얻는 것을 배열 검색이라고 한다.
 
-​	배열에서 특정 값이 위치한 인덱스를 얻는 것을 배열 검색이라고 한다.
-
-​	binarySearch()는 배열이 정렬 되어 있어야 검색이 가능하다.
+​`binarySearch()`는 배열이 정렬 되어 있어야 검색이 가능하다.
 
 ~~~java
 public class Member implements Comparable<Member>{
@@ -1360,56 +1295,26 @@ public class SearchClass{
 }
 ~~~
 
-<h2>Wrapper(포장) 클래스</h2>
+# Wrapper(포장) 클래스
+포장 객체의 특징은 기본 타입의 값을 내부에 두고 포장한다. 외부에서 변경할 수 없다.
 
-​	포장 객체의 특징은 기본 타입의 값을 내부에 두고 포장한다. 외부에서 변경할 수 없다.
+java.lang 패키지에 포함되어 있다.
 
-​	java.lang 패키지에 포함되어 있다.
+|기본타입|포장클래스|
+|-|-|
+|`byte`|`Byte`|
+|`char`|`Character`|
+|`shot`|`Short`|
+|`int`|`Integer`|
+|`long`|`Long`|
+|`float`|`Float`|
+|`double`|`Double`|
+|`boolean`|`Boolean`|
 
-<table>
-    <tr>
-    	<th>기본 타입</th>
-        <th>포장 클래스</th>
-    </tr>
-    <tr>
-    	<td>byte</td>
-        <td>Byte</td>
-    </tr>
-    <tr>
-    	<td>char</td>
-        <td>Character</td>
-    </tr>
-    <tr>
-    	<td>short</td>
-        <td>Short</td>
-    </tr>
-    <tr>
-    	<td>int</td>
-        <td>Integer</td>
-    </tr>
-    <tr>
-    	<td>long</td>
-        <td>Long</td>
-    </tr>
-    <tr>
-    	<td>float</td>
-        <td>Float</td>
-    </tr>
-    <tr>
-    	<td>double</td>
-        <td>Double</td>
-    </tr>
-    <tr>
-    	<td>boolean</td>
-        <td>Boolean</td>
-    </tr>
-</table>
+# 박싱(Boxing)과 언박싱(Unboxing)
+기본타입의 값을 포장 객체로 만드는 것을 박싱이라고 한다.
 
-<h3>박싱(Boxing)과 언박싱(Unboxing)</h3>
-
-​	기본타입의 값을 포장 객체로 만드는 것을 박싱이라고 한다.
-
-​	포장객체에서 기본 타입의 값을 얻어내는 과정을 언박싱이라고 한다.
+​포장객체에서 기본 타입의 값을 얻어내는 과정을 언박싱이라고 한다.
 
 ~~~java
 public class BoxingUnBoxingClass{
@@ -1431,20 +1336,15 @@ public class BoxingUnBoxingClass{
 }
 ~~~
 
-<h4>자동 박싱과 언박싱</h4>
-
-​	자동 박싱 : 포장 클래스에 기본타입의 값이 대입될 경우
-
-​	자동 언박싱 : 기본타입에 포장 클래스가 대입되는 경우
-
-​	컬렉션 객체에 int 값을 저장하면 자동 박싱이 일어난다.
+## 자동 박싱과 언박싱
+- 자동 박싱 : 포장 클래스에 기본타입의 값이 대입될 경우
+- 자동 언박싱 : 기본타입에 포장 클래스가 대입되는 경우
+- 컬렉션 객체에 int 값을 저장하면 자동 박싱이 일어난다.
 
 ~~~java
 List<Integer> list = new ArrayList<Integer>();
 list.add(200); //자동 박싱
 ~~~
-
-
 
 ~~~java
 public class AutoBoxingUnBoxingClass{
@@ -1462,7 +1362,7 @@ public class AutoBoxingUnBoxingClass{
 }
 ~~~
 
-<h4>문자열을 기본 타입 값으로 변환</h4>
+## 문자열을 기본 타입 값으로 변환
 
 ~~~java
 public class StringToPrimitiveValueClass{
@@ -1478,11 +1378,10 @@ public class StringToPrimitiveValueClass{
 }
 ~~~
 
-<h4>포장 값 비교</h4>
+## 포장 값 비교
+포장 객체는 내부의 값을 비교하기 때문에 ==, != 연산자를 사용할 수 없다.
 
-​	포장 객체는 내부의 값을 비교하기 때문에 ==, != 연산자를 사용할 수 없다.
-
-​	equals() 메소드로 내부의 값을 비교하는 것이 좋다.
+equals() 메소드로 내부의 값을 비교하는 것이 좋다.
 
 ~~~java
 public class ValueCompareClass{
@@ -1503,12 +1402,10 @@ public class ValueCompareClass{
     }
 }
 ~~~
+# Math, Random 클래스
 
- <h1>Math, Random 클래스</h1>
-
-<h3>Math 클래스</h3>
-
-​	Math.random() 메소드는 0보다는 크거나 같고, 1보다는 작은 값을 리턴한다.
+## Math 클래스
+`Math.random()` 메소드는 0보다는 크거나 같고, 1보다는 작은 값을 리턴한다.
 
 ~~~java
 public class MathClass{
@@ -1567,11 +1464,10 @@ public class MathRandomClass{
 }
 ~~~
 
-<h3>Random 클래스</h3>
+## Random 클래스
+Random 클래스는 종자값(seed)을 설정할 수 있다.
 
-​	Random 클래스는 종자값(seed)을 설정할 수 있다.
-
-​	종자값은 알고리즘에 사용되는 값으로 종자갑이 같으면 같은 난수를 얻는다.
+종자값은 알고리즘에 사용되는 값으로 종자갑이 같으면 같은 난수를 얻는다.
 
 ~~~java
 public class RandomClass{
@@ -1604,13 +1500,11 @@ public class RandomClass{
 }
 ~~~
 
-<h1>Date, Calendar 클래스</h1>
+# Date, Calendar 클래스
 
-<h3>Date 클래스</h3>
-
-​	java.util 패키지에 포함되어 있다.
-
-​	날짜를 표현하는 클래스이다.
+## Date 클래스
+- java.util 패키지에 포함되어 있다.
+- 날짜를 표현하는 클래스이다.
 
 ~~~java
 public class DateClass{
@@ -1626,11 +1520,9 @@ public class DateClass{
 }
 ~~~
 
-<h3>Calendar 클래스</h3>
-
-​	달력을 표현한 클래스이다.
-
-​	Calendar 클래스는 추상 클래스이므로 new 연산자를 사용해서 인스턴스할 수 없다.
+## Calendar 클래스
+- 달력을 표현한 클래스이다.
+- Calendar 클래스는 추상 클래스이므로 new 연산자를 사용해서 인스턴스할 수 없다.
 
 ~~~java
 public class CalendarClass{
@@ -1689,11 +1581,10 @@ public class CalendarClass{
 }
 ~~~
 
-<h1>Format 클래스</h1>
+# Format 클래스
+- java.text 패키지에 포함되어 있다.
 
-​	java.text 패키지에 포함되어 있다.
-
-<h3>숫자 형식 클래스(DecimalFormat)</h3>
+## 숫자 형식 클래스(DecimalFormat)
 
 ~~~java
 public class DecimalFormatClass{
@@ -1745,7 +1636,7 @@ public class DecimalFormatClass{
 }
 ~~~
 
-<h3>날짜 형식 클래스(SimpleDateFormat)</h3>
+## 날짜 형식 클래스(SimpleDateFormat)
 
 ~~~java
 public class SimpleDateFormatClass{
@@ -1773,11 +1664,11 @@ public class SimpleDateFormatClass{
 }
 ~~~
 
-<h3>문자열 형식 클래스(MessageFormat)</h3>
+## 문자열 형식 클래스(MessageFormat)
 
-​	데이터를 파일에 저장하거나, 네트워크로 전송할 때, 데이터베이스 SQL문을 작성할 때 등에 사용된다.
+​데이터를 파일에 저장하거나, 네트워크로 전송할 때, 데이터베이스 SQL문을 작성할 때 등에 사용된다.
 
-​	문자열에 데이터가 들어갈 자리를 표시해주고, 프로그램이 실행하면서 동적으로 데이터를 사입해 문자열을 완성시킨다.
+​문자열에 데이터가 들어갈 자리를 표시해주고, 프로그램이 실행하면서 동적으로 데이터를 사입해 문자열을 완성시킨다.
 
 ~~~java
 public class MessageFormatClass{
@@ -1800,42 +1691,36 @@ public class MessageFormatClass{
 
 
 
-<h1>java.time 패키지</h1>
+# java.time 패키지
+​Calendar 클래스는 날짜와 시간 정보를 얻기에는 충분하지만 날짜와 시간을 조작하거나 비교하는 기능이 불가능하다.
 
-​	Calendar 클래스는 날짜와 시간 정보를 얻기에는 충분하지만 날짜와 시간을 조작하거나 비교하는 기능이 불가능하다.
-
-<h3>LocalDate</h3>
-
-​	로컬 날짜 클래스로 날짜 정보만을 저장한다.
+## LocalDate
+- ​로컬 날짜 클래스로 날짜 정보만을 저장한다.
 
 ~~~java
 LocalDate currDate = LocalDate.now();
 LocalDate targetDate = LocalDate.fo(int year, int month, int dayOfMonth);
 ~~~
 
-<h3>LocalTime</h3>
-
-​	로컬 시간 클래스로 시간정보만을 저장한다.
+## LocalTime
+- 로컬 시간 클래스로 시간정보만을 저장한다.
 
 ~~~java
 LocalTime currTime = LocalTime.now();
 LocalTime targetTime = LocalTime.of(int hour, int minute, int second, int nanoOfSecond);
 ~~~
 
-<h3>LocalDateTime</h3>
-
-​	LocalDate + LocalTime을 결합한 클래스이다.
-
-​	날짜와 시간 모두 저장가능하다.
+## LocalDateTime
+- ​LocalDate + LocalTime을 결합한 클래스이다.
+- ​날짜와 시간 모두 저장가능하다.
 
 ~~~java
 LocalDateTime currDateTime = LocalDateTime.now();
 LocalDateTime targetTime = LocalDateTime.of(int year, int month, int dayOfMonth, int hour, int minute, int second, int nanoOfSecond);
 ~~~
 
-<h3>ZonedDateTime</h3>
-
-​	ISO-8601 달력 시스템에서 정ㅇ의하고 있는 타임존의 날짜와 시간을 저장하는 클래스이다.
+## ZonedDateTime
+- ISO-8601 달력 시스템에서 정의하고 있는 타임존의 날짜와 시간을 저장하는 클래스이다.
 
 ~~~java
 ZonedDateTime utcDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
@@ -2028,7 +1913,7 @@ public class DateTimeParsingClass{
 }
 ~~~
 
-	<h3>포멧팅(Formatting) 메소드</h3>
+## 포멧팅(Formatting) 메소드
 
 ~~~java
 public class DateTimeFormatClass{
