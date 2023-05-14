@@ -272,7 +272,6 @@ public class Member implements Cloneable{
     public void setName(String name){
         this.name = name;
     }
-    
 }
 
 public class Car{
@@ -1105,14 +1104,15 @@ public class StringBuilderClass{
 |`\s`|공백||
 |`\w`|한 개의 알파벳 또는 한 개의 숫자, `[a-zA-Z_0-9]`와 동일||
 |`?`|없음 또는 한 개||
+|`*`|없음 또는 한 개 이상||
 |`+`|한 개 이상||
 |`{n}`|정확히 n개||
 |`{n,}`|최소한 n개||
-|`{n, m}`|n개 부터 m개까지||
+|`{n, m}`|n개에서부터 m개까지||
 |`()`|그룹핑||
 
-## Pattern 클래스
-Pattern.matches("정규식", "검증할 문자열");
+# Pattern 클래스
+- Pattern.matches("정규식", "검증할 문자열");
 
 ~~~java
 public class PatternClass{
@@ -1137,9 +1137,8 @@ public class PatternClass{
 ~~~
 
 # Arrays 클래스
-Arrays 클래스는 배열 조작기능을 가지고 있다.
-
-배열 조작 = 배열의 복사, 항목 정렬, 항목 검색과 같은 기능
+- Arrays 클래스는 배열 조작기능을 가지고 있다.
+- 배열 조작 = 배열의 복사, 항목 정렬, 항목 검색과 같은 기능
 
 ## 배열 복사
 
@@ -1163,13 +1162,11 @@ public class ArrayCopyClass{
         System.arraycopy(arr1,0,arr4,0,arr1.length);
         for(int i=0; i<arr4.length; i++)
             System.out.println("arr4["+i+"]="+arr4);
-            
     }
 }
 ~~~
 
 ## 배열 항목 비교
-
 ~~~java
 public class EqualsClass{
     public static void main(String[] args){
@@ -1199,16 +1196,16 @@ public class EqualsClass{
 
 ## 배열 항목 정렬
 사용자 정의 클래스일 경우, `Comparable<T>` 인터페이스를 구현받아야 한다.
+- `compareTo()` 메소드 리턴값
 
-- compareTo() 메소드 리턴값
 1. 오름차순일 경우
-   1. 자신이 매개값보다 낮은 경우 양수
-   2. 자신이 매개값이랑 같은 경우 0
-   3. 자신이 매개값보다 높은 경우 음수
+    1. 자신이 매개값보다 낮은 경우 양수
+    2. 자신이 매개값이랑 같은 경우 0
+    3. 자신이 매개값보다 높은 경우 음수
 2. 내림차순일 경우
-   1. 자신이 매개값보다 낮은 경우 음수
-   2. 자신이 매개값이랑 같은 경우 0
-   3. 자신이 매개값보다 높은 경우 양수
+    1. 자신이 매개값보다 낮은 경우 음수
+    2. 자신이 매개값이랑 같은 경우 0
+    3. 자신이 매개값보다 높은 경우 양수
 
 ~~~java
 public class Member implements Comparable<Member>{
@@ -1296,15 +1293,14 @@ public class SearchClass{
 ~~~
 
 # Wrapper(포장) 클래스
-포장 객체의 특징은 기본 타입의 값을 내부에 두고 포장한다. 외부에서 변경할 수 없다.
+- 포장 객체의 특징은 기본 타입의 값을 내부에 두고 포장한다. 외부에서 변경할 수 없다.
+- java.lang 패키지에 포함되어 있다.
 
-java.lang 패키지에 포함되어 있다.
 
-|기본타입|포장클래스|
-|-|-|
+|기본 타입|포장 클래스|
 |`byte`|`Byte`|
 |`char`|`Character`|
-|`shot`|`Short`|
+|`short`|`Short`|
 |`int`|`Integer`|
 |`long`|`Long`|
 |`float`|`Float`|
@@ -1312,9 +1308,8 @@ java.lang 패키지에 포함되어 있다.
 |`boolean`|`Boolean`|
 
 # 박싱(Boxing)과 언박싱(Unboxing)
-기본타입의 값을 포장 객체로 만드는 것을 박싱이라고 한다.
-
-​포장객체에서 기본 타입의 값을 얻어내는 과정을 언박싱이라고 한다.
+- 기본타입의 값을 포장 객체로 만드는 것을 박싱이라고 한다.
+- 포장객체에서 기본 타입의 값을 얻어내는 과정을 언박싱이라고 한다.
 
 ~~~java
 public class BoxingUnBoxingClass{
@@ -1379,9 +1374,8 @@ public class StringToPrimitiveValueClass{
 ~~~
 
 ## 포장 값 비교
-포장 객체는 내부의 값을 비교하기 때문에 ==, != 연산자를 사용할 수 없다.
-
-equals() 메소드로 내부의 값을 비교하는 것이 좋다.
+- 포장 객체는 내부의 값을 비교하기 때문에 ==, != 연산자를 사용할 수 없다.
+- equals() 메소드로 내부의 값을 비교하는 것이 좋다.
 
 ~~~java
 public class ValueCompareClass{
@@ -1464,10 +1458,9 @@ public class MathRandomClass{
 }
 ~~~
 
-## Random 클래스
-Random 클래스는 종자값(seed)을 설정할 수 있다.
-
-종자값은 알고리즘에 사용되는 값으로 종자갑이 같으면 같은 난수를 얻는다.
+# Random 클래스
+- Random 클래스는 종자값(seed)을 설정할 수 있다.
+- 종자값은 알고리즘에 사용되는 값으로 종자갑이 같으면 같은 난수를 얻는다.
 
 ~~~java
 public class RandomClass{
@@ -1665,10 +1658,9 @@ public class SimpleDateFormatClass{
 ~~~
 
 ## 문자열 형식 클래스(MessageFormat)
-
-​데이터를 파일에 저장하거나, 네트워크로 전송할 때, 데이터베이스 SQL문을 작성할 때 등에 사용된다.
-
-​문자열에 데이터가 들어갈 자리를 표시해주고, 프로그램이 실행하면서 동적으로 데이터를 사입해 문자열을 완성시킨다.
+> 데이터를 파일에 저장하거나, 네트워크로 전송할 때, 데이터베이스 SQL문을 작성할 때 등에 사용된다.
+>
+> 문자열에 데이터가 들어갈 자리를 표시해주고, 프로그램이 실행하면서 동적으로 데이터를 사입해 문자열을 완성시킨다.
 
 ~~~java
 public class MessageFormatClass{
@@ -1690,12 +1682,11 @@ public class MessageFormatClass{
 ~~~
 
 
-
 # java.time 패키지
-​Calendar 클래스는 날짜와 시간 정보를 얻기에는 충분하지만 날짜와 시간을 조작하거나 비교하는 기능이 불가능하다.
+- Calendar 클래스는 날짜와 시간 정보를 얻기에는 충분하지만 날짜와 시간을 조작하거나 비교하는 기능이 불가능하다.
 
 ## LocalDate
-- ​로컬 날짜 클래스로 날짜 정보만을 저장한다.
+- 로컬 날짜 클래스로 날짜 정보만을 저장한다.
 
 ~~~java
 LocalDate currDate = LocalDate.now();
@@ -1711,8 +1702,8 @@ LocalTime targetTime = LocalTime.of(int hour, int minute, int second, int nanoOf
 ~~~
 
 ## LocalDateTime
-- ​LocalDate + LocalTime을 결합한 클래스이다.
-- ​날짜와 시간 모두 저장가능하다.
+- LocalDate + LocalTime을 결합한 클래스이다.
+- 날짜와 시간 모두 저장가능하다.
 
 ~~~java
 LocalDateTime currDateTime = LocalDateTime.now();
@@ -1728,11 +1719,9 @@ ZonedDateTime londonDateTime = ZonedDateTime.now(ZoneId.of("Europe/London"));
 ZonedDateTime seoulDateTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
 ~~~
 
-<h3>Instant</h3>
-
-​	특정 시점의 타임스탬프로 사용된다.
-
-​	주로 특정한 두 시점 간의 시간적 우선순위를 따질 때 사용한다.
+## Instant
+- 특정 시점의 타임스탬프로 사용된다.
+- 주로 특정한 두 시점 간의 시간적 우선순위를 따질 때 사용한다.
 
 ~~~java
 Instant instant1 = Instant.now();
@@ -1778,9 +1767,9 @@ public class DateTimeInfoClass{
 }
 ~~~
 
-<h1>날짜와 시간을 조작하기</h1>
+# 날짜와 시간을 조작하기
 
-<h3>빼기와 더하기</h3>
+## 빼기와 더하기
 
 ~~~java
 public class DateTimeOperationClass{
@@ -1800,7 +1789,7 @@ public class DateTimeOperationClass{
 }
 ~~~
 
-<h3>변경하기</h3>
+## 변경하기
 
 ~~~java
 public class DateTimeChangeClass{
@@ -1829,7 +1818,7 @@ public class DateTimeChangeClass{
 }
 ~~~
 
-<h3>날짜와 시간을 비교하기</h3>
+## 날짜와 시간을 비교하기
 
 ~~~java
 public class DateTimeCompareClass{
@@ -1883,11 +1872,10 @@ public class DateTimeCompareClass{
 }
 ~~~
 
-<h1>파싱과 포멧팅</h1>
+# 파싱과 포멧팅
 
-<h3>파싱(Parsing) 메소드</h3>
-
-​	날짜와 시간 정보가 포함된 문자열을 파싱해서 날짜와 시간을 생성하는 두 개의 parse() 정적메소드이다.
+## 파싱(Parsing) 메소드
+> 날짜와 시간 정보가 포함된 문자열을 파싱해서 날짜와 시간을 생성하는 두 개의 parse() 정적메소드이다.
 
 ~~~java
 public class DateTimeParsingClass{
