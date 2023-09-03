@@ -13,6 +13,8 @@ http://docs.oracle.com/javase/8/docs/api/
 
 ​java.lang 패키지에 있는 클래스와 인터페이스는 import 하지 않아도 사용할 수 있다.
 
+
+
 |클래스|설명|
 |-|-|
 |`Object`|최상위 클래스|
@@ -791,7 +793,7 @@ public class NewInstanceClass{
     public static void main(String[] args){
         try{
             Class clazz = Class.forName("Action");
-            Action action = (Action) clazz.newInsta
+            Action action = (Action) clazz.newInstance();
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }catch(InstantiationException e){
