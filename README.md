@@ -331,3 +331,5 @@ NLP : 자연어처리
 # 2023-05-22 ~ 
 기업 멤버쉽 프로젝트
 
+# 2023-09-01
+javascript 호이스팅, NodeList와 HTMLCollection 차이점
