@@ -179,3 +179,16 @@ public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @Pat
     return new ResponseEntity<>(service.getListPage(cri, bno),HttpStatus.OK);
 }
 ```
+
+# `@ModelAttribute` 과 `@RequestParam`의 차이점
+> `@ModelAttribute` : 객체
+> 
+> `@RequestParam` : 단일 값
+
+
+```java
+@GetMapping(value="/pages/{bno}/{page}")
+public String getList(@RequestParam("name") String name, @ModelAttribute("TestVO") TestVO){
+	return 'views';
+}
+```
