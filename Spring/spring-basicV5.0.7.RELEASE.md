@@ -187,6 +187,8 @@ public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @Pat
 > `@RequestParam` : 단일 값
 
 
+
+
 ```java
 @GetMapping(value="/pages/{bno}/{page}")
 public String getList(@RequestParam("name") String name, @ModelAttribute("TestVO") TestVO){
