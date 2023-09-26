@@ -58,7 +58,7 @@ for i in range(n):
             matrix[x-1][col+y-1] ^= 1
         else:
             # 방향이 세로라면, 세로만 갱신
-            matrix[col-1+x][y-1] ^= 1
+            matrix[col+x-1][y-1] ^= 1
 
 for i in range(h):
     print(*matrix[i])
