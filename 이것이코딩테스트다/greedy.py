@@ -120,30 +120,114 @@ public class Main{
 '''
 
 # 곱하기 혹은 더하기
-# TODO : 내일하기
 
-
-S = list(map(int, input()))
+'''
+S = input()
 # 처음에 들어오면 첫번째 녀석을 갖는다
-current_char = S[0]
-result = 0
+result = int(S[0])
 
 
+for i in range(1, len(S)):
+    num = int(S[i])
 
-for i in range(1, len(S)-1):
-    if current_char == 0 or S[i] == 0:
-        result = current_char + S[i]
+    if num <= 1 or result <=1:
+        result += num
     else:
-        result = current_char * S[i]
+        result *= num
 
-    current_char = S[i]
+print(result)
+'''
+
+'''
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        // 첫번째 문자를 숫자로 변경  첫번째 문자 - 아스키코드 0
+        long result = str.charAt(0) - '0';
+        for (int i=1; i<str.length(); i++){
+            int num = str.charAt(i) - '0';
+            if (num <=1 || result <=1){
+                result += num;
+            }else{
+                result *= num;
+            }
+
+        }
+        System.out.println(result);
+
+
+    }
+
+
+}
+'''
+N = int(input())
+peer = list(map(int, input().split()))
+peer.sort()
+
+# 총 그룹의 수
+result = 0
+# 현재 그룹에 포함된 모험가의 수
+count = 0
+
+for i in peer:
+    # 현재 그룹에 해당 모험가를 포함시키기
+    count += 1
+    # 현재 그룹에 포함된 모험가의 수가 현재의 공포도 이상이라면, 그룹 결성
+    if count >= i:
+        # 총 그룹 수 증가시키기
+        result += 1
+        # 현재 그룹에 포함된 모험가의 수 초기화
+        count = 0
 
 print(result)
 
+'''
+public class Main{
+    public static int n;
+    public static ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i = 0; i < n; i++){
+            arrayList.add(sc.nextInt());
+        }
+
+        Collections.sort(arrayList);
+
+        // 총 그룹의 수
+        int result = 0;
+        // 현재 그룹의 수
+        int count = 0;
+
+        for (int i=0; i<n; i++){
+            count += 1;
+            if (count >= arrayList.get(i)){
+                result += 1;
+                count = 0;
+
+            }
+        }
+
+        System.out.println(result);
+    }
+
+}
+
+
+'''
 
 
 
-      
+
+
+
+
 
 
     
