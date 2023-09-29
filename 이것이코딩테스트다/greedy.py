@@ -60,7 +60,7 @@ else:
 print(result)
 '''
 
-
+'''
 # N log N
 n, k = map(int, input().split())
 result = 0
@@ -89,9 +89,64 @@ while True:
 # 마지막으로 남은 수에 대하여 1씩 빼기
 result += (n-1)
 print(result)
+'''
+
+
+'''
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int result = 0;
+
+        while (true){
+            int target = (n/k) * k;
+            result += (n-target);
+            n = target;
+
+            if (n < k) break;
+
+            result += 1;
+            n/=k;
+        }
+
+        result += (n - 1);
+        System.out.println(result);
+
+    }
+}
+'''
+
+# 곱하기 혹은 더하기
+# TODO : 내일하기
+
+
+S = list(map(int, input()))
+# 처음에 들어오면 첫번째 녀석을 갖는다
+current_char = S[0]
+result = 0
 
 
 
+for i in range(1, len(S)-1):
+    if current_char == 0 or S[i] == 0:
+        result = current_char + S[i]
+    else:
+        result = current_char * S[i]
+
+    current_char = S[i]
+
+print(result)
+
+
+
+
+      
+
+
+    
 
 
 
