@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-public class 괄호 {
+class Main {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,8 +11,6 @@ public class 괄호 {
 		
 		for(int i = 0; i < T; i++) {
 			String S = br.readLine();
-			
-			//문자열의 각 자리의 값을 확인할때는 char형태로 바꿔서 확인하기 때문에 스택도 Character형으로 해준다.
 			Stack<Character> stack = new Stack<Character>();
 			
 			for(int j = 0; j < S.length(); j++) {

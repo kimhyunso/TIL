@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class 제로 {
+class Main {
     
     public static void main(String[] args){
         Stack<Integer> moneyList = new Stack<Integer>(); 
