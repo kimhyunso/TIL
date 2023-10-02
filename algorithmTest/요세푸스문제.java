@@ -25,7 +25,7 @@ public class 요세푸스문제 {
                 }
                 
             }else{
-                queue.add(queue.poll());
+                queue.offer(queue.poll());
             }
         }
         System.out.print(">");
