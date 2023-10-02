@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class 스택수열 {
+class Main {
     
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Card {
+class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Queue<Integer> queue = new LinkedList<Integer>();

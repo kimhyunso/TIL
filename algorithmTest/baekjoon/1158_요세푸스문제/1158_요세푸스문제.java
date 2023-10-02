@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class 요세푸스문제 {
+class Main {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Queue<Integer> queue = new LinkedList<Integer>();
