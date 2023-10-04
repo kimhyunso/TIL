@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Main{
+class 숫자카드2{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuffer sb = new StringBuffer();
@@ -31,7 +31,7 @@ class Main{
         for (int i=0; i<cardM.length; i++){
             int lowerBound = lowerBound(cardM[i], cardN);
             int upperBound = upperBound(cardM[i], cardN);
-            sb.append((lowerBound + upperBound) + " ");
+            sb.append((upperBound - lowerBound) + " ");
         }
 
         System.out.print(sb.toString());
@@ -40,7 +40,7 @@ class Main{
 
     public static int lowerBound(int key, int arr[]){
         int left = 0;
-        int right = arr.length - 1;
+        int right = arr.length;
         int mid = 0;
 
         while(left < right){
@@ -57,7 +57,7 @@ class Main{
 
     public static int upperBound(int key, int arr[]){
         int left = 0;
-        int right = arr.length - 1;
+        int right = arr.length;
         int mid = 0;
 
         while (left < right){
