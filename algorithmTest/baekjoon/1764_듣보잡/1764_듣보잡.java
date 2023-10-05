@@ -1,9 +1,13 @@
-package algorithmTest.baekjoon.듣보잡;
+/*
+김진영이 듣도 못한 사람의 명단과, 보도 못한 사람의 명단이 주어질 때, 
+듣도 보도 못한 사람의 명단을 구하는 프로그램을 작성하시오.  
+ */
+
 
 import java.util.*;
 import java.io.*;
 
-public class 듣보잡 {
+class 듣보잡 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] inputs = br.readLine().split(" ");
