@@ -8,6 +8,12 @@
 여러분이 할 일은, 현재 Queue에 있는 문서의 수와 중요도가 주어졌을 때, 어떤 한 문서가 몇 번째로 인쇄되는지 알아내는 것이다. 예를 들어 위의 예에서 C문서는 1번째로, A문서는 3번째로 인쇄되게 된다.
  */
 
+/*
+ 풀이법 :
+
+
+ */
+
 
 import java.util.*;
 import java.io.*;
@@ -16,7 +22,6 @@ class printerQueue{
 
     public static void main(String[] args) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    
         int testCase = Integer.parseInt(reader.readLine());
 
         for (int i=0; i<testCase; i++){

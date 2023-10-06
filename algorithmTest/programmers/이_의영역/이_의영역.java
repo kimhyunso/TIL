@@ -28,7 +28,7 @@ public class 이_의영역 {
     }
 
     public static int[] solution(int[] arr){
-        int[] answer = {};
+        int[] answer = {-1};
         // 시작인덱스
         int firstIndex = 0;
         // 마지막 인덱스
@@ -48,10 +48,7 @@ public class 이_의영역 {
             }
         }
 
-        if (lastIndex == 0 && firstIndex == 0){
-            int result[] = {-1};
-            answer = result;
-        }else
+        if (lastIndex != 0 && firstIndex != 0)
             answer = Arrays.copyOfRange(arr, firstIndex, lastIndex+1);
 
         return answer;
