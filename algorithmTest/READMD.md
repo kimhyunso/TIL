@@ -22,3 +22,11 @@
 6. `poll()` : queue 맨 앞에 있는 데이터 삭제 후 리턴 :: `Object`
 
 
+# `Arrays.copyOf`, `Arrays.copyOfRange()`
+배열 복사
+
+`Arrays.copyOf(배열, 마지막인덱스)`
+
+`Arrays.copyOfRange(배열, 시작인덱스, 마지막인덱스)`
+
+
