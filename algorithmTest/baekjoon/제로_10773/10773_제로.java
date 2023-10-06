@@ -8,6 +8,12 @@
 재민이는 이렇게 모든 수를 받아 적은 후 그 수의 합을 알고 싶어 한다. 재민이를 도와주자!
  */
 
+ /*
+풀이법 :
+스택에 0 이들어오면 pop()
+그 외 push()
+  */
+
 import java.util.Scanner;
 import java.util.Stack;
 
