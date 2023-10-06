@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class Median{
 
+class Median{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.print("a 값 입력 : ");

@@ -1,3 +1,5 @@
+package baekjoon.스택수열_1874;
+
 /*
 스택 (stack)은 기본적인 자료구조 중 하나로, 컴퓨터 프로그램을 작성할 때 자주 이용되는 개념이다.
 스택은 자료를 넣는 (push) 입구와 자료를 뽑는 (pop) 입구가 같아 제일 나중에 들어간 자료가 제일 먼저 나오는 (LIFO, Last in First out) 특성을 가지고 있다.
@@ -10,7 +12,7 @@
 
 import java.util.*;
 
-class Main {
+class 스택수열 {
     
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
