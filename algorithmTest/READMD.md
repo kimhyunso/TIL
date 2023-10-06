@@ -29,4 +29,24 @@
 
 `Arrays.copyOfRange(배열, 시작인덱스, 마지막인덱스)`
 
+```java
+class Main{
+    public static void main(String[] args){
+        int []number = {1, 2, 3, 4, 5};
+        // 인덱스번호    0  1  2  3  4
+
+
+        // 결과 : [1, 2, 3]
+        // 인덱스는 0부터 시작하기 때문에 마지막 인덱스에 -1까지 배열을 만든다.
+        int[] arr1 = Arrays.copyOf(number, 3);
+
+        // 결과 : [1, 2, 3]
+        // 인덱스는 0부터 시작하기 때문에, 시작인덱스부터 마지막인덱스 -1까지 배열을 만든다.
+        int[] arr2 = Arrays.copyOfRange(number, 0, 3);
+
+
+    }
+}
+
+```
 
