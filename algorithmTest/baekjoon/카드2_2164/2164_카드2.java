@@ -18,6 +18,8 @@ Queue 안에 size가 1이 될 때까지
 먼저 버리고 (poll()) 다음 버리는 데이터를 삽입(offer) 한다.
   */
   
+
+  
 import java.util.*;
 
 class Main {
