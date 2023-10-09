@@ -15,7 +15,7 @@ solution 함수를 완성해 주세요.
 import java.util.*;
 import java.io.*;
 
-public class 이_의영역 {
+class Main {
     public static void main(String[] args) throws IOException{
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer splitInput = new StringTokenizer(input.readLine(), " ");

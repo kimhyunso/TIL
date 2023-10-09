@@ -18,7 +18,7 @@ str_list에서 "l"과 "r" 중 먼저 나오는 문자열이 "l"이라면 해당 
 import java.util.*;
 
 
-public class 왼쪽오른쪽 {
+class Main {
 
     public static void main(String[] args){
         String [] str_list = {"u", "u", "l", "r"};
