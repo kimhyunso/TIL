@@ -16,7 +16,6 @@ public class 패션왕신해빈 {
                 map.put(type, map.getOrDefault(type, 0) + 1);
             }
 
-
             int result = 1;
             for (int value : map.values())
                 result *= value + 1;
