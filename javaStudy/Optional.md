@@ -27,7 +27,7 @@ public class Main{
 # `Optional<T>`
 null이 올 수 있는 값을 감싸는 Wrapper 클래스
 
-- null safety
+- Null Safety
 
 # 대체
 ```java
@@ -61,3 +61,20 @@ public String getAge(){
 }
 
 ```
+
+# 사용시 권고사항
+1. Optional 변수에 Null을 할당하지 말것 - `Optional.empty()` 사용
+2. 값이 없을 때 가급적 `isPresent()`검사 후 `orElseGet()` 사용
+
+    2-1. 값이 준비되어 있지 않은 경우 - `orElseGet`
+    2-2. 값이 준비되어 있는 경우 - `orElse`
+3. 단순히 값을 얻으려는 목적으로만 Optional을 사용하지 말자
+4. 생성자, 수정자, 메소드 파라미터 등으로 Optional을 넘기지 마라
+5. Collection의 경우 Optional이 아닌 빈 Collection(`Collections.emptyList()`)을 사용하자
+6. 반환타입으로만 사용하자
+
+> Optional은 반환 타입으로써 에러가 발생할 수 있는 경우에 결과 없음을 명확히 드러내기 위해 만들어졌다.
+>
+> Stream API와 결합되어 유연한 체이닝 api를 만들기 위해 탄생한 것이다.
+
+
