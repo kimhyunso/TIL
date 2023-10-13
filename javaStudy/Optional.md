@@ -1,27 +1,25 @@
 # 사용이유
-예외 발생 중 NullPointException NPE를 처리하기 너무 귀찮다.
+예외 발생 중 NullPointException (NPE)를 처리하기 너무 귀찮다. - 값에 null 들어가는 현상
 
-# 기존
+# 기존 `NullPointException`처리 방법
 ```java
-public class Main{
-    public static void main(String[] args){
-        // 첫번째 방법
-        String age = null;
-        try{
-            int ageToInt = Integer.parseInt(age);
-        }catch(Exception e){
-            System.out.println(e.getMessage() + " 에러 발생!");
-        }
-
-        // 두번째 방법
-        String age1 = null;
-        int ageToInt1 = 0;
-        if (age1 != null)
-            ageToInt1 = Integer.parseInt(age1);
-        else
-            System.out.println("에러로 실행안됨");
-    }
+// 첫번째 방법
+String age = null;
+try{
+    int ageToInt = Integer.parseInt(age);
+}catch(Exception e){
+    System.out.println(e.getMessage() + " 에러 발생!");
 }
+
+// 두번째 방법
+String age1 = null;
+int ageToInt1 = 0;
+
+if (age1 != null)
+    ageToInt1 = Integer.parseInt(age1);
+else
+    System.out.println("에러로 실행안됨");
+ 
 ```
 
 # `Optional<T>`

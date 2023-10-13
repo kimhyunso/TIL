@@ -2,8 +2,8 @@ package dataStructure;
 
 import java.util.*;
 
-
-public class ArrayList<E> implements List<E> {
+/* 공부용 ArrayList! */
+public class ArrayList<E> implements List<E>, Cloneable{
 
     // 최소 용적 크기
     private static final int DEFAULT_CAPACITY = 10;
@@ -194,26 +194,7 @@ public class ArrayList<E> implements List<E> {
         resize();
     }
 
-    /*
-     * 얕은 복사 : 주소값이 같은 객체 - 변경시 기존 객체도 변경
-     * deep 복사 : 주소값이 다른 객체 - 다른 객체로 인식
-     */
-
-    @Override
-    public Object clone() throws CloneNotSupportedException{
-        // 새로운 객체 생성
-        ArrayList<?> cloneList = (ArrayList<?>)super.clone();
-
-        // 새로운 객체의 배열도 생성해주어야 함 (객체는 얕은 복사가 되기때문)
-        cloneList.array = new Object[size];
-
-        // 배열의 값을 복사함
-        System.arraycopy(array, 0, cloneList.array, 0, size);
-
-        return cloneList;
-    }
-
-
+   
     // 적절하게 배열의 용적을 변경하기
     private void resize(){
         int array_capacity = array.length;
@@ -258,6 +239,9 @@ public class ArrayList<E> implements List<E> {
         }
     }
 
+
+    // 부가적인 요소
+
     public Object[] toArray(){
         return Arrays.copyOf(array, size);
     }
@@ -271,5 +255,27 @@ public class ArrayList<E> implements List<E> {
         // 원본배열, 원본배열 시작위치, 복사할 배열, 복사할배열 시작위치, 복사할 요소 수 
         System.arraycopy(array, 0, a, 0, size);
         return a;
-    }   
+    }  
+
+
+     /*
+     * 얕은 복사 : 주소값이 같은 객체 - 변경시 기존 객체도 변경
+     * deep 복사 : 주소값이 다른 객체 - 다른 객체로 인식
+     */
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        // 새로운 객체 생성
+        ArrayList<?> cloneList = (ArrayList<?>)super.clone();
+
+        // 새로운 객체의 배열도 생성해주어야 함 (객체는 얕은 복사가 되기때문)
+        cloneList.array = new Object[size];
+
+        // 배열의 값을 복사함
+        System.arraycopy(array, 0, cloneList.array, 0, size);
+
+        return cloneList;
+    }
+
+
 }
