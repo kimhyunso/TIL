@@ -271,11 +271,5 @@ public class ArrayList<E> implements List<E> {
         // 원본배열, 원본배열 시작위치, 복사할 배열, 복사할배열 시작위치, 복사할 요소 수 
         System.arraycopy(array, 0, a, 0, size);
         return a;
-
-    }
-
-
-
-
-    
+    }   
 }
