@@ -50,7 +50,7 @@ public <T> T genericMethod(T object){}
 <K super T>
 <? extends T>
 <? super T> 
-<?>
+<?> // <? extends Object>와 같음
 ```
 
 # 상한경계
