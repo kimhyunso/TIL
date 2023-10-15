@@ -32,11 +32,16 @@ public class Key{
     }
 }
 
-HashMap<Key,String> map = new HashMap<Key,String>();       
-map.put(new Key(1),"홍길동");
+Key key1 = new Key(10);
+Key key2 = new Key(10);
 
-String value = map.get(new Key(1));
-System.out.println(value);
+System.out.println(key1);
+System.out.println(key2);
+
+if (key1.equals(key2))
+    System.out.println("두 객체는 동일한 객체입니다.");
+else
+    System.out.println("두 객체는 다른 객체입니다.");
 ```
 
 
@@ -45,28 +50,17 @@ System.out.println(value);
 - ​기본적으로 "클래스명@16진수해시코드"로 구성된 문자열을 리턴한다.
 
 ~~~java
-public class SmartPhone{
-    private String company;
-    private String os;
-    
-    public SmartPhone(String company, String os){
-        this.company = company;
-        this.os = os;
-    }
-    
-    @Override
-    public String toString(){
-        return company+", "+os;
+public class ClassName{
+    private int key;
+
+    public SmartPhone(int key){
+        this.key = key;
     }
 }
 
-public class SmartPhoneEx{
-    public static void main(String[] args){
-        SmartPhone myPhone = new SmartPhone("구글","안드로이드");
-        String str = myPhone.toString();
-        System.out.println(str);
-    }
-}
+ClassName myClass = new ClassName(10);
+System.out.println(myClass);
+System.out.println(myClass.toString());
 ~~~
 
 # 객체 복제(clone)
@@ -137,7 +131,6 @@ public class Member implements Cloneable{
         return cloned;
     }
 
-
     @Override
     protected Object clone() throws CloneNotSupportedException{
         return (Member) super.clone();
@@ -163,6 +156,32 @@ clonedMember.setName("홍길동");
 System.out.println(member.getName());
 System.out.println(clonedMember.getName());
 ~~~
+
+
+# CallByReference, CallByValue
+
+- CallByReference : 메소드에 객체를 매개변수로 선언시, 주소값이 같다.
+
+```java
+public void callByValue(int value){
+    value = 10;
+}
+
+int value = 20;
+// 변경되지 않음
+callByValue(value);
+
+public void callByReference(int[] arr){
+    arr[0] = 30;
+}
+
+int arr[] = {1};
+callByReference(arr);
+
+```
+
+
+
 
 # 복사 생성자, 복사 팩터리 (갚은 복사)
 ```java

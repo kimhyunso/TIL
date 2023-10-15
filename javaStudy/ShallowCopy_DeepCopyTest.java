@@ -42,7 +42,7 @@ class EqualsHashCode{
     }
 }
 
-class User{
+class User implements Cloneable{
     private int id;
     private String name;
     private int age;
@@ -57,6 +57,20 @@ class User{
     }
     public void setName(String name){
         this.name = name;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        return (User) super.clone();
+    }
+
+
+    public User getUser(){
+        User cloned = null;
+        try{
+            cloned = (User) clone();
+        }catch(CloneNotSupportedException e){}
+        return cloned;
     }
 
 }
@@ -87,6 +101,20 @@ public class ShallowCopy_DeepCopyTest {
         // user2의 객체만 바꾸었을 뿐인데 user1도 바뀌어 있다.
         System.out.println(user1.getName());
         System.out.println(user2.getName());
+
+        User userOrigin = new User(1, "hyunso", 27);
+        User userClone = userOrigin.getUser();
+
+        if (userOrigin.equals(userClone))
+            System.out.println("userOrigin과 userClone은 같습니다.");
+
+
+        userClone.setName("홍길동");
+        
+        // userOrigin과 userClone과의 값이 다르다.
+        System.out.println(userOrigin.getName());
+        System.out.println(userClone.getName());
+
 
     }
 
