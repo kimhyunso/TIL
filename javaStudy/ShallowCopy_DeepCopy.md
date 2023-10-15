@@ -5,7 +5,7 @@
 
 ![hashcodeImage](https://github.com/kimhyunso/TIL/blob/master/java/images/hashcodeImage.png)
 
-~~~java
+```java
 public class Key{
     private int key;
    	public Key(int key){
@@ -32,16 +32,12 @@ public class Key{
     }
 }
 
-public class HashMapClass{
-    public static void main(String[] args){
- 		HashMap<Key,String> map = new HashMap<Key,String>();       
-    	map.put(new Key(1),"홍길동");
-        
-        String value = map.get(new Key(1));
-        System.out.println(value);
-    }
-}
-~~~
+HashMap<Key,String> map = new HashMap<Key,String>();       
+map.put(new Key(1),"홍길동");
+
+String value = map.get(new Key(1));
+System.out.println(value);
+```
 
 
 # 객체 문자 정보(toString())
@@ -84,57 +80,33 @@ public class SmartPhoneEx{
 
 ~~~java
 public class Member{
-    private String id;
+    private int id;
     private String name;
-    private String password;
     private int age;
-    private int[] scores;
 
-    public Member(String id, String name, String password, int age, int[] scores){
+    public Member(int id, String name, int age){
         this.id = id;
         this.name = name;
-        this.password = password;
-        this.age = age;
-        this.scores = scores;
-    }
-
-    @Override
-    public String toString(){
-        return "Member{"
-                +"ID: "+this.id
-                +" name: "+this.name
-                +" password: "+this.password
-                +" age: "+this.age
-                +" scores"+ Arrays.toString(scores)
-                +"}";
-
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age){
         this.age = age;
     }
+
+    public void setName(String name) {this.name = name;}
+    public String getName(){return name;}
 }
 
-public class MainClass{
-    public static void main(String[] args){
-        Member member = new Member("1","홍길동","blue",30,new int[]{30,40,50});
-        Member clonedMember = member;
-        clonedMember.setName("김자바");
-        clonedMember.setAge(50);
+Member member = new Member(1, "홍길동", 23);
+Member clonedMember = member;
 
-        if(clonedMember.equals(member)){
-            System.out.println("두 객체는 같은 주소를 가르킨다.");
-        }
-
-        //cloneMember만 변경했는데 같이 변경됨
-        System.out.println(member);
-        System.out.println(clonedMember);
-    }
+if(clonedMember.equals(member)){
+    System.out.println("두 객체는 같은 주소를 가르킨다.");
 }
+
+clonedMember.setName("김자바");
+
+//cloneMember만 변경했는데 같이 변경됨
+System.out.println(member.getName());
+System.out.println(clonedMember.getName());
+  
 ~~~
 
 # 깊은 복제(deep clone)
@@ -145,22 +117,17 @@ public class MainClass{
 
 ~~~java
 public class Member implements Cloneable{
+    private int id;
     private String name;
     private int age;
-    private int[] scores;
-    private Car car;
     
-    public Member(String name, int age, int[] scores, Car car){
+
+    public Member(int id, String name, int age){
+        this.id = id;
         this.name = name;
         this.age = age;
-        this.scores = scores;
-        this.car = car;
     }
     
-    @Override
-    protected Object clone() throws CloneNotSupportedException{
-        return (Member) super.clone();
-    }
     
     public Member getMember(){
         Member cloned = null;
@@ -169,57 +136,32 @@ public class Member implements Cloneable{
         }catch(CloneNotSupportedException e){}
         return cloned;
     }
-    
+
+
     @Override
-    public String toString(){
-        return "Member{"
-            +"name: "+this.name
-            +" age: "+this.age
-            +" scores: "+Arrays.toString(scores)
-            +" car: "+car.getModel()
-            +"}";
-    }
-    
-    public void setAge(int age){
-        this.age = age;
+    protected Object clone() throws CloneNotSupportedException{
+        return (Member) super.clone();
     }
 
     public void setName(String name){
         this.name = name;
     }
-}
-
-public class Car{
-    private String model;
-
-    public Car(String model){
-        this.model = model;
-    }
-
-    public String getModel() {
-        return model;
-    }
-    public void setModel(String model){
-        this.model = model;
+    
+    public String getName(){
+        return name;
     }
 }
 
-public class MainClass{
-    public static void main(String[] args){
-        Member member = new Member("김자바",30,new int[]{30,50,100},new Car("그랜저"));
-        Member clonedMember = member.getMember();
-        clonedMember.setAge(50);
-        clonedMember.setName("홍길동");
+Member member = new Member(2, "김자바", 26);
+Member clonedMember = member.getMember();
 
-        if (member.equals(clonedMember)){
-            System.out.println("두 객체는 다른 주소를 가르킨다.");
-        }
+if (member.equals(clonedMember))
+    System.out.println("두 객체는 다른 주소를 가르킨다.");
 
-        System.out.println(member);
-        System.out.println(clonedMember);
-    }
-}
+clonedMember.setName("홍길동");
 
+System.out.println(member.getName());
+System.out.println(clonedMember.getName());
 ~~~
 
 # 복사 생성자, 복사 팩터리 (갚은 복사)

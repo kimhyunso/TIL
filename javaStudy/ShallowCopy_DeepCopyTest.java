@@ -42,27 +42,52 @@ class EqualsHashCode{
     }
 }
 
+class User{
+    private int id;
+    private String name;
+    private int age;
 
+    public User(int id, String name, int age){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
 
-
-
+}
 
 
 public class ShallowCopy_DeepCopyTest {
     public static void main(String[] args){
-       NormalClass normal1 = new NormalClass();
-       NormalClass normal2 = new NormalClass();
-       normalEquals(normal1, normal2);
+        NormalClass normal1 = new NormalClass();
+        NormalClass normal2 = new NormalClass();
+        normalEquals(normal1, normal2);
 
-       EqualsClass equalsClass1 = new EqualsClass(10);
-       EqualsClass equalsClass2 = new EqualsClass(10);
+        EqualsClass equalsClass1 = new EqualsClass(10);
+        EqualsClass equalsClass2 = new EqualsClass(10);
+        eualsClassEquals(equalsClass1, equalsClass2);
 
-       eualsClassEquals(equalsClass1, equalsClass2);
+        EqualsHashCode hashCode1 = new EqualsHashCode(20);
+        EqualsHashCode hashCode2 = new EqualsHashCode(20);
+        eualsHashCodeEquals(hashCode1, hashCode2);
 
 
-       EqualsHashCode hashCode1 = new EqualsHashCode(20);
-       EqualsHashCode hashCode2 = new EqualsHashCode(20);
-       eualsHashCodeEquals(hashCode1, hashCode2);
+        User user1 = new User(1, "kim", 23);
+        User user2 = user1;
+        if (user1.equals(user2))
+            System.out.println("user1과 user2는 같습니다.");
+
+        user2.setName("hyun");
+        
+        // user2의 객체만 바꾸었을 뿐인데 user1도 바뀌어 있다.
+        System.out.println(user1.getName());
+        System.out.println(user2.getName());
+
     }
 
 
