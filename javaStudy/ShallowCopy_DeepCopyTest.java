@@ -115,7 +115,25 @@ public class ShallowCopy_DeepCopyTest {
         System.out.println(userOrigin.getName());
         System.out.println(userClone.getName());
 
+        int arr[] = {1};
+        int value = 1;
+        callByValue(value);
+        // 바뀌지 않았음
+        System.out.println("callByValue : " + value);
 
+        callByReference(arr);
+        // 바뀜
+        System.out.println("callByReference : " + arr[0]);
+    }
+
+
+
+    public static void callByValue(int value){
+        value = 20;
+    }
+
+    public static void callByReference(int arr[]){
+        arr[0] = 20;
     }
 
 

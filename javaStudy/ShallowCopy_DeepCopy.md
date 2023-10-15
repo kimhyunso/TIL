@@ -160,7 +160,7 @@ System.out.println(clonedMember.getName());
 
 # CallByReference, CallByValue
 
-- CallByReference : 메소드에 객체를 매개변수로 선언시, 주소값이 같다.
+> CallByValue를 호출한 데이터의 값은 바뀌지 않는 방면, CallByReference를 호출한 데이터의 값은 바뀐다.
 
 ```java
 public void callByValue(int value){
@@ -177,75 +177,9 @@ public void callByReference(int[] arr){
 
 int arr[] = {1};
 callByReference(arr);
-
 ```
 
 
-
-
-# 복사 생성자, 복사 팩터리 (갚은 복사)
-```java
-
-public class CopyObject {
-
-    private String name;
-    private int age;
-
-    public CopyObject() {}
-
-
-    /* 복사 생성자 */
-    public CopyObject(CopyObject original) {
-        this.name = original.name;
-        this.age = original.age;
-    }
-
-
-    /* 복사 팩터리 */
-    public static CopyObject copy(CopyObject original) {
-        CopyObject copy = new CopyObject();
-        copy.name = original.name;
-        copy.age = original.age;
-        return copy;
-    }
-
-    public CopyObject(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-}
-
-public Class Main{
-    public static void main(String[] args){
-        CopyObject original = new CopyObject("홍길동", 20);
-        CopyObject copyConstructor = new CopyObject(original);
-        CopyObject copyFactory = CopyObject.copy(original);
-
-        copyConstructor.setName("김자바");
-        copyFactory.setName("김개똥");
-
-        System.out.println(original.getName());
-        System.out.println(copyConstructor.getName());
-        System.out.println(copyFactory.getName());
-    }
-}
-```
 # 객체 소멸자(finalize())[자바 11버전 사용X권장]
 
 ​자바는 참조하지 않는 메모리는 쓰레기 수집기가 자동적으로 소멸시킨다.
@@ -281,48 +215,6 @@ public class FinalizeClass{
 
 # Objects 클래스
 객체비교, 해시코드 생성, null여부 체크 등을 하는 정적메소드를 가지고 있다.
-
-## 객체비교(compare(T a, T b, Comparetor&lt;T&gt;c))
-두 객체를 비교해서 int값으로 리턴한다.
-
-~~~java
-public class Student{
-    private int sno;
-    public Student(int sno){
-        this.sno = sno;
-    }
-    
-    public int getSno(){
-        return sno;
-    }
-    
-    public void setSno(int sno){
-        this.sno = sno;
-    }
-}
-
-public class StudentComparetor implements Comparetor<Student>{
-    @Override
-    public int compare(Student a, Student b){
-        if(a.getSno() < b.getSno()) return -1;
-        else if(a.getSno() == b.getSno()) return 0;
-        else return 1;
-    }
-}
-
-public class CompareClass{
-    public static void main(String[] args){
-        Student s1 = new Student(1);
-        Student s2 = new Student(1);
-        Student s3 = new Student(2);
-        
-        int result1 = Objects.compare(s1,s2, new StudentComparetor());
-        int result2 = Objects.compare(s2,s3, new StudentComparetor());
-        
-    }
-}
-
-~~~
 
 ## 동등비교(Objects.equals() or Objects.deepEquals())
 두 객체를 동등비교한다.
