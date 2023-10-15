@@ -60,7 +60,7 @@ class Member implements Comparable<Member>{
 }
 
 
-public class ComparableComparatorTest {
+public class Comparable_ComparatorTest {
 
     public static void main(String[] args){
         Member aMember = new Member(17, 10000);
