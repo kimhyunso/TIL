@@ -6,13 +6,17 @@ import java.util.*;
 
 
 
-class ClassName{
+class StudyTest{
     private int age;
     private String name;
 
-    public ClassName(int age, String name){
+    public StudyTest(int age, String name){
         this.age = age;
         this.name = name;
+    }
+
+    public StudyTest(){
+
     }
 
     public String getName(){
@@ -39,10 +43,11 @@ public class OptionalTest {
         Optional<String> testOptional = Optional.ofNullable(null);
         System.out.println(testOptional);
 
-        ClassName className = new ClassName(23, "kim");
+        StudyTest studyTest = new StudyTest(23, "hyun");
         Optional<String> classOptional = Optional.empty();
-        String name = classOptional.orElseGet(className::getName);
+        String name = classOptional.orElseGet(studyTest::getName);
         System.out.println(name);
+
     }
 
 }
