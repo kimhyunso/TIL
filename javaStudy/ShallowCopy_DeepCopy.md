@@ -1095,86 +1095,28 @@ public class ArrayCopyClass{
 
 ## 배열 항목 비교
 ~~~java
-public class EqualsClass{
-    public static void main(String[] args){
-        int[][] original = {
-            {1,2},
-            {3,4}
-        };
-        
-        //얕은 복사 후 비교
-        System.out.println("[얕은 복사 후 비교]");
-        int[][] arryInt1 = Arrays.copyOf(original,original.length);
-        System.out.println("배열 번지 비교: "+original.equals(arryInt1));
-        System.out.println("1차 배열 항목값 비교: "+Arrays.equals(original,arrayInt1));
-        System.out.println("중첩 배열 항목값 비교: "+Arrays.deepEquals(original,arrayInt1));
-        
-        //깊은 복사 후 비교
-        System.out.println("[깊은 복사 후 비교]");
-    	int[][] arryInt2 = Arrays.copyOf(original,original.length);
-        arryInt2[0] = Arrays.copyOf(original[0], original[0].length);
-        arryInt2[1] = Arrays.copyOf(original[1], original[1].length);
-        System.out.println("배열 번지 비교: "+original.equals(arryInt2));
-        System.out.println("1차 배열 항목값 비교: "+Arrays.equals(original,arrayInt2));
-        System.out.println("중첩 배열 항목값 비교: "+Arrays.deepEquals(original,arrayInt2));
-    }
-}
+int[][] original = {
+    {1,2},
+    {3,4}
+};
+
+//얕은 복사 후 비교
+System.out.println("[얕은 복사 후 비교]");
+int[][] arryInt1 = Arrays.copyOf(original,original.length);
+System.out.println("배열 번지 비교: " + original.equals(arryInt1));
+System.out.println("1차 배열 항목값 비교: " + Arrays.equals(original,arrayInt1));
+System.out.println("중첩 배열 항목값 비교: " + Arrays.deepEquals(original,arrayInt1));
+
+//깊은 복사 후 비교
+System.out.println("[깊은 복사 후 비교]");
+int[][] arryInt2 = Arrays.copyOf(original,original.length);
+arryInt2[0] = Arrays.copyOf(original[0], original[0].length);
+arryInt2[1] = Arrays.copyOf(original[1], original[1].length);
+System.out.println("배열 번지 비교: " + original.equals(arryInt2));
+System.out.println("1차 배열 항목값 비교: " + Arrays.equals(original,arrayInt2));
+System.out.println("중첩 배열 항목값 비교: " + Arrays.deepEquals(original,arrayInt2));
 ~~~
 
-## 배열 항목 정렬
-사용자 정의 클래스일 경우, `Comparable<T>` 인터페이스를 구현받아야 한다.
-- `compareTo()` 메소드 리턴값
-
-1. 오름차순일 경우
-    1. 자신이 매개값보다 낮은 경우 양수
-    2. 자신이 매개값이랑 같은 경우 0
-    3. 자신이 매개값보다 높은 경우 음수
-2. 내림차순일 경우
-    1. 자신이 매개값보다 낮은 경우 음수
-    2. 자신이 매개값이랑 같은 경우 0
-    3. 자신이 매개값보다 높은 경우 양수
-
-~~~java
-public class Member implements Comparable<Member>{
-    private String name;
-    public Member(String name){
-        this.name = name;
-    }
-    @Override
-    public int compareTo(Member o){
-        return name.compareTo(o.name);
-    }
-    public String getName(){
-        return name;
-    }
-}
-
-//배열 비교
-public class SortClass{
-    public static void main(String[] args){
-        int[] scores = {99,97,98};
-        Arrays.sort(scores);
-        for(int=0; i<scores.length; i++)
-            System.out.println("scores["+i+"]="+scores[i]);
-        System.out.println("---------------------");
-        
-        String[] names = {"홍길동","박동수","김자바"};
-        Arrays.sort(names);
-        for(int i=0; i<names.length; i++)
-            System.out.println("name["+i+"]="+names[i]);
-        System.out.println("-----------------------");
-        
-        Member m1 = new Member("홍길동");
-        Member m2 = new Member("박동수");
-        Member m3 = new Member("김자바");
-        Member[] members = {m1,m2,m3};
-        Arrays.sort(members);
-        for(int i=0; i<members.length; i++)
-            System.out.println("members["+i+"].name="+members[i].getName());
-        
-    }
-}
-~~~
 
 ## 배열 항목 검색
 배열에서 특정 값이 위치한 인덱스를 얻는 것을 배열 검색이라고 한다.
