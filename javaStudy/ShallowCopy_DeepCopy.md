@@ -1,53 +1,7 @@
-# Object 클래스
-최상위 부모 클래스이다.
-
-## 객체 비교(`equals()`)
-
-~~~java
-public class Member{
-    private String id;
-    public Member(String id){
-        this.id = id;
-    }
-    
-    @Override
-    public boolean equals(Object obj){
-        if(obj instanceof Member){
-            Member member = (Member)obj;
-            if(id.equals(member.getId()))
-                return true;
-        }
-        return false;
-    }
-    public String getId(){
-        return id;
-    }
-}
-public class MainClass{
-	public static void main(String[] args){
-        Member member1 = new Member("1");
-        Member member2 = new Member("1");
-        Member member3 = new Member("2");
-        if(member1.equals(member2))
-            System.out.println("member1와 member2는 동등하다.");
-        else
-            System.out.println("member1와 member2는 동등하지 않다.");
-        
-        if(member2.equals(member3))
-            System.out.println("member2와 member3는 동등하다.");
-        else
-            System.out.println("member2와 member3는 동등하지 않다.");
-	}
-}
-~~~
-
-
-
 # 객체 해시코드(hashcode)
 
-​객체를 식별하는 하나의 정수값이다.
-
-​객체의 메모리 번지를 이용하여 해시코드를 만들어 리턴한다.
+- 객체의 동등 비교를 위해서는 `equals()`만 재정의하지 말고 `hashCode()`도 재정의해서 논리적 동등 객체일 경우 동일한 해시코드가 리턴되도록해야한다. 
+- ​객체를 식별하는 하나의 정수값이다.
 
 ![hashcodeImage](https://github.com/kimhyunso/TIL/blob/master/java/images/hashcodeImage.png)
 
@@ -88,11 +42,11 @@ public class HashMapClass{
     }
 }
 ~~~
-객체의 동등 비교를 위해서는 equals만 재정의하지 말고 hashCode도 재정의해서 논리적 동등 객체일 경우 동일한 해시코드가 리턴되도록해야한다. 
+
 
 # 객체 문자 정보(toString())
 
-​기본적으로 "클래스명@16진수해시코드"로 구성된 문자열을 리턴한다.
+- ​기본적으로 "클래스명@16진수해시코드"로 구성된 문자열을 리턴한다.
 
 ~~~java
 public class SmartPhone{
@@ -118,8 +72,6 @@ public class SmartPhoneEx{
     }
 }
 ~~~
-
-
 
 # 객체 복제(clone)
 1. 얕은 복제
