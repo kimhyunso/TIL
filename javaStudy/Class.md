@@ -72,42 +72,15 @@ public class KumhoCar implements Car{
     }
 }
 
-public class RunClass{
-    public static void main(String[] args){
-        Tire tire;
-        tire = new HyundaiTire();
-        tire.run();
-        tire.stop();
-        tire = new KumhoTire();
-        tire.run();
-        tire.stop();
-    }
-}
+Tire tire;
+tire = new HyundaiTire();
+tire.run();
+tire.stop();
+tire = new KumhoTire();
+tire.run();
+tire.stop();   
 ~~~
 
-# 객체와 클래스
-
-객체 지향 프로그램 개발의 세 가지 단계
-1. 클래스 설계단계
-2. 설계된 클래스를 가지고 사용할 객체 생성
-3. 생상된 객체를 이용하는 것
-
-
-# 클래스 선언
-클래스 이름은 대문자로 표기한다. 
-
-~~~java
-public class ClassName{
-    //생성자
-	public ClassName(){}
-}
-//객체 생성
-ClassName className = new ClassName(); //생성자 호출
-~~~
-
-실행 클래스 : `main()`
-
-나머지 클래스 : API[라이브러리 클래스들]
 # 클래스의 구성 멤버
 
 1. 필드 : 객체가 가지고 있는 정보들
@@ -158,12 +131,8 @@ public class ClassName{
     }
 }
 
-public class ClassMain{
-    public static void main(String[] args){
-        ClassName className = new ClassName("홍길동");	//생성자 호출
-        className.name = "김자바";	//필드 호출
-    }
-}
+ClassName className = new ClassName("홍길동");	//생성자 호출
+className.name = "김자바";	//필드 호출    
 ~~~
 
 # 오버로딩(Overroading)

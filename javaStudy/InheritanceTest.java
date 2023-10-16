@@ -40,9 +40,6 @@ class Dog extends Animal{
 }
 
 
-
-
-
 public class InheritanceTest {
     public static void main(String[] args){
         // 나는 부모입니다.

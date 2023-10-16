@@ -3,9 +3,6 @@ package javaStudy;
 import java.util.*;
 
 
-
-
-
 class StudyTest{
     private int age;
     private String name;

@@ -59,6 +59,7 @@ public class ClassName{
 }
 
 ClassName myClass = new ClassName(10);
+// 둘이 같음
 System.out.println(myClass);
 System.out.println(myClass.toString());
 ~~~
@@ -100,7 +101,6 @@ clonedMember.setName("김자바");
 //cloneMember만 변경했는데 같이 변경됨
 System.out.println(member.getName());
 System.out.println(clonedMember.getName());
-  
 ~~~
 
 # 깊은 복제(deep clone)
@@ -199,17 +199,13 @@ public class Counter{
     }
 }
 
-public class FinalizeClass{
-    public static void main(String[] args){
-        Counter counter = null;
-        for(int i=1; i<=50; i++){
-            counter = new Counter(i);
-            
-            counter = null;
-            //쓰레기 수집기 실행 요청
-            System.gc();
-        }
-    }
+Counter counter = null;
+for(int i=1; i<=50; i++){
+    counter = new Counter(i);
+    
+    counter = null;
+    //쓰레기 수집기 실행 요청
+    System.gc();
 }
 ~~~
 
@@ -385,63 +381,7 @@ public class GcClass{
 }
 ~~~
 
-## 현재 시각 읽기(currentTimeMillis(), nanoTime())
 
-~~~java
-public class SystemTimeClass{
-    public static void main(String[] args){
-        long time1 = System.nanoTime();
-        
-        int sum = 0;
-        for(int i=1; i<=100000; i++)
-            sum += i;
-        
-        long time2 = System.nanoTime();
-        
-        System.out.println("1~100000까지의 합: "+sum);
-        System.out.println("계산에 "+(time2-time1)+" 나노초가 소요되었습니다.");
-    }
-}
-~~~
-
-## 현재 프로퍼티 읽기(getProperty())
-시스템의 속성값을 알 수 있다.
-
-~~~java
-public class GetPropertyClass{
-    public static void main(String[] args){
-        String osName = System.getProperty("os.name");
-        String userName = System.getProperty("user.name");
-        String userHome = System.getProperty("user.home");
-        
-        System.out.println("운영체제 이름: "+osName);
-        System.out.println("사용자 이름: "+userName);
-        System.out.println("사용자 홈디렉토리: "+userHome);
-        
-        System.out.println("--------------------------");
-        System.out.println(" [ key ]  value");
-        System.out.println("--------------------------");
-        
-        Properties props = System.getProperties();
-        Set keys = props.keySet();
-        for(Object objKey : keys){
-            String key = (String) objKey;
-            String value = System.getProperty(key);
-            System.out.println(" [ key ]  "+value);
-        }
-    }
-}
-~~~
-
-## 환경 변수 읽기(getenv())
-~~~java
-public class SystemClass{
-    public static void main(String[] args){
-        String javaHome = System.getenv("JAVA_HOME");
-        System.out.println("JAVA_HOME: "+javaHome);
-    }
-}
-~~~
 
 # Class 클래스
 
@@ -571,257 +511,7 @@ public class NewInstanceClass{
 }
 ~~~
 
-# String 클래스
 
-​문자열을 생성하는 방법과 추출, 비교, 찾기, 분리, 변환 등 처리한다.
-
-## String 생성자
-파일의 내용을 읽거나, 네트워크를 통해 받은 데이터는 byte[]배열 이므로 이것을 문자열로 변환하기 위해 사용된다.
-
-~~~java
-public class StringClass{
-	public static void main(String[] args){
-        byte[] bytes = {72,101,108,108,111,32,74,97,118,97};
-        
-        //byte배열 전체를 String 객체로 생성
-        String str1 = new String(bytes);
-       	//지정한 문자셋으로 디코딩
-        String str2 = new String(bytes, "UTF-8");
-		
-        //배열의 offset인덱스 위치부터 length까지 String 객체로 생성
-        String str3 = new String(bytes,6,4);	//74의 위치부터 4개만
-        //지정한 문자셋으로 디코딩
-        String str4 = new String(bytes,6,4,"UTF-8");
-    }
-}
-
-public class KeyboardToStringClass{
-    public static void main(String[] args){
-        byte[] bytes = new byte[100];
-        
-        System.out.print("입력: ");
-        int readByteNo = System.in.read(bytes);
-        
-        String str = new String(bytes,0,readByteNo-1);
-        System.out.println(str);
-    }
-}
-~~~
-
-## String 메소드
-
-### 문자 추출(charAt())
-
-~~~java
-public class StringCharAtClass{
-    public static void main(String[] args){
-        String ssn = "010624-1230123";
-        char gender = ssn.charAt(7);	//0부터 시작해서 7번째 문자 추출함
-    	switch(gender){
-            case 1:
-            case 3:
-                System.out.println("남자입니다.");
-            	break;
-            case 2:
-            case 4:
-                System.out.println("여자입니다.");
-				break;
-        }
-    }
-} 
-~~~
-
-### 문자열 비교(equals())
-
-~~~java
-public class StringEqualsClass{
-    public static void main(String[] args){
-        String strVar1 = new String("신민철");
-        String strVar2 = "신민철";
-        
-        if(strVar1 == strVar2)
-            System.out.println("같은 String 객체를 참조");
-        else
-            System.out.println("다른 String 객체를 참조");
-        
-        if(strVar1.equals(strVar2))
-            System.out.println("같은 문자열을 가짐");
-        else
-            System.out.println("다른 문자열을 가짐");
-    }
-}
-~~~
-
-### 바이트 배열로 변환(getBytes())
-네트워크 문자열을 전송하거나 문자열을 암호화할 때 문자열을 바이트 배열로 변환한다.
-
-~~~java
-public class StringGetBytesClass{
-    public static void main(String[] args){
-        String str = "안녕하세요";
-        
-        byte[] bytes1 = str.getBytes();
-        System.out.println("bytes1.length: "+bytes1.length);
-        String str1 = new String(bytes1);
-        System.out.println("bytes1->String: "+str1);
-        
-        try{
-            byte[] bytes2 = str.getBytes("EUC-KR");
-            System.out.println("bytes2.length: "+bytes2.length);
-            String str2 = new String(bytes2, "EUC-KR");
-            System.out.println("bytes2->String: "+str2);
-            
-            byte[] bytes2 = str.getBytes("UTF-8");
-            System.out.println("bytes2.length: "+bytes2.length);
-            String str2 = new String(bytes2, "UTF-8");
-            System.out.println("bytes2->String: "+str2);
-        }catch(UnsupportedException e){
-            e.printStackTrace();
-        }
-    }
-}
-~~~
-
-### 문자열 찾기(indexOf())
-문자열이 시작되는 인덱스를 리턴한다.
-
-​문자열이 포함되어 있지 않다면 -1을 리턴함
-~~~java
-public class StringIndexOfClass{
-    public static void main(String[] args){
-        String subject = "자바 프로그래밍";
-        
-        int location = subject.indexOf("프로그래밍");
-        System.out.println(location);
-        
-        if(subject.indexOf("자바") != -1)
-            System.out.println("자바와 관련된 책이군요.");
-        else
-            System.out.println("자바와 관련없는 책이군요.");
-    }
-}
-~~~
-
-### 문자열 길이(length())
-문자열의 길이를 리턴한다.
-
-~~~java
-public class StringLengthClass{
-    public static void main(String[] args){
-        String ssn = "7306241230123";
-        int length = ssn.length();
-        if(length == 13)
-            System.out.println("주민번호 자리수가 맞습니다.");
-        else
- 			System.out.println("주민번호 자리수가 틀립니다.");           
-    }
-}
-~~~
-
-### 문자열 잘라내기(substring())
-~~~java
-public class StringSubstingClass{
-    public static void main(String[] args){
-        String ssn = "880815-1234567";
-		//0부터 6번째까지 잘라냄        
-        String firstNum = ssn.substring(0,6);
-        System.out.pritln(firstNum);
-        //7부터 끝까지 잘라냄
-        String secondNum = ssn.substring(7);
-        System.out.println(secondNum);
-    }
-}
-~~~
-
-### 알파벳 소·대문자 변경(toLowerCase(), toUpperCase())
-~~~java
-public class StringToLowerCaseUpperCaseClass{
-    public static void main(String[] args){
-        String str1 = "Java Programming";
-        String str2 = "JAVA Programming";
-        
-        System.out.println(str1.equals(str2));
-        
-        String lowerStr1 = str1.toLowerCase();
-        String lowerStr2 = str2.toLowerCase();
-        System.out.println(lowerStr1.equals(lowerStr2));
- 		//대소문자 신경안쓰고 비교       
-        System.out.println(str1.equalsIgnoreCase(str2));
-    }
-}
-~~~
-
-### 문자열 앞뒤 공백 잘라내기(trim())
-~~~java
-public class TrimClass{
-    public static void main(String[] args){
-        String tel1 = " 02";
-        String tel2 = "123 ";
-        String tel3 = "  1234  ";
-        
-        String tel = tel1.trim() + tel2.trim() + tel3.trim();
-        System.out.println(tel);
-    }
-}
-~~~
-
-### 문자열 변환(valueOf())
-기본 타입을 문자열로 변환한다.
-
-~~~java
-public class ValueOfClass{
-    public static void main(String[] args){
-        String str1 = String.valueOf(10);
-        String str2 = String.valueOf(10.5);
-        String str3 = String.valueOf(true);
-        
-        System.out.println(str1);
-        System.out.println(str2);
-        System.out.println(str3);
-    }
-}
-~~~
-
-### split() 메소드
-split() 매소드는 정규표현식을 구분자로 해서 문자열을 분리 후, 문자열 배열로 리턴한다.
-
-~~~java
-public class StringSplitClass{
-    public static void main(String[] args){
-        String text = "홍길동&이수홍,박연수,김자바-김영호";
-        
-        String[] names = text.split("&|,|-");
-        
-        for(String name : names)
-            System.out.println(name);
-    }
-}
-~~~
-
-# StringTokenizer 클래스
-문자열이 특정 구분자로 연결되어있을 경우, 구분자를 제거하고 문자열을 리턴한다.
-~~~~java
-public class StringTokenizerClass{
-    public static void main(String[] args){
-        String text = "홍길동/이수홍/박연수";
-        
-        StringTokenizer st = new StringTokenizer(text, "/");
-        int countTokens = st.countTokens();
-        for(int i=0; i<countTokens; i++){
-            String token = st.nextTokens();
-            System.out.println(token);
-        }
-        
-        System.out.println();
-        
-        st = new StringTokenizer(text,"/");
-        while(st.hasMoreTokens()){
-            String token = st.nextToken();
-            System.out.println(token);
-        }
-    }
-}
-~~~~
 
 
  # 정규 표현식과 Pattern 클래스

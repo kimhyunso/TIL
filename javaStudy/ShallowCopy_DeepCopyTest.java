@@ -1,4 +1,4 @@
-package javaStudy;
+
 
 
 class NormalClass{
@@ -93,14 +93,15 @@ public class ShallowCopy_DeepCopyTest {
 
         User user1 = new User(1, "kim", 23);
         User user2 = user1;
+
         if (user1.equals(user2))
             System.out.println("user1과 user2는 같습니다.");
 
         user2.setName("hyun");
         
         // user2의 객체만 바꾸었을 뿐인데 user1도 바뀌어 있다.
-        System.out.println(user1.getName());
-        System.out.println(user2.getName());
+        System.out.println("user1 : " + user1.getName());
+        System.out.println("user2 : " + user2.getName());
 
         User userOrigin = new User(1, "hyunso", 27);
         User userClone = userOrigin.getUser();
@@ -112,8 +113,8 @@ public class ShallowCopy_DeepCopyTest {
         userClone.setName("홍길동");
         
         // userOrigin과 userClone과의 값이 다르다.
-        System.out.println(userOrigin.getName());
-        System.out.println(userClone.getName());
+        System.out.println("userOrigin : " + userOrigin.getName());
+        System.out.println("userClone : " + userClone.getName());
 
         int arr[] = {1};
         int value = 1;
