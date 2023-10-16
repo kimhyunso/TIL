@@ -1,32 +1,19 @@
-# 람다식
-
-병렬처리와 이벤트 처리에 적절하다.
-
-~~~java
-Runnable runnable = new Runnable(){
-	@Override
-    public void run(){}
-};
-//람다식
-Runnable runnable = ()->{};
-~~~
-
 # 람다식 기본 문법
-~~~java
+```java
 (타입 매개변수, ...) -> {실행문, ...}
-//매개 변수가 하나일 경우()괄호 생략 가능
+// 매개 변수가 하나일 경우()괄호 생략 가능
 a -> System.out.println(a);
-//리턴문이 있을 경우
+// 리턴문이 있을 경우
 (x, y) -> {return x+y;};
 //리턴문이 없을 경우
 (x, y) -> x+y;
-~~~
+```
 
 # 타겟 타입과 함수적 인터페이스
 
 ​람다식은 인터페이스 변수에 대입된다.
 
-​람다식은 인터페이스의 익명 구현 객체를 생성한다는 뜻이다.
+​람다식은 인터페이스의 **익명 구현 객체**를 생성한다는 뜻이다.
 
 ​람다식이 대입될 인터페이스를 람다식의 타겟 타입(target type)이라고 한다.
 > 인터페이스 변수 = 람다식;
@@ -40,7 +27,7 @@ a -> System.out.println(a);
 @FunctionalInterface
 public interface MyFunctionalInterface{
     public void method();
-    //public void otherMethod(); 컴파일 오류
+    // public void otherMethod(); 컴파일 오류
 }
 ~~~
 
