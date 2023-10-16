@@ -7,9 +7,48 @@ public class Main {
 
         // arrayListTest();
         // singleLinkedListTest();
+        doubleLinkedListTest();
 
        
     }
+
+    public static void stack() throws CloneNotSupportedException{
+        Stack<Integer> original = new Stack<Integer>();
+        original.push(10);
+
+        Stack<Integer> copy = original;
+        Stack<Integer> clone = (Stack<Integer>) original.clone();
+
+        System.out.println("original Stack");
+        int i = 0;
+        for (Object a : original.toArray()){
+            System.out.println("index " + i + " data  = " + a);
+            i ++;
+        }
+        
+        copy.push(30);
+        System.out.println("\ncopy Stack");
+        i = 0;
+        for (Object a : copy.toArray()){
+            System.out.println("index " + i + " data = " + a);
+            i++;
+        }
+
+
+        System.out.println("\nclone Stack");
+        i = 0;
+        for (Object a : clone.toArray()){
+            System.out.println("index " + i + " data = " + a);
+            i++;
+        }
+
+        System.out.println("\noriginal stack reference : " + original);
+        System.out.println("copy stack reference : " + copy);
+        System.out.println("clone stack reference : " + clone);
+
+    }
+
+
 
     public static void doubleLinkedListTest() throws CloneNotSupportedException{
         DoubleLinkedList<Integer> original = new DoubleLinkedList<>();
@@ -17,6 +56,7 @@ public class Main {
 
         DoubleLinkedList<Integer> copy = original;
 
+        copy.add(30);
         System.out.println("original list");
         for (int i=0; i<original.size(); i++){
             System.out.println("index " + i + " data = " + original.get(i));
@@ -29,7 +69,7 @@ public class Main {
 
         System.out.println("original list reference : " + original);
         System.out.println("copy list reference : " + copy);
-        
+
     }
 
 
