@@ -2,7 +2,7 @@ package dataStructure;
 
 public interface List<E> {
 
-    /*
+    /**
      * 리스트에 요소를 추가
      * 
      * @param : 리스트에 추가할 요소
@@ -12,7 +12,7 @@ public interface List<E> {
      */
     boolean add(E value);
 
-    /*
+    /**
      * 리스트에 요소를 특정 위치에 삽입
      * 특정 위치 및 이후의 요소들은 한 칸씩 뒤로 밀립니다.
      * 
@@ -29,7 +29,7 @@ public interface List<E> {
     E remove(int index);
 
 
-    /*
+    /**
      * 리스트에 특정요소를 삭제합니다.
      * 동일 요소가 여러 개일 경우 가장 처음 발견한 요소만 삭제됩니다.
      * 
@@ -43,7 +43,7 @@ public interface List<E> {
 
 
 
-    /*
+    /**
      * 리스트에서 특정 요소를 삭제합니다.
      * 동일 요소가 존재할 경우, 가장 처음 발견한 요소를 삭제합니다.
      * 
@@ -62,7 +62,7 @@ public interface List<E> {
      */
     void set(int index, E value);
 
-    /*
+    /**
      * 리스트에 특정 요소가 리스트에 있는지 여부를 확인합니다.
      * 
      * @param value : 리스트에서 찾을 특정 요소 변수
@@ -72,7 +72,7 @@ public interface List<E> {
      */
     boolean contains(Object value);
 
-    /*
+    /**
      * 리스트에 특정 요소가 몇 번째 위체에 있는지를 반환합니다.
      * 
      * @param value : 리스트에서 위치를 찾을 요소 변수
@@ -82,14 +82,14 @@ public interface List<E> {
     int indexOf(Object value);
 
 
-    /* 
+    /**
      * 리스트에 있는 요소의 개수를 반환합니다.
      * 
      * @return 리스트에 있는 요소 개수를 반환합니다.
     */
     int size();
 
-    /*
+    /**
      * 리스트에 요소가 비어있는지를 반환합니다.
      * @return 
      * 1. 리스트에 요소가 없을 경우 true
@@ -97,7 +97,7 @@ public interface List<E> {
      */
     boolean isEmpty();
 
-    /*
+    /**
      * 리스트에 있는 요소를 모두 삭제합니다.
      */
     public void clear();

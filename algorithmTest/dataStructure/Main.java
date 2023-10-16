@@ -5,10 +5,31 @@ public class Main {
     public static void main(String[] args) throws Exception{
         
 
-        arrayListTest();
+        // arrayListTest();
         // singleLinkedListTest();
 
        
+    }
+
+    public static void doubleLinkedListTest() throws CloneNotSupportedException{
+        DoubleLinkedList<Integer> original = new DoubleLinkedList<>();
+        original.add(10);
+
+        DoubleLinkedList<Integer> copy = original;
+
+        System.out.println("original list");
+        for (int i=0; i<original.size(); i++){
+            System.out.println("index " + i + " data = " + original.get(i));
+        }
+
+        System.out.println("copy list");
+        for (int i=0; i<copy.size(); i++){
+            System.out.println("index " + i + " data = " + copy.get(i));
+        }
+
+        System.out.println("original list reference : " + original);
+        System.out.println("copy list reference : " + copy);
+        
     }
 
 

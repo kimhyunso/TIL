@@ -45,7 +45,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
         head = newNode;
         size++;
 
-        /*
+        /**
          * 다음에 가리킬 노드가 없는 경우(=데이터가 새 노드밖에 없는 경우)
          * 데이터가 한 개(새 노드)밖에 없으므로 새 노드는 처음 시작노드이자
          * 마지막 노드다. 즉 tail = head다.
@@ -64,7 +64,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
             return;
         }
 
-        /*
+        /**
          * 마지막 노드(tail)의 다음 노드(next)가 새 노드를 가리키도록 하고
          * tail이 가리키는 노드를 새 노드로 바꿔준다.
          */
@@ -107,7 +107,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
         // 추가하려는 노드
         Node<E> newNode = new Node<E>(value);
 
-        /*
+        /**
          * 이전 노드가 가리키는 노드를 끊은 뒤
          * 새 노드로 변경해준다.
          * 또한 새 노드가 가리키는 노드는 next_Node로 설정해준다.
@@ -138,7 +138,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
         head = nextNode;
         size--;
 
-        /*
+        /**
          * 삭제된 요소가 라스트의 유일한 요소였을 경우
          * 그 요소는 head 이자 tail이었으므로
          * 삭제되면서 tail도 가리킬 요소가 없기 때문에
@@ -243,7 +243,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
 
 
 
-    /*
+    /**
      * 객체끼리 비교할 때 동등연산자(==)가 아닌 equals로 비교해야한다.
      * 객체끼리 비교할 때 동등연산자를 쓰면 **값을 비교하는 것이 아닌** **주소를 비교**하는 것이기 때문에 잘못된 결과를 초래한다.
      */
@@ -317,7 +317,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
     }
 
 
-     /*
+     /**
      * ArrayList는 내부에서 데이터를 Object[] 배열로 담아서 복사가 쉬었으나,
      * LinkedList는 노드라는 객체에 데이터를 담고 있는 연결리스트이기 때문에 래퍼클래스(Integer, String), 사용자가 만든 클래스
      * 를 갖을 수 가 없다.
@@ -343,7 +343,7 @@ public class SingleLinkedList<E> implements List<E>, Cloneable {
 
 
      public void sort(){
-        /*
+        /**
          * Comparator를 넘겨주지 않는 경우 해당 객체의 Comparable에 구현된 정렬방식 사용
          * 만약 구현되어있지 않으면 cannot be cast to class java.lang.Comparable 에러 발생
          * 만약 구현되어있을 경우 null로 파라미터 넘기면
