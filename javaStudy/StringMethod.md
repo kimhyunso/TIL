@@ -167,20 +167,20 @@ for(String name : names)
 
 # StringTokenizer 클래스
 문자열이 특정 구분자로 연결되어있을 경우, 구분자를 제거하고 문자열을 리턴한다.
+- `countTokens()` : 토근의 갯수 반환
+- `hasMoreTokens()` : 다음 토큰이 존재하는 지 여부 반환 - true, false
+- `nextToken()` : 다음 토큰을 반환
 
 ```java
-
 String text = "홍길동/이수홍/박연수";
-
 StringTokenizer st = new StringTokenizer(text, "/");
 int countTokens = st.countTokens();
 for(int i=0; i<countTokens; i++){
-    String token = st.nextTokens();
+    String token = st.nextToken();
     System.out.println(token);
 }
 
 System.out.println();
-
 st = new StringTokenizer(text,"/");
 while(st.hasMoreTokens()){
     String token = st.nextToken();
