@@ -63,3 +63,10 @@ class Main{
 왼쪽에서 부터 채워져 있어야함
 
 
+# `Collection.sort()`
+- 컬렉션요소만 가능
+
+
+# `Arrays.sort()`
+- 배열만 가능
+

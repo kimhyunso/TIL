@@ -22,7 +22,7 @@
 import java.util.*;
 import java.io.*;
 
-public class 쇠막대기 {
+class Main {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Stack<Character> stack = new Stack<Character>();

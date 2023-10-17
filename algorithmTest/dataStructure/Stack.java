@@ -2,7 +2,7 @@ package dataStructure;
 
 import java.util.*;
 
-public class Stack<E> implements StackInterfece<E> {
+public class Stack<E> implements StackInterfece<E>, Cloneable {
     // 최소(기본) 용적 크기
     private static final int DEFAULT_CAPACITY = 10;
     // 빈 배열

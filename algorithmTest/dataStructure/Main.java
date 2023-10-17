@@ -1,15 +1,44 @@
 package dataStructure;
 
 
+import java.util.*;
+
+
 public class Main {
     public static void main(String[] args) throws Exception{
-        
-
         // arrayListTest();
         // singleLinkedListTest();
-        doubleLinkedListTest();
+        // doubleLinkedListTest();
+        // stack();
 
-       
+        // priortyQueue();
+
+    }
+    
+    public static void priortyQueue(){
+        PriorityQueue<Integer> priorityQueueLowest = new PriorityQueue<Integer>();
+        PriorityQueue<Integer> priorityQueueHighest = new PriorityQueue<>(Collections.reverseOrder());
+
+
+        priorityQueueLowest.offer(1);
+        priorityQueueLowest.offer(2);
+        priorityQueueLowest.offer(3);
+        priorityQueueLowest.offer(4);
+        int size = priorityQueueLowest.size();
+
+        for (int i=0; i<size; i++)
+            System.out.println(priorityQueueLowest.poll());
+        
+        priorityQueueHighest.offer(1);
+        priorityQueueHighest.offer(2);
+        priorityQueueHighest.offer(3);
+        size = priorityQueueHighest.size();
+        for (int i=0; i<size; i++)
+            System.out.println(priorityQueueHighest.poll());
+
+
+
+
     }
 
     public static void stack() throws CloneNotSupportedException{
