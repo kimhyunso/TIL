@@ -7,18 +7,19 @@ public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         int nodeCount = input.nextInt();
-        int vertexCount = input.nextInt();
+        int edgeCount = input.nextInt();
         int startNodeIndex = input.nextInt();
 
         int[][] matrix = new int[nodeCount + 1][nodeCount + 1];
         boolean visited[] = new boolean[nodeCount + 1];
 
-        while (vertexCount-- != 0){
+        while (edgeCount-- != 0){
             int x = input.nextInt();
             int y = input.nextInt();
             matrix[x][y] = y;
             matrix[y][x] = x;
         }
+
         dfs(startNodeIndex, visited, matrix);
         System.out.println();
 
