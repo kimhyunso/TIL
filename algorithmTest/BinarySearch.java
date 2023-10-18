@@ -10,13 +10,13 @@ public class BinarySearch {
     }
 
     public static int binarySearch(int target, int numbers[]){
-
-         int left = 0;
+        
+        int left = 0;
         int right = numbers.length;
         int mid = 0;
         while (left <= right){
             mid = numbers.length / 2;
-            
+
             if (numbers[mid] == target)
                 return numbers[mid];
             else if(numbers[mid] < target)
