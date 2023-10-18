@@ -1,3 +1,4 @@
+package dataStructure;
 public class StudyDFSRecursion {
 
     static boolean[] visitied = new boolean[9];
