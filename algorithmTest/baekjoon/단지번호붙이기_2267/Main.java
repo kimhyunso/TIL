@@ -11,10 +11,9 @@ public class Main {
     public static int[] dx = {0, 0, -1, 1};
     public static int[] dy = {1, -1, 0, 0};
 
-
-    public static int count;
+    public static int aptCount;
     public static int totalCnt;
-    public static ArrayList<Integer> list;
+    public static ArrayList<Integer> housCntList;
     public static int N;
 
 
@@ -25,9 +24,10 @@ public class Main {
 
         visited = new boolean[N][N];
         graph = new int[N][N];
-        list = new ArrayList<Integer>();
+        housCntList = new ArrayList<Integer>();
         totalCnt = 0;
-        count = 0;
+        // 단지수 카운트
+        aptCount = 0;
 
         for (int i=0; i<N; i++){
             String line = input.nextLine();
@@ -41,29 +41,28 @@ public class Main {
                 totalCnt = 0;
                 if (!visited[i][j] && graph[i][j] == 1){
                     dfs(i, j);
-                    count ++;
+                    aptCount ++;
                 }
-                list.add(totalCnt);
+                housCntList.add(totalCnt);
             }
         }
 
-        System.out.println(count);
+        System.out.println(aptCount);
 
 
-
-        Collections.sort(list);
-        for (int total : list){
+        Collections.sort(housCntList);
+        for (int total : housCntList){
             if (total != 0)
                 System.out.println(total);
-        }
-
-       
+        }  
     }
+
+
 
     public static void dfs(int x, int y){
         visited[x][y] = true;
         totalCnt ++;
-        
+
         for (int i=0; i<4; i++){
             int cx = x + dx[i];
             int cy = y + dy[i];
