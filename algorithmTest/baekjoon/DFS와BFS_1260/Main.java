@@ -27,7 +27,6 @@ public class Main {
         bfs(startNodeIndex, visited, matrix);
     }
 
-
     public static void dfs(int index, boolean visited[], int matrix[][]){
         visited[index] = true;
 
