@@ -14,7 +14,7 @@ BigInteger 사용 :: 무한대까지 저장 가능
 
 
 import java.math.*;
-public class 구슬을나누는경우의수 {
+public class Main {
     public static void main(String[] args){
         int balls = 5;
         int share = 3;

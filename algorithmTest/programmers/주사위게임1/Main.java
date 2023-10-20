@@ -2,7 +2,7 @@ package programmers.주사위게임1;
 import java.lang.Math;
 
 
-public class 주사위게임1 {
+public class Main {
     public static void main(String[] args){
         int a = 3, b = 5;
         int answer = 0;
