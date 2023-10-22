@@ -71,6 +71,6 @@ public class InterfaceTest {
 
         System.out.println("출발 시간 : " + simpleDateFormat.format(kiaStart));
         System.out.println("도착 시간 : " +  simpleDateFormat.format(kiaStop));        
+
     }
-    
 }
