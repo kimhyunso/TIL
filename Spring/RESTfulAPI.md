@@ -27,6 +27,7 @@ GET, POST, PUT, DELETE 등과 같은 HTTP 메소드를 사용하여 리소스와
 -   text/html - HTML문서 표현
 -   application/xml - XML형식 데이터 표현
 -   application/octet-stream - 바이너리 형식 : 사람이 읽을 수 없거나 미리 정의된 미디어 유형에 맞지 않을 경우 사용
+-   application/pdf - PDF파일 형식
 
 2.  메타데이터 : 각 요청 및 응답 메시지에는 그 목적과 수신자가 어떻게 처리해야 하는지 설명하기에 충분한 정보가 포함되어있다.
 
