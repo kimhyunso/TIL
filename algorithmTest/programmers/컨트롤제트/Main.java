@@ -20,8 +20,6 @@ public class Main {
                 answer -= Integer.parseInt(str[i-1]);
             else
                 answer += Integer.parseInt(str[i]);
-
-            
         }
 
         
