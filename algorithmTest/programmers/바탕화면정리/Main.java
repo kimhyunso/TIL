@@ -13,8 +13,10 @@ public class Main {
     public static int[] solution(String[] wallpaper){
         int minRow, minCol;
         int maxRow, maxCol;
-
+        
+        // 21억
         minRow = minCol = Integer.MAX_VALUE;
+        // -21억
         maxRow = maxCol = Integer.MIN_VALUE;
 
         int row = wallpaper.length;
