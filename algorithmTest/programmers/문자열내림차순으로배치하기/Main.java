@@ -23,9 +23,6 @@ public class Main {
             char leftChar = s.charAt(left);
             char rightChar = s.charAt(right);
 
-
-            
-
             
             if (leftChar < rightChar){
                 answer += String.valueOf(rightChar);
