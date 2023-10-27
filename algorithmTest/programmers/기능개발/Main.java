@@ -5,5 +5,5 @@ public class Main {
 
     }
 
-    public static int[] solution
+    public static int[] solution()
 }
