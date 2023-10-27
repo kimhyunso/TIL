@@ -18,7 +18,6 @@ public class Main {
             map.put(player, cnt++);
         }
 
-
         for (String calling : callings){
             int rank = map.get(calling);
             String beforePlayer = players[rank-1];
@@ -29,9 +28,6 @@ public class Main {
             map.put(calling, rank-1);
             map.put(beforePlayer, rank);
         }
-
-
-
 
         return players;
     }
