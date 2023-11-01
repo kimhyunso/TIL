@@ -4,12 +4,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
-
         int arr[] = {1, 1, 3, 3, 0, 1, 1};
         for (int result : solution(arr)){
             System.out.print(result);
         }
-
     }
 
     public static int[] solution(int []arr){
