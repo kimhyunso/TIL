@@ -1,19 +1,15 @@
 package programmers.특정문자열로끝나는가장긴부분문자열찾기;
-/*
-문자열 myString과 pat가 주어집니다. 
-myString의 부분 문자열중 pat로 끝나는 가장 긴 부분 문자열을 찾아서 return 하는 solution 함수를 완성해 주세요.
+/**
+ *문자열 myString과 pat가 주어집니다. 
+ * myString의 부분 문자열중 pat로 끝나는 가장 긴 부분 문자열을 찾아서 return 하는 solution 함수를 완성해 주세요.
  */
 
-/*
-풀이법 :
-pat의 문자열 길이가 1이상일 경우 : myString에서 pat의 인덱스위치를 가져와 (pat의 길이-1)를 더해준 것을 findIndex에 넣는다.
-아닐 경우 즉, 문자열이 1개일경우 : myString에서 pat의 인덱스위치를 가져온 것을 findIndex에 넣는다.
-substring을 이용해 0 - findIndex+1을 리턴한다.
-
-
-다른 사람의 풀이법:
-lastOfIndex를 이용하여 myString에서 pat의 인덱스 위치를 찾은 것을 findIndex에 넣는다.
-substring을 이용해 0-findIndex까지 만든후 pat을 더해준다.
+/**
+ * 풀이법 :
+ * 1. pat의 문자열 길이가 1이상일 경우 : myString에서 pat의 인덱스위치를 가져와 
+ * (pat의 길이-1)를 더해준 것을 findIndex에 넣는다.
+ * 2. 아닐 경우 즉, 문자열이 1개일경우 : myString에서 pat의 인덱스위치를 가져온 것을 findIndex에 넣는다.
+ * substring을 이용해 0 - findIndex+1을 리턴한다.
  */
 
 class Main {
