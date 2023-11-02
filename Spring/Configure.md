@@ -11,8 +11,6 @@ public class MyConfig{
 }
 ```
 
-
-
 # `@Componet`
 - 스프링 컨테이너에 bean으로 등록하는 것
 ```java
