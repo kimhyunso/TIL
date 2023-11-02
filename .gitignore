@@ -12,8 +12,8 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
-.idea
-.vscode
+.idea/
+.vscode/
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse
