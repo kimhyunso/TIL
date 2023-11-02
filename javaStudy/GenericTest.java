@@ -1,4 +1,4 @@
-package javaStudy;
+
 
 class ClassName<E>{
     private E element;
