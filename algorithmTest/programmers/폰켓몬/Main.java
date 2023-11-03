@@ -28,6 +28,17 @@ package programmers.폰켓몬;
  */
 
 
+/**
+ * 풀이법 : HashSet 이용
+ * HashSet에 중복되지 않는 nums값을 삽입
+ * 1. HashSet의 사이즈가 nums사이즈/2 보다 크다면 : nums사이즈/2를 리턴
+ * 2. HashSet의 사이즈가 nums사이즈/2 보다 작다면 : HashSet의 사이즈 리턴
+ * ex) [3, 1, 2, 3] => HashSet [1, 2, 3] => if (HashSet사이즈 = 3 > nums사이즈/2 = 2) => [nums사이즈 = 2]
+ * ex) [3,3,3,2,2,4] => HashSet [2, 3, 4] => if (HashSet사이즈 = 3 > nums사이즈/2 = 3) => [HashSet사이즈 = 3]
+ * ex) [3,3,3,2,2,2] => HashSet [2, 3] => if(HashSet사이즈 = 2 > nums사이즈/2 = 3) => [HashSet사이즈 = 2]
+ */
+
+
 
 import java.util.*;
 
@@ -39,8 +50,6 @@ public class Main {
     }
 
     public static int solution(int[] nums){
-        int answer = 0;
-        //이름을 어떻게 지을껀가?
         Set<Integer> numsHashSet = new HashSet<>();
         for(int num : nums) {
             numsHashSet.add(num);
