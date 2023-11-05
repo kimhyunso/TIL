@@ -57,3 +57,43 @@ member.setName("홍길동");
 # 플러시
 영속성 컨텍스트에 저장한 엔티티는 플러시 시점에 데이터베이스에 반영한다.
 일반적으로 트랜잭션을 `commit`할 때, 영속성 플러시가 플러시 된다.
+
+# 객체와 테이블 매핑
+`@Entity`, `@Table`
+
+```java
+@Table(name = "MEMBER")
+@Entity
+public class Member{
+    private Long id;
+}
+```
+
+# 기본키 매핑
+`@Id`
+```java
+@Entity
+public class Member{
+    @Id
+    private Long id;
+}
+```
+
+# 필드와 컬럼 매핑
+`@Column`
+
+```java
+@Entity
+public class Member{
+    @Id
+    private Long id;
+    @Column(name = "USER_NAME")
+    private String name;
+}
+```
+
+# 연관관계 매핑
+`@ManyToOne`, `@JoinColumn`
+
+
+
