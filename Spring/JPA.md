@@ -73,6 +73,12 @@ public class Member{
 
 # 기본키 매핑
 - `@Id`
+## 기본키 할당 전략
+1. 기본키 직접할당 - 객체에 키본키를 직접할당하여 사용하는 방식
+2. IDENTITY - 기본키 생성을 데이터베이스에 위임하는 방식 :: 트랜잭션이 지원하는 쓰기 지연 지원 X
+3. SEQUENCE - 
+4. TABLE
+
 ```java
 @Entity
 public class Member{
