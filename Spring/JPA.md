@@ -59,18 +59,20 @@ member.setName("홍길동");
 일반적으로 트랜잭션을 `commit`할 때, 영속성 플러시가 플러시 된다.
 
 # 객체와 테이블 매핑
-`@Entity`, `@Table`
+- `@Entity` : 기본 생성자가 있어야함
+- `@Table`
 
 ```java
 @Table(name = "MEMBER")
 @Entity
+@NoArgsConstructor
 public class Member{
     private Long id;
 }
 ```
 
 # 기본키 매핑
-`@Id`
+- `@Id`
 ```java
 @Entity
 public class Member{
@@ -80,7 +82,7 @@ public class Member{
 ```
 
 # 필드와 컬럼 매핑
-`@Column`
+- `@Column`
 
 ```java
 @Entity
