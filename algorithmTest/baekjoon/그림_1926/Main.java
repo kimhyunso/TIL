@@ -25,24 +25,23 @@ public class Main{
 
     // 상하좌우
     static int mx[] = {0, 0, -1, 1};
-    static int my[] = {1, -1, 0, 0};
+    static int my[] = {-1, 1, 0, 0};
     static int[][] graph;
     static boolean[][] visited;
     static int width;
     static int height;
-    static int maxCnt;
 
     public static void main(String[] args) throws IOException{
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer token = new StringTokenizer(input.readLine(), " ");
         
-        ArrayList<Integer> answer = new ArrayList<Integer>();
+       
         height = Integer.parseInt(token.nextToken());
         width = Integer.parseInt(token.nextToken());
 
         graph = new int[height][width];
         visited = new boolean[height][width];
-        maxCnt = 0;
+     
 
         for (int i=0; i<height; i++){
             token = new StringTokenizer(input.readLine(), " ");
@@ -52,28 +51,29 @@ public class Main{
         }
 
         int paintCnt = 0;
+        int maxCnt = 0;
         for (int i=0; i<height; i++){
             for(int j=0; j<width; j++){
                 if (!visited[i][j] && graph[i][j] == 1){
                     visited[i][j] = true;
-                    bfs(i, j);
+                    maxCnt = Math.max(bfs(j, i), maxCnt);
                     paintCnt ++;
                 }
-                answer.add(maxCnt);
+                
             }
         }
 
-        Collections.reverse(answer);
+      
         System.out.println(paintCnt);
-        
-        System.out.println(answer.get(0));
+        System.out.println(maxCnt);
     }
 
 
-    public static void bfs(int x, int y){
-        maxCnt = 1;
+    public static int bfs(int x, int y){
+        int maxCnt = 1;
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{x, y});
+
         while (!queue.isEmpty()){
             int xAndy[] = queue.poll();
             int currentX = xAndy[0];
@@ -93,6 +93,8 @@ public class Main{
                 }
             }
         }
+
+        return maxCnt;
 
     }
 }
