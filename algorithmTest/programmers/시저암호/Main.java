@@ -49,7 +49,6 @@ public class Main {
                         answer += (char) (temp-26+n);
                     else
                         answer += (char) (temp + n);
-
                 }
             }            
         }
