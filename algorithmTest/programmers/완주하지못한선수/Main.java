@@ -20,9 +20,6 @@ package programmers.완주하지못한선수;
   * 0이 아닌 데이터를 추출하여 반환
   */
 
-
-
-
 import java.util.*;
 
 public class Main {
