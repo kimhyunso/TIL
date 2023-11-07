@@ -2,6 +2,21 @@ package baekjoon.단지번호붙이기_2267;
 
 import java.util.*;
 
+/**
+ * 1. 아이디어
+ * - 2중 for, 값 1 && 방문 X ==> DFS
+ * - DFS를 통해 찾은 값을 저장 후 정렬해서 출력
+ * 2. 시간복잡도
+ * - DFS : O(V+E)
+ * - V, E : N^2, 4M^2
+ * - V+E : 5N^2 ~= N^2 ~= 625 >> 가능
+ * 3. 자료구조
+ * - 그래프 저장 : int[][]
+ * - 방문여부 : bool[][]
+ * - 결과값 저장 리스트
+ */
+
+
 
 public class Main {
 
@@ -25,7 +40,6 @@ public class Main {
         visited = new boolean[N][N];
         graph = new int[N][N];
         housCntList = new ArrayList<Integer>();
-        totalCnt = 0;
         // 단지수 카운트
         aptCount = 0;
 
@@ -36,8 +50,8 @@ public class Main {
             }
         }
 
-        for (int i=N-1; i>=0; i--){
-            for (int j=N-1; j>=0; j--){
+        for (int i=0; i<N; i++){
+            for (int j=0; j<N; j++){
                 totalCnt = 0;
                 if (!visited[i][j] && graph[i][j] == 1){
                     dfs(i, j);
