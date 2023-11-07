@@ -32,7 +32,7 @@ class MainT {
         recuriveCall(0);
     }
 
-
+    // 0
     public static void recuriveCall(int num){
         if (num == M){
 
