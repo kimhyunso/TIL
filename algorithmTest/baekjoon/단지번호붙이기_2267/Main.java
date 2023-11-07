@@ -40,8 +40,7 @@ public class Main {
         visited = new boolean[N][N];
         graph = new int[N][N];
         housCntList = new ArrayList<Integer>();
-        // 단지수 카운트
-        aptCount = 0;
+        
 
         for (int i=0; i<N; i++){
             String line = input.nextLine();
@@ -50,6 +49,9 @@ public class Main {
             }
         }
 
+
+        // 단지수 카운트
+        aptCount = 0;
         for (int i=0; i<N; i++){
             for (int j=0; j<N; j++){
                 totalCnt = 0;
@@ -62,7 +64,6 @@ public class Main {
         }
 
         System.out.println(aptCount);
-
 
         Collections.sort(housCntList);
         for (int total : housCntList){
