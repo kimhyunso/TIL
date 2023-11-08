@@ -15,7 +15,7 @@ package baekjoon.N과M_15649;
 import java.util.*;
 import java.io.*;
 
-class MainT {
+public class Main {
 
     static int result[];
     static boolean visited[];
@@ -42,6 +42,7 @@ class MainT {
             System.out.println();
             return;
         }
+
         // 1 ~ 3 
         for (int i=1; i<=N; i++){
             if (!visited[i]){
