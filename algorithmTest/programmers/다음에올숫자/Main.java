@@ -9,7 +9,6 @@
   * 2. 등비일 경우 = 마지막 요소 * (두번째 요소 / 첫번째 요소)
   */
 
-
 class Main{
 
     public static void main(String[] args){
