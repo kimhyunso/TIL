@@ -1,6 +1,23 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * 1. 아이디어
+ * - N개의 수 정렬[O(N log N)]
+ * - M개를 for 돌면서, 이진탐색
+ * - 이진탐색 안에서 마지막에 데이터 찾으면, 1출력, 아니면 0
+ * 
+ * 2. 시간복잡도
+ * - O(N log N) 정렬
+ * - O(M log N) 이진탐색
+ * - 2^10 = 10^3
+ * - O((N+M) log N) = 2e5 * 20 = 4e6 > 가능
+ * 
+ * 3. 자료구조
+ * - N개 숫자: int[]
+ * - M개 숫자 : int[]
+ */
+
 
 public class Test {
     public static void main(String[] args) throws IOException{
