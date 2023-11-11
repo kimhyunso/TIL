@@ -1,4 +1,4 @@
-package baekjoon.애너그램만들기_1919;
+package fastcampus.애너그램만들기_1919;
 
 import java.io.*;
 

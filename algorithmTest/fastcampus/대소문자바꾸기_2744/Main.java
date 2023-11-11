@@ -1,4 +1,4 @@
-package baekjoon.대소문자바꾸기_2744;
+package fastcampus.대소문자바꾸기_2744;
 
 /**
  * 1. 아이디어
