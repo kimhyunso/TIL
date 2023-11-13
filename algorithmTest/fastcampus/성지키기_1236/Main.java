@@ -8,7 +8,11 @@ public class Main {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer token = new StringTokenizer(input.readLine(), " ");
 
-        int height = Integer.parseInt(token.nextToken());
+
+
+        // N
+        int height = Integer.parseInt(token.nextToken()); 
+        // M
         int width = Integer.parseInt(token.nextToken());
         
         char casel[][] = new char[height][width];
@@ -20,37 +24,67 @@ public class Main {
             }
         }
 
-        int rowCount = 0;
-        for (int i=0; i<height; i++){
-            if (rowCount == width){
-                casel[i][i+1] = 'X';
-            }
-            rowCount = 0;
+        // 1. 각 행/열에 대해 경비원이 있는지 확인한다.
 
+        boolean[] existRow = new boolean[height];
+        boolean[] existCol = new boolean[width];
+
+        for (int i=0; i<height; i++){
             for (int j=0; j<width; j++){
                 if (casel[i][j] == 'X'){
-                    rowCount = 0;
+                    existRow[i] = true;
+                    existCol[j] = true;
                 }
-                rowCount ++;
             }
         }
+        
 
 
-        int colCount = 0;
+        // int existRowCount = 0;
+        // for (int i=0; i<height; i++){
+        //     boolean exist = false;
+        //     for (int j=0; j<width; j++){
+        //         if(casel[i][j] == 'X'){
+        //             exist = true;
+        //             break;
+        //         }
+        //     }
+        //     if (exist) existRowCount++;
+        // }
+
+
+        // int existColCount = 0;
+        // for (int i=0; i<width; i++){
+        //     boolean exist = false;
+        //     for (int j=0; j<height; j++){
+        //         if(casel[j][i] == 'X'){
+        //             exist = true;
+        //             break;
+        //         }
+        //     }
+        //     if (exist) existColCount++;
+        // }
+
+
+        // 2. 보호받지 못하는 행/열의 개수를 구한다.
+        // int needRowCount = height - existRowCount;
+        // int needColCount = width - existColCount;
+
+        int needRowCount = height;
+        int needColCount = width;
+        
+        for (int i=0; i<height; i++){
+            if (existRow[i]) needRowCount--;
+        }
         for (int i=0; i<width; i++){
-            if (rowCount == width){
-                casel[i][i+1] = 'X';
-            }
-            colCount = 0;
-
-            for (int j=0; j<height; j++){
-                if (casel[i][j] == 'X'){
-                    colCount = 0;
-                }
-                colCount ++;
-            }
+            if (existCol[i]) needColCount--;
         }
 
+
+        // O(N * M) + O(N * M) + O(N) + O(M) => O(NM)
+
+        // 3. 둘 중 큰 값을 출력한다.
+        System.out.println(Math.max(needRowCount, needColCount));
 
     }
     
