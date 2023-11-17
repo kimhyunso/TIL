@@ -10,6 +10,8 @@ public class Main {
         int N = input.nextInt();
         int B = input.nextInt();
 
+
+        
         String ans = "";
 
         while(N > 0){
