@@ -10,14 +10,19 @@ class EqualsClass{
     public EqualsClass(int key){this.key = key;}
     public int getKey(){return key;}
 
+    // @Override
+    // public boolean equals(Object obj){
+    //     if (obj instanceof EqualsClass){
+    //         EqualsClass eclass = (EqualsClass)obj;
+    //         if (key == eclass.getKey())
+    //             return true;
+    //     }
+    //     return false;
+    // }
+
     @Override
-    public boolean equals(Object obj){
-        if (obj instanceof EqualsClass){
-            EqualsClass eclass = (EqualsClass)obj;
-            if (key == eclass.getKey())
-                return true;
-        }
-        return false;
+    public int hashCode(){
+        return key;
     }
 }
 
@@ -64,6 +69,8 @@ class User implements Cloneable{
         return (User) super.clone();
     }
 
+    
+
 
     public User getUser(){
         User cloned = null;
@@ -78,53 +85,115 @@ class User implements Cloneable{
 
 public class ShallowCopy_DeepCopyTest {
     public static void main(String[] args){
-        NormalClass normal1 = new NormalClass();
-        NormalClass normal2 = new NormalClass();
-        normalEquals(normal1, normal2);
 
-        EqualsClass equalsClass1 = new EqualsClass(10);
-        EqualsClass equalsClass2 = new EqualsClass(10);
-        eualsClassEquals(equalsClass1, equalsClass2);
+        NormalClass a = new NormalClass();
+        NormalClass b = new NormalClass();
 
-        EqualsHashCode hashCode1 = new EqualsHashCode(20);
-        EqualsHashCode hashCode2 = new EqualsHashCode(20);
-        eualsHashCodeEquals(hashCode1, hashCode2);
+        // if (a.equals(b)){
+        //     System.out.println("참인가요??");
+        // }else{
+        //     System.out.println("거짓인가요?");
+        // }
+
+        String aa = new String("A");
+        String bb = new String("A");
+
+        if (aa == bb){
+            System.out.println("참");
+        }else{
+            System.out.println("거짓");
+        }
 
 
-        User user1 = new User(1, "kim", 23);
-        User user2 = user1;
 
-        if (user1.equals(user2))
-            System.out.println("user1과 user2는 같습니다.");
 
-        user2.setName("hyun");
+
+        // NormalClass normal1 = new NormalClass();
+        // System.out.println(normal1);
+
+        // NormalClass normal2 = new NormalClass();
+        // System.out.println(normal2);
+
+        // if (normal1 == normal2){
+        //     System.out.println("참입니다");
+        // }else{
+        //     System.out.println("거짓입니다");
+        // }
+
+        // if (normal1.equals(normal2)){
+        //     System.out.println("참입니다");
+        // }else{
+        //     System.out.println("거짓입니다");
+        // }
+
+
+        // EqualsClass a = new EqualsClass(1);
+        // System.out.println(a);
+
+        // EqualsClass b = new EqualsClass(1);
+        // System.out.println(b);
+
+        // if (a == b){
+        //     System.out.println("참입니다");
+        // }else{
+        //     System.out.println("거짓입니다");
+        // }
+
+
+        // if (a.equals(b)){
+        //     System.out.println("참입니다");
+        // }else{
+        //     System.out.println("거짓입니다");
+        // }
+
+
+        // NormalClass normal1 = new NormalClass();
+        // NormalClass normal2 = new NormalClass();
+        // normalEquals(normal1, normal2);
+
+        // EqualsClass equalsClass1 = new EqualsClass(10);
+        // EqualsClass equalsClass2 = new EqualsClass(10);
+        // eualsClassEquals(equalsClass1, equalsClass2);
+
+        // EqualsHashCode hashCode1 = new EqualsHashCode(20);
+        // EqualsHashCode hashCode2 = new EqualsHashCode(20);
+        // eualsHashCodeEquals(hashCode1, hashCode2);
+
+
+        // User user1 = new User(1, "kim", 23);
+        // User user2 = user1;
+
+        // if (user1.equals(user2))
+        //     System.out.println("user1과 user2는 같습니다.");
+
+        // user2.setName("hyun");
         
-        // user2의 객체만 바꾸었을 뿐인데 user1도 바뀌어 있다.
-        System.out.println("user1 : " + user1.getName());
-        System.out.println("user2 : " + user2.getName());
+        // // user2의 객체만 바꾸었을 뿐인데 user1도 바뀌어 있다.
+        // System.out.println("user1 : " + user1.getName());
+        // System.out.println("user2 : " + user2.getName());
 
-        User userOrigin = new User(1, "hyunso", 27);
-        User userClone = userOrigin.getUser();
+        // User userOrigin = new User(1, "hyunso", 27);
+        // User userClone = userOrigin.getUser();
 
-        if (userOrigin.equals(userClone))
-            System.out.println("userOrigin과 userClone은 같습니다.");
+        // if (userOrigin.equals(userClone))
+        //     System.out.println("userOrigin과 userClone은 같습니다.");
 
 
-        userClone.setName("홍길동");
+        // userClone.setName("홍길동");
         
-        // userOrigin과 userClone과의 값이 다르다.
-        System.out.println("userOrigin : " + userOrigin.getName());
-        System.out.println("userClone : " + userClone.getName());
+        // // userOrigin과 userClone과의 값이 다르다.
+        // System.out.println("userOrigin : " + userOrigin.getName());
+        // System.out.println("userClone : " + userClone.getName());
 
-        int arr[] = {1};
-        int value = 1;
-        callByValue(value);
-        // 바뀌지 않았음
-        System.out.println("callByValue : " + value);
+        // int arr[] = {1};
+        // int value = 1;
+        // callByValue(value);
+        // // 바뀌지 않았음
+        // System.out.println("callByValue : " + value);
 
-        callByReference(arr);
-        // 바뀜
-        System.out.println("callByReference : " + arr[0]);
+        // callByReference(arr);
+        // // 바뀜
+        // System.out.println("callByReference : " + arr[0]);
     }
 
 

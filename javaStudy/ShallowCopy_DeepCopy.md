@@ -8,6 +8,7 @@
 ```java
 public class Key{
     private int key;
+    
    	public Key(int key){
         this.key = key;
     }
