@@ -39,6 +39,12 @@ Key key2 = new Key(10);
 System.out.println(key1);
 System.out.println(key2);
 
+if (key1 == key2){
+    System.out.println("두 객체는 동일한 객체입니다.");
+}else{
+    System.out.println("두 객체는 다른 객체입니다.");
+}
+
 if (key1.equals(key2))
     System.out.println("두 객체는 동일한 객체입니다.");
 else
