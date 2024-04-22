@@ -15,13 +15,91 @@ import java.util.*;
 
 public class Main {
 
+    public static int findMaxRow(char[][] candies){
+        int maxRow = 0;
+
+        for (int i=0; i<candies.length; i++){
+            int len = 1;
+            for (int j=1; j<candies[0].length; j++){
+                if(candies[i][j] == candies[i][j-1]) len ++;
+                else{
+                    maxRow = Math.max(maxRow, len);
+                }
+                
+            }
+            maxRow = Math.max(maxRow, len);
+        }
+
+        return maxRow;
+    }
+
+    public static int findMaxColumn(char [][]candies){
+        int maxColumn = 0;
+
+        for (int i=0; i<candies.length; i++){
+            int len = 1;
+            for (int j=1; j<candies[0].length; j++){
+                if(candies[i][j] == candies[i][j-1]) len ++;
+                else{
+                    maxColumn = Math.max(maxColumn, len);
+                }
+            }
+            maxColumn = Math.max(maxColumn, len);
+        }
+     
+        return maxColumn;
+    }
+
+    public static void candySwap(char [][]candies, int x1, int y1, int x2, int y2){
+        char temp = candies[x1][y1];
+        candies[x1][y1] = candies[x2][y2];
+        candies[x2][y2] = temp;
+    }  
+
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
-        input.nextLine();
+        int testCase = input.nextInt();
 
+        char [][]candies = new char[testCase][testCase];
 
+        for(int i=0; i<candies.length; i++){
+            String line = input.next();
+            for(int j=0; j<candies[0].length; j++){
+                candies[i][j] = (char) line.charAt(j);
+            }
+        }
 
+        int ans = 0;
+
+        for (int i=0; i<candies.length; i++){
+            for(int j=0; j<candies[0].length; j++){
+                
+                // # 오른쪽
+                if (j + 1 < candies[0].length && candies[i][j] != candies[i][j+1]){
+                    // 스왑
+                    candySwap(candies, i, j, i, j + 1);
+                    // 카운트
+                    ans = Math.max(ans, Math.max(findMaxColumn(candies), findMaxRow(candies)));
+                    // 원상복귀
+                    candySwap(candies, i, j, i, j + 1);
+                }
+               
+
+                // # 아래
+                    
+                if(i + 1 < candies.length && candies[i][j] != candies[i+1][j]){
+                    // 스왑
+                    candySwap(candies, i, j, i + 1, j);
+                    // 카운트
+                    ans = Math.max(ans, Math.max(findMaxColumn(candies), findMaxRow(candies)));
+                    // 원상복귀
+                    candySwap(candies, i, j, i + 1, j);
+                }
+            
+            }
+        }
+
+        System.out.println(ans);
     }
     
 }
