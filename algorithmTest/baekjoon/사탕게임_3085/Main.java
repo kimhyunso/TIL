@@ -24,6 +24,7 @@ public class Main {
                 if(candies[i][j] == candies[i][j-1]) len ++;
                 else{
                     maxRow = Math.max(maxRow, len);
+                    len = 1;
                 }
                 
             }
@@ -39,9 +40,10 @@ public class Main {
         for (int i=0; i<candies.length; i++){
             int len = 1;
             for (int j=1; j<candies[0].length; j++){
-                if(candies[i][j] == candies[i][j-1]) len ++;
+                if(candies[j][i] == candies[j-1][i]) len ++;
                 else{
                     maxColumn = Math.max(maxColumn, len);
+                    len = 1;
                 }
             }
             maxColumn = Math.max(maxColumn, len);
